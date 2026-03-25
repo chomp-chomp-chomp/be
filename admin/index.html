@@ -20,6 +20,90 @@
       overflow: hidden;
     }
 
+    /* ── Lock screen ── */
+    #lock-screen {
+      position: fixed;
+      inset: 0;
+      background: #f7f3ee;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 100;
+      padding: 24px;
+    }
+    .lock-card {
+      background: #fffdf9;
+      border-radius: 14px;
+      box-shadow: 0 2px 24px rgba(80,50,30,0.10);
+      padding: 48px 52px 44px;
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+    }
+    .lock-logo {
+      font-family: Georgia, serif;
+      font-size: 13px;
+      color: #b89888;
+      letter-spacing: 0.06em;
+      margin: 0 0 8px;
+      text-decoration: none;
+      display: block;
+    }
+    .lock-title {
+      font-family: Georgia, serif;
+      font-size: 28px;
+      font-weight: normal;
+      color: #3d2e24;
+      margin: 0 0 6px;
+      line-height: 1.2;
+    }
+    .lock-subtitle {
+      font-size: 13px;
+      color: #b89888;
+      margin: 0 0 32px;
+    }
+    .lock-form { display: flex; flex-direction: column; gap: 12px; }
+    .lock-input {
+      width: 100%;
+      padding: 11px 16px;
+      border: 1px solid #e8ddd5;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 15px;
+      color: #3d2e24;
+      background: #fffdf9;
+      text-align: center;
+      letter-spacing: 0.08em;
+      transition: border-color 0.12s;
+    }
+    .lock-input:focus { outline: none; border-color: #e8956d; }
+    .lock-btn {
+      width: 100%;
+      padding: 11px;
+      background: #e8956d;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      letter-spacing: 0.03em;
+      transition: opacity 0.12s;
+    }
+    .lock-btn:hover { opacity: 0.88; }
+    .lock-error {
+      font-size: 13px;
+      color: #c0504a;
+      min-height: 18px;
+      margin-top: 4px;
+    }
+    .lock-hint {
+      font-size: 12px;
+      color: #c4a898;
+      margin-top: 20px;
+    }
+
     /* ── Top bar ── */
     .topbar {
       display: flex;
@@ -74,13 +158,14 @@
       padding: 0 24px;
       overflow: hidden;
       max-height: 0;
-      transition: max-height 0.2s ease, padding 0.2s ease;
+      transition: max-height 0.25s ease, padding 0.25s ease;
       flex-shrink: 0;
     }
     .settings-drawer.open {
-      max-height: 120px;
+      max-height: 180px;
       padding: 16px 24px;
     }
+    .settings-rows { display: flex; flex-direction: column; gap: 10px; }
     .settings-row {
       display: flex;
       gap: 12px;
@@ -97,10 +182,17 @@
       font-size: 13px;
       color: #3d2e24;
       background: #fffdf9;
-      width: 220px;
+      width: 200px;
     }
     .settings-field input:focus { outline: none; border-color: #e8956d; }
-    .settings-field.narrow input { width: 120px; }
+    .settings-field.narrow input { width: 100px; }
+    .settings-divider {
+      width: 1px;
+      height: 36px;
+      background: #e8ddd5;
+      align-self: flex-end;
+      margin: 0 4px;
+    }
 
     /* ── Main split ── */
     .main {
@@ -111,15 +203,15 @@
 
     /* ── Editor panel ── */
     .editor-panel {
-      width: 380px;
+      width: 400px;
       flex-shrink: 0;
       display: flex;
       flex-direction: column;
       border-right: 1px solid #f0e8de;
       background: #fffdf9;
       overflow-y: auto;
-      padding: 24px 24px 32px;
-      gap: 14px;
+      padding: 20px 24px 28px;
+      gap: 12px;
     }
 
     .field { display: flex; flex-direction: column; gap: 5px; }
@@ -160,11 +252,47 @@
       font-family: 'Courier New', monospace;
       font-size: 13px;
       line-height: 1.7;
-      flex: 1;
-      min-height: 200px;
+      min-height: 180px;
     }
-    .field-grow { flex: 1; display: flex; flex-direction: column; }
+    .field-grow { display: flex; flex-direction: column; }
     .field-grow textarea { flex: 1; }
+
+    /* ── Markdown hints ── */
+    .md-hints {
+      border-top: 1px solid #f0e8de;
+      padding-top: 12px;
+    }
+    .md-hints-title {
+      font-size: 10px;
+      color: #c4a898;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .md-hints-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5px 12px;
+    }
+    .md-hint {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      color: #b89888;
+      white-space: nowrap;
+    }
+    .md-hint code {
+      font-family: 'Courier New', monospace;
+      font-size: 11px;
+      background: #f7f3ee;
+      color: #6a5248;
+      padding: 2px 5px;
+      border-radius: 3px;
+    }
+    .md-hint-full {
+      grid-column: 1 / -1;
+    }
 
     .publish-row {
       display: flex;
@@ -191,7 +319,7 @@
       padding-left: 4px;
     }
 
-    /* Scoped blog card styles for the preview */
+    /* Scoped blog styles for preview */
     .preview-card {
       background: #fffdf9;
       border-radius: 14px;
@@ -273,6 +401,19 @@
       color: #6a5248;
     }
     .preview-body blockquote p { margin: 0; font-size: inherit; line-height: inherit; color: inherit; }
+    .preview-body a { color: #e8956d; font-weight: 500; text-decoration: underline; }
+    .preview-body img {
+      max-width: 100%;
+      border-radius: 8px;
+      display: block;
+      margin: 4px auto 20px;
+      height: auto;
+    }
+    .preview-body hr {
+      border: none;
+      border-top: 1px solid #f0e8de;
+      margin: 28px 0;
+    }
     .preview-footer {
       display: flex;
       justify-content: space-between;
@@ -294,116 +435,228 @@
       body { overflow: auto; }
       .main { flex-direction: column; overflow: visible; }
       .editor-panel { width: 100%; border-right: none; border-bottom: 1px solid #f0e8de; overflow: visible; }
-      #content-input { min-height: 160px; }
+      #content-input { min-height: 140px; }
       .preview-panel { padding: 24px 16px 48px; }
+      .md-hints-grid { grid-template-columns: 1fr; }
+      .lock-card { padding: 36px 28px 32px; }
     }
   </style>
 </head>
 <body>
 
-<div class="topbar">
-  <a class="topbar-logo" href="../">The Baking Experience</a>
-  <span class="topbar-sep">/</span>
-  <span class="topbar-title">New Post</span>
-  <div class="topbar-spacer"></div>
-  <span class="topbar-status" id="status"></span>
-  <button class="btn btn-ghost" onclick="toggleSettings()" id="settings-btn">Settings</button>
-</div>
+<!-- ── Lock screen ──────────────────────────────────────── -->
+<div id="lock-screen">
+  <div class="lock-card">
+    <a class="lock-logo" href="../">The Baking Experience</a>
 
-<div class="settings-drawer" id="settings-drawer">
-  <div class="settings-row">
-    <div class="settings-field">
-      <label>GitHub Token</label>
-      <input type="password" id="s-token" placeholder="ghp_…" autocomplete="off">
+    <!-- Login form -->
+    <div id="lock-login">
+      <h1 class="lock-title">Editor</h1>
+      <p class="lock-subtitle">Enter your password to continue.</p>
+      <form class="lock-form" onsubmit="tryLogin(event)">
+        <input class="lock-input" type="password" id="lock-password" placeholder="Password" autofocus autocomplete="current-password">
+        <button class="lock-btn" type="submit">Enter →</button>
+      </form>
+      <p class="lock-error" id="lock-error"></p>
     </div>
-    <div class="settings-field">
-      <label>Repository</label>
-      <input type="text" id="s-repo" placeholder="owner/repo">
+
+    <!-- First-time setup form -->
+    <div id="lock-setup" style="display:none">
+      <h1 class="lock-title">Set a password</h1>
+      <p class="lock-subtitle">Protect your editor with a password.</p>
+      <form class="lock-form" onsubmit="trySetup(event)">
+        <input class="lock-input" type="password" id="setup-pw1" placeholder="Choose a password" autocomplete="new-password">
+        <input class="lock-input" type="password" id="setup-pw2" placeholder="Confirm password" autocomplete="new-password">
+        <button class="lock-btn" type="submit">Set password →</button>
+      </form>
+      <p class="lock-error" id="setup-error"></p>
+      <p class="lock-hint">You can change this any time in Settings.</p>
     </div>
-    <div class="settings-field narrow">
-      <label>Branch</label>
-      <input type="text" id="s-branch" placeholder="main">
-    </div>
-    <button class="btn btn-ghost" onclick="saveSettings()" style="margin-bottom:1px;">Save</button>
-    <button class="btn btn-ghost" onclick="clearSettings()" style="margin-bottom:1px;">Forget</button>
   </div>
 </div>
 
-<div class="main">
+<!-- ── App (hidden until authed) ────────────────────────── -->
+<div id="app" style="display:none; height:100%; display:none; flex-direction:column;">
 
-  <div class="editor-panel">
-
-    <div class="field">
-      <label>Title</label>
-      <input id="title-input" placeholder="Post title…" oninput="onTitleChange(this.value)" autocomplete="off">
-    </div>
-
-    <div class="field">
-      <label>Slug</label>
-      <input id="slug-input" class="muted" placeholder="auto-generated" autocomplete="off" oninput="updatePreview()">
-    </div>
-
-    <div class="field">
-      <label>Eyebrow <span class="optional">optional</span></label>
-      <input id="eyebrow-input" placeholder="e.g. Recipe · Story · Essay" autocomplete="off" oninput="updatePreview()">
-    </div>
-
-    <div class="field">
-      <label>Date</label>
-      <input type="date" id="date-input" oninput="updatePreview()">
-    </div>
-
-    <div class="field">
-      <label>Excerpt <span class="optional">shown on home page</span></label>
-      <textarea id="excerpt-input" rows="2" placeholder="One or two sentences…"></textarea>
-    </div>
-
-    <div class="field field-grow">
-      <label>Content <span class="optional">markdown</span></label>
-      <textarea id="content-input" placeholder="Write your post here…&#10;&#10;**Bold**, *italic*, > blockquote, ## Heading" oninput="updatePreview()"></textarea>
-    </div>
-
-    <div class="publish-row">
-      <button class="btn btn-primary" id="publish-btn" onclick="publish()">Publish →</button>
-    </div>
-
+  <div class="topbar">
+    <a class="topbar-logo" href="../">The Baking Experience</a>
+    <span class="topbar-sep">/</span>
+    <span class="topbar-title">New Post</span>
+    <div class="topbar-spacer"></div>
+    <span class="topbar-status" id="status"></span>
+    <button class="btn btn-ghost" onclick="toggleSettings()">Settings</button>
   </div>
 
-  <div class="preview-panel">
-    <div class="preview-label">Preview</div>
-    <div class="preview-card">
-      <div class="preview-post-header" id="preview-header"></div>
-      <div id="preview-body-wrap"></div>
-      <div class="preview-footer">
-        <span class="preview-footer-back">← All posts</span>
-        <span class="preview-footer-tag">Stories · Recipes · Culture · Tradition</span>
+  <div class="settings-drawer" id="settings-drawer">
+    <div class="settings-rows">
+      <div class="settings-row">
+        <div class="settings-field">
+          <label>GitHub Token</label>
+          <input type="password" id="s-token" placeholder="ghp_…" autocomplete="off">
+        </div>
+        <div class="settings-field">
+          <label>Repository</label>
+          <input type="text" id="s-repo" placeholder="owner/repo">
+        </div>
+        <div class="settings-field narrow">
+          <label>Branch</label>
+          <input type="text" id="s-branch" placeholder="main">
+        </div>
+        <div class="settings-divider"></div>
+        <div class="settings-field narrow">
+          <label>New password</label>
+          <input type="password" id="s-newpw" placeholder="leave blank to keep" autocomplete="new-password">
+        </div>
+      </div>
+      <div class="settings-row">
+        <button class="btn btn-ghost" onclick="saveSettings()">Save</button>
+        <button class="btn btn-ghost" onclick="clearSettings()">Forget all</button>
       </div>
     </div>
   </div>
 
-</div>
+  <div class="main">
+
+    <div class="editor-panel">
+
+      <div class="field">
+        <label>Title</label>
+        <input id="title-input" placeholder="Post title…" oninput="onTitleChange(this.value)" autocomplete="off">
+      </div>
+
+      <div class="field">
+        <label>Slug</label>
+        <input id="slug-input" class="muted" placeholder="auto-generated" autocomplete="off" oninput="updatePreview()">
+      </div>
+
+      <div class="field">
+        <label>Eyebrow <span class="optional">optional</span></label>
+        <input id="eyebrow-input" placeholder="e.g. Recipe · Story · Essay" autocomplete="off" oninput="updatePreview()">
+      </div>
+
+      <div class="field">
+        <label>Date</label>
+        <input type="date" id="date-input" oninput="updatePreview()">
+      </div>
+
+      <div class="field">
+        <label>Excerpt <span class="optional">shown on home page</span></label>
+        <textarea id="excerpt-input" rows="2" placeholder="One or two sentences…"></textarea>
+      </div>
+
+      <div class="field field-grow">
+        <label>Content <span class="optional">markdown</span></label>
+        <textarea id="content-input" placeholder="Write your post here…" oninput="updatePreview()"></textarea>
+      </div>
+
+      <div class="md-hints">
+        <div class="md-hints-title">Markdown reference</div>
+        <div class="md-hints-grid">
+          <div class="md-hint"><code>**bold**</code></div>
+          <div class="md-hint"><code>*italic*</code></div>
+          <div class="md-hint md-hint-full"><code>[Link text](https://example.com)</code></div>
+          <div class="md-hint md-hint-full"><code>![Alt text](https://image-url.com)</code> — embed image</div>
+          <div class="md-hint"><code>## Heading</code></div>
+          <div class="md-hint"><code>### Subheading</code></div>
+          <div class="md-hint md-hint-full"><code>> Blockquote text</code></div>
+          <div class="md-hint"><code>- bullet item</code></div>
+          <div class="md-hint"><code>1. numbered</code></div>
+          <div class="md-hint"><code>---</code> divider</div>
+        </div>
+      </div>
+
+      <div class="publish-row">
+        <button class="btn btn-primary" id="publish-btn" onclick="publish()">Publish →</button>
+      </div>
+
+    </div>
+
+    <div class="preview-panel">
+      <div class="preview-label">Preview</div>
+      <div class="preview-card">
+        <div class="preview-post-header" id="preview-header"></div>
+        <div id="preview-body-wrap"></div>
+        <div class="preview-footer">
+          <span class="preview-footer-back">← All posts</span>
+          <span class="preview-footer-tag">Stories · Recipes · Culture · Tradition</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div><!-- #app -->
 
 <script>
+  // ── Auth helpers ──────────────────────────────────────────
+
+  async function sha256(str) {
+    const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
+    return [...new Uint8Array(buf)].map(b => b.toString(16).padStart(2,'0')).join('');
+  }
+
+  function showApp() {
+    document.getElementById('lock-screen').style.display = 'none';
+    const app = document.getElementById('app');
+    app.style.display = 'flex';
+    updatePreview();
+    if (!localStorage.getItem('be_token')) {
+      setTimeout(() => { document.getElementById('settings-drawer').classList.add('open'); loadSettings(); }, 300);
+    }
+  }
+
+  async function tryLogin(e) {
+    e.preventDefault();
+    const pw = document.getElementById('lock-password').value;
+    const hash = await sha256(pw);
+    if (hash === localStorage.getItem('be_pw_hash')) {
+      sessionStorage.setItem('be_authed', '1');
+      showApp();
+    } else {
+      document.getElementById('lock-error').textContent = 'Incorrect password.';
+      document.getElementById('lock-password').value = '';
+      document.getElementById('lock-password').focus();
+    }
+  }
+
+  async function trySetup(e) {
+    e.preventDefault();
+    const pw1 = document.getElementById('setup-pw1').value;
+    const pw2 = document.getElementById('setup-pw2').value;
+    const err = document.getElementById('setup-error');
+    if (pw1.length < 6) return (err.textContent = 'At least 6 characters please.');
+    if (pw1 !== pw2)    return (err.textContent = 'Passwords don\'t match.');
+    localStorage.setItem('be_pw_hash', await sha256(pw1));
+    sessionStorage.setItem('be_authed', '1');
+    showApp();
+  }
+
   // ── Settings ─────────────────────────────────────────────
 
   function loadSettings() {
     document.getElementById('s-token').value  = localStorage.getItem('be_token')  || '';
     document.getElementById('s-repo').value   = localStorage.getItem('be_repo')   || 'chomp-chomp-chomp/be';
     document.getElementById('s-branch').value = localStorage.getItem('be_branch') || 'main';
+    document.getElementById('s-newpw').value  = '';
   }
 
-  function saveSettings() {
+  async function saveSettings() {
     localStorage.setItem('be_token',  document.getElementById('s-token').value.trim());
     localStorage.setItem('be_repo',   document.getElementById('s-repo').value.trim());
     localStorage.setItem('be_branch', document.getElementById('s-branch').value.trim());
+    const newpw = document.getElementById('s-newpw').value;
+    if (newpw) {
+      if (newpw.length < 6) return setStatus('New password must be at least 6 characters.', 'err');
+      localStorage.setItem('be_pw_hash', await sha256(newpw));
+    }
     closeSettings();
     setStatus('Settings saved.', '');
   }
 
   function clearSettings() {
-    ['be_token','be_repo','be_branch'].forEach(k => localStorage.removeItem(k));
-    loadSettings();
-    setStatus('Settings cleared.', '');
+    if (!confirm('This will remove your token and password. You\'ll need to set them up again. Continue?')) return;
+    ['be_token','be_repo','be_branch','be_pw_hash'].forEach(k => localStorage.removeItem(k));
+    sessionStorage.removeItem('be_authed');
+    location.reload();
   }
 
   function toggleSettings() {
@@ -427,15 +680,11 @@
   }
 
   function onTitleChange(val) {
-    if (!slugManuallyEdited) {
-      document.getElementById('slug-input').value = toSlug(val);
-    }
+    if (!slugManuallyEdited) document.getElementById('slug-input').value = toSlug(val);
     updatePreview();
   }
 
-  document.getElementById('slug-input').addEventListener('keydown', () => {
-    slugManuallyEdited = true;
-  });
+  document.getElementById('slug-input').addEventListener('keydown', () => { slugManuallyEdited = true; });
 
   // ── Date default ─────────────────────────────────────────
 
@@ -445,9 +694,7 @@
 
   function formatDate(str) {
     if (!str) return '';
-    return new Date(str + 'T00:00:00').toLocaleDateString('en-US', {
-      year: 'numeric', month: 'long', day: 'numeric'
-    });
+    return new Date(str + 'T00:00:00').toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
   }
 
   function updatePreview() {
@@ -456,25 +703,20 @@
     const date    = document.getElementById('date-input').value;
     const content = document.getElementById('content-input').value;
 
-    // Header
-    const headerEl = document.getElementById('preview-header');
-    headerEl.innerHTML = `
+    document.getElementById('preview-header').innerHTML = `
       ${eyebrow ? `<p class="preview-eyebrow">${esc(eyebrow)}</p>` : ''}
       <h1 class="preview-title${title ? '' : ' empty'}">${title ? esc(title) : 'Your title here…'}</h1>
       <p class="preview-date">${formatDate(date)}</p>
     `;
 
-    // Body
     const bodyWrap = document.getElementById('preview-body-wrap');
-    if (content.trim()) {
-      bodyWrap.innerHTML = `<div class="preview-body">${marked.parse(content)}</div>`;
-    } else {
-      bodyWrap.innerHTML = `<p class="preview-empty-body">Your content will appear here…</p>`;
-    }
+    bodyWrap.innerHTML = content.trim()
+      ? `<div class="preview-body">${marked.parse(content)}</div>`
+      : `<p class="preview-empty-body">Your content will appear here…</p>`;
   }
 
-  function esc(str) {
-    return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  function esc(s) {
+    return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
   }
 
   // ── Status ───────────────────────────────────────────────
@@ -491,8 +733,8 @@
   // ── GitHub API ───────────────────────────────────────────
 
   async function ghRequest(method, path, body) {
-    const token  = localStorage.getItem('be_token');
-    const repo   = localStorage.getItem('be_repo') || 'chomp-chomp-chomp/be';
+    const token = localStorage.getItem('be_token');
+    const repo  = localStorage.getItem('be_repo') || 'chomp-chomp-chomp/be';
     if (!token) throw new Error('No GitHub token — open Settings and add one.');
     const res = await fetch(`https://api.github.com/repos/${repo}/contents/${path}`, {
       method,
@@ -511,14 +753,11 @@
   async function getFileSHA(path) {
     try {
       const branch = localStorage.getItem('be_branch') || 'main';
-      const data = await ghRequest('GET', `${path}?ref=${branch}`);
-      return data.sha;
+      return (await ghRequest('GET', `${path}?ref=${branch}`)).sha;
     } catch { return null; }
   }
 
-  function b64(str) {
-    return btoa(unescape(encodeURIComponent(str)));
-  }
+  function b64(str) { return btoa(unescape(encodeURIComponent(str))); }
 
   // ── Publish ──────────────────────────────────────────────
 
@@ -548,14 +787,11 @@
       const filePath = `posts/${slug}.json`;
       const existing = await getFileSHA(filePath);
       const body = {
-        message: `Add post: ${title}`,
+        message: existing ? `Update post: ${title}` : `Add post: ${title}`,
         content: b64(JSON.stringify(post, null, 2) + '\n'),
         branch,
       };
-      if (existing) {
-        body.message = `Update post: ${title}`;
-        body.sha = existing;
-      }
+      if (existing) body.sha = existing;
       await ghRequest('PUT', filePath, body);
       setStatus(existing ? 'Updated! Building…' : 'Published! Building…', 'ok');
     } catch (err) {
@@ -567,16 +803,19 @@
 
   // ── Init ─────────────────────────────────────────────────
 
-  updatePreview();
+  (function init() {
+    const hash   = localStorage.getItem('be_pw_hash');
+    const authed = sessionStorage.getItem('be_authed');
 
-  // Show settings prompt if no token saved
-  if (!localStorage.getItem('be_token')) {
-    setTimeout(() => {
-      document.getElementById('settings-drawer').classList.add('open');
-      loadSettings();
-      setStatus('Add your GitHub token in Settings to publish.', '');
-    }, 300);
-  }
+    if (!hash) {
+      // No password set yet — show setup
+      document.getElementById('lock-login').style.display = 'none';
+      document.getElementById('lock-setup').style.display = '';
+    } else if (authed) {
+      showApp();
+    }
+    // else: show login (default state)
+  })();
 </script>
 </body>
 </html>
