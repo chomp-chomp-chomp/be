@@ -1,4 +1,5 @@
 const ejs = require('ejs');
+const { marked } = require('marked');
 const fs = require('fs');
 const path = require('path');
 
@@ -21,24 +22,40 @@ function write(filePath, html) {
   console.log('wrote', filePath);
 }
 
+function copyDir(src, dest) {
+  fs.mkdirSync(dest, { recursive: true });
+  for (const entry of fs.readdirSync(src, { withFileTypes: true })) {
+    const s = path.join(src, entry.name);
+    const d = path.join(dest, entry.name);
+    entry.isDirectory() ? copyDir(s, d) : fs.copyFileSync(s, d);
+  }
+}
+
 // ── Load posts ────────────────────────────────────────────
 
 const posts = fs.readdirSync('posts')
   .filter(f => f.endsWith('.json'))
-  .map(f => JSON.parse(fs.readFileSync(path.join('posts', f), 'utf8')))
+  .map(f => {
+    const post = JSON.parse(fs.readFileSync(path.join('posts', f), 'utf8'));
+    post.contentHtml = marked.parse(post.content);
+    return post;
+  })
   .sort((a, b) => new Date(b.date) - new Date(a.date));
 
 // ── Build ─────────────────────────────────────────────────
 
-// Clean and recreate docs/
 fs.rmSync('docs', { recursive: true, force: true });
 fs.mkdirSync('docs');
 
-// Copy public/ assets
+// Public assets
 for (const file of fs.readdirSync('public')) {
   fs.copyFileSync(path.join('public', file), path.join('docs', file));
   console.log('copied', file);
 }
+
+// Admin editor
+copyDir('admin', path.join('docs', 'admin'));
+console.log('copied admin/');
 
 // Home page
 write('docs/index.html', render('index.ejs', { posts, formatDate }));

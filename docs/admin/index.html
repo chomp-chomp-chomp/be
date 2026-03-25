@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Editor · The Baking Experience</title>
+  <script src="https://cdn.jsdelivr.net/npm/marked@9/marked.min.js"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+
+    /* ── Base ── */
+    body {
+      margin: 0;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      background: #f7f3ee;
+      color: #4a3a30;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    /* ── Top bar ── */
+    .topbar {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 0 24px;
+      height: 52px;
+      background: #fffdf9;
+      border-bottom: 1px solid #f0e8de;
+      flex-shrink: 0;
+    }
+    .topbar-logo {
+      font-family: Georgia, serif;
+      font-size: 15px;
+      color: #a08878;
+      text-decoration: none;
+      font-style: italic;
+    }
+    .topbar-logo:hover { color: #e8956d; }
+    .topbar-sep { color: #ddd; }
+    .topbar-title { font-size: 14px; font-weight: 600; color: #3d2e24; }
+    .topbar-spacer { flex: 1; }
+    .topbar-status { font-size: 13px; color: #a08878; }
+    .topbar-status.ok { color: #6aaa6a; }
+    .topbar-status.err { color: #c0504a; }
+
+    .btn {
+      padding: 7px 16px;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      transition: opacity 0.12s;
+    }
+    .btn:hover { opacity: 0.85; }
+    .btn:disabled { opacity: 0.4; cursor: default; }
+    .btn-primary { background: #e8956d; color: #fff; }
+    .btn-ghost {
+      background: none;
+      color: #a08878;
+      border: 1px solid #e8ddd5;
+    }
+    .btn-ghost:hover { color: #3d2e24; border-color: #c8b8ae; }
+
+    /* ── Settings drawer ── */
+    .settings-drawer {
+      background: #fdf6ef;
+      border-bottom: 1px solid #f0e8de;
+      padding: 0 24px;
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 0.2s ease, padding 0.2s ease;
+      flex-shrink: 0;
+    }
+    .settings-drawer.open {
+      max-height: 120px;
+      padding: 16px 24px;
+    }
+    .settings-row {
+      display: flex;
+      gap: 12px;
+      align-items: flex-end;
+      flex-wrap: wrap;
+    }
+    .settings-field { display: flex; flex-direction: column; gap: 4px; }
+    .settings-field label { font-size: 11px; color: #a08878; letter-spacing: 0.05em; text-transform: uppercase; }
+    .settings-field input {
+      padding: 6px 10px;
+      border: 1px solid #e8ddd5;
+      border-radius: 6px;
+      font-family: monospace;
+      font-size: 13px;
+      color: #3d2e24;
+      background: #fffdf9;
+      width: 220px;
+    }
+    .settings-field input:focus { outline: none; border-color: #e8956d; }
+    .settings-field.narrow input { width: 120px; }
+
+    /* ── Main split ── */
+    .main {
+      display: flex;
+      flex: 1;
+      overflow: hidden;
+    }
+
+    /* ── Editor panel ── */
+    .editor-panel {
+      width: 380px;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      border-right: 1px solid #f0e8de;
+      background: #fffdf9;
+      overflow-y: auto;
+      padding: 24px 24px 32px;
+      gap: 14px;
+    }
+
+    .field { display: flex; flex-direction: column; gap: 5px; }
+    .field label {
+      font-size: 11px;
+      color: #a08878;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+    .optional {
+      font-size: 10px;
+      color: #c4a898;
+      font-weight: normal;
+      letter-spacing: 0.03em;
+      text-transform: none;
+    }
+    .field input,
+    .field textarea {
+      padding: 8px 12px;
+      border: 1px solid #e8ddd5;
+      border-radius: 7px;
+      font-family: inherit;
+      font-size: 14px;
+      color: #3d2e24;
+      background: #fffdf9;
+      resize: none;
+      transition: border-color 0.12s;
+    }
+    .field input:focus,
+    .field textarea:focus { outline: none; border-color: #e8956d; }
+    .field input.muted { color: #a08878; font-size: 13px; }
+
+    #title-input { font-family: Georgia, serif; font-size: 17px; }
+    #content-input {
+      font-family: 'Courier New', monospace;
+      font-size: 13px;
+      line-height: 1.7;
+      flex: 1;
+      min-height: 200px;
+    }
+    .field-grow { flex: 1; display: flex; flex-direction: column; }
+    .field-grow textarea { flex: 1; }
+
+    .publish-row {
+      display: flex;
+      justify-content: flex-end;
+      padding-top: 4px;
+    }
+
+    /* ── Preview panel ── */
+    .preview-panel {
+      flex: 1;
+      overflow-y: auto;
+      padding: 32px 24px 48px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+    .preview-label {
+      font-size: 11px;
+      color: #c4a898;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      align-self: flex-start;
+      padding-left: 4px;
+    }
+
+    /* Scoped blog card styles for the preview */
+    .preview-card {
+      background: #fffdf9;
+      border-radius: 14px;
+      box-shadow: 0 2px 24px rgba(80,50,30,0.10);
+      overflow: hidden;
+      width: 100%;
+      max-width: 560px;
+    }
+    .preview-post-header {
+      text-align: center;
+      padding: 40px 48px 32px;
+      border-bottom: 1px solid #f0e8de;
+    }
+    .preview-eyebrow {
+      margin: 0 0 12px;
+      font-size: 12px;
+      color: #e8956d;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .preview-title {
+      margin: 0 0 14px;
+      font-family: Georgia, serif;
+      font-size: 34px;
+      font-weight: normal;
+      color: #3d2e24;
+      line-height: 1.18;
+    }
+    .preview-title.empty { color: #c4a898; font-style: italic; font-size: 24px; }
+    .preview-date {
+      margin: 0;
+      font-size: 13px;
+      color: #b89888;
+      letter-spacing: 0.04em;
+    }
+    .preview-body {
+      padding: 36px 48px 32px;
+      border-bottom: 1px solid #f0e8de;
+    }
+    .preview-body p {
+      margin: 0 0 20px;
+      font-size: 16px;
+      line-height: 1.82;
+      color: #4a3a30;
+    }
+    .preview-body p:last-child { margin-bottom: 0; }
+    .preview-body h2 {
+      font-family: Georgia, serif;
+      font-size: 22px;
+      font-weight: normal;
+      color: #3d2e24;
+      margin: 32px 0 12px;
+    }
+    .preview-body h3 {
+      font-family: Georgia, serif;
+      font-size: 18px;
+      font-weight: normal;
+      color: #3d2e24;
+      margin: 24px 0 8px;
+    }
+    .preview-body ul, .preview-body ol {
+      margin: 0 0 20px;
+      padding-left: 24px;
+      font-size: 16px;
+      line-height: 1.82;
+      color: #4a3a30;
+    }
+    .preview-body blockquote {
+      margin: 0 0 22px;
+      padding: 16px 20px;
+      border-left: 3px solid #e8956d;
+      background: #fdf6ef;
+      border-radius: 0 8px 8px 0;
+      font-family: Georgia, serif;
+      font-style: italic;
+      font-size: 17px;
+      line-height: 1.72;
+      color: #6a5248;
+    }
+    .preview-body blockquote p { margin: 0; font-size: inherit; line-height: inherit; color: inherit; }
+    .preview-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 48px 24px;
+      background: #fdf6ef;
+    }
+    .preview-footer-back { font-size: 13px; color: #e8956d; font-weight: 600; }
+    .preview-footer-tag { font-size: 11px; color: #c4a898; letter-spacing: 0.07em; }
+    .preview-empty-body {
+      padding: 28px 48px;
+      font-size: 14px;
+      color: #c4a898;
+      font-style: italic;
+    }
+
+    /* ── Mobile ── */
+    @media (max-width: 720px) {
+      body { overflow: auto; }
+      .main { flex-direction: column; overflow: visible; }
+      .editor-panel { width: 100%; border-right: none; border-bottom: 1px solid #f0e8de; overflow: visible; }
+      #content-input { min-height: 160px; }
+      .preview-panel { padding: 24px 16px 48px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="topbar">
+  <a class="topbar-logo" href="../">The Baking Experience</a>
+  <span class="topbar-sep">/</span>
+  <span class="topbar-title">New Post</span>
+  <div class="topbar-spacer"></div>
+  <span class="topbar-status" id="status"></span>
+  <button class="btn btn-ghost" onclick="toggleSettings()" id="settings-btn">Settings</button>
+</div>
+
+<div class="settings-drawer" id="settings-drawer">
+  <div class="settings-row">
+    <div class="settings-field">
+      <label>GitHub Token</label>
+      <input type="password" id="s-token" placeholder="ghp_…" autocomplete="off">
+    </div>
+    <div class="settings-field">
+      <label>Repository</label>
+      <input type="text" id="s-repo" placeholder="owner/repo">
+    </div>
+    <div class="settings-field narrow">
+      <label>Branch</label>
+      <input type="text" id="s-branch" placeholder="main">
+    </div>
+    <button class="btn btn-ghost" onclick="saveSettings()" style="margin-bottom:1px;">Save</button>
+    <button class="btn btn-ghost" onclick="clearSettings()" style="margin-bottom:1px;">Forget</button>
+  </div>
+</div>
+
+<div class="main">
+
+  <div class="editor-panel">
+
+    <div class="field">
+      <label>Title</label>
+      <input id="title-input" placeholder="Post title…" oninput="onTitleChange(this.value)" autocomplete="off">
+    </div>
+
+    <div class="field">
+      <label>Slug</label>
+      <input id="slug-input" class="muted" placeholder="auto-generated" autocomplete="off" oninput="updatePreview()">
+    </div>
+
+    <div class="field">
+      <label>Eyebrow <span class="optional">optional</span></label>
+      <input id="eyebrow-input" placeholder="e.g. Recipe · Story · Essay" autocomplete="off" oninput="updatePreview()">
+    </div>
+
+    <div class="field">
+      <label>Date</label>
+      <input type="date" id="date-input" oninput="updatePreview()">
+    </div>
+
+    <div class="field">
+      <label>Excerpt <span class="optional">shown on home page</span></label>
+      <textarea id="excerpt-input" rows="2" placeholder="One or two sentences…"></textarea>
+    </div>
+
+    <div class="field field-grow">
+      <label>Content <span class="optional">markdown</span></label>
+      <textarea id="content-input" placeholder="Write your post here…&#10;&#10;**Bold**, *italic*, > blockquote, ## Heading" oninput="updatePreview()"></textarea>
+    </div>
+
+    <div class="publish-row">
+      <button class="btn btn-primary" id="publish-btn" onclick="publish()">Publish →</button>
+    </div>
+
+  </div>
+
+  <div class="preview-panel">
+    <div class="preview-label">Preview</div>
+    <div class="preview-card">
+      <div class="preview-post-header" id="preview-header"></div>
+      <div id="preview-body-wrap"></div>
+      <div class="preview-footer">
+        <span class="preview-footer-back">← All posts</span>
+        <span class="preview-footer-tag">Stories · Recipes · Culture · Tradition</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  // ── Settings ─────────────────────────────────────────────
+
+  function loadSettings() {
+    document.getElementById('s-token').value  = localStorage.getItem('be_token')  || '';
+    document.getElementById('s-repo').value   = localStorage.getItem('be_repo')   || 'chomp-chomp-chomp/be';
+    document.getElementById('s-branch').value = localStorage.getItem('be_branch') || 'main';
+  }
+
+  function saveSettings() {
+    localStorage.setItem('be_token',  document.getElementById('s-token').value.trim());
+    localStorage.setItem('be_repo',   document.getElementById('s-repo').value.trim());
+    localStorage.setItem('be_branch', document.getElementById('s-branch').value.trim());
+    closeSettings();
+    setStatus('Settings saved.', '');
+  }
+
+  function clearSettings() {
+    ['be_token','be_repo','be_branch'].forEach(k => localStorage.removeItem(k));
+    loadSettings();
+    setStatus('Settings cleared.', '');
+  }
+
+  function toggleSettings() {
+    const d = document.getElementById('settings-drawer');
+    d.classList.toggle('open');
+    if (d.classList.contains('open')) loadSettings();
+  }
+  function closeSettings() {
+    document.getElementById('settings-drawer').classList.remove('open');
+  }
+
+  // ── Slug ─────────────────────────────────────────────────
+
+  let slugManuallyEdited = false;
+
+  function toSlug(title) {
+    return title.toLowerCase()
+      .replace(/['']/g, '')
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/^-+|-+$/g, '');
+  }
+
+  function onTitleChange(val) {
+    if (!slugManuallyEdited) {
+      document.getElementById('slug-input').value = toSlug(val);
+    }
+    updatePreview();
+  }
+
+  document.getElementById('slug-input').addEventListener('keydown', () => {
+    slugManuallyEdited = true;
+  });
+
+  // ── Date default ─────────────────────────────────────────
+
+  document.getElementById('date-input').value = new Date().toISOString().slice(0, 10);
+
+  // ── Preview ──────────────────────────────────────────────
+
+  function formatDate(str) {
+    if (!str) return '';
+    return new Date(str + 'T00:00:00').toLocaleDateString('en-US', {
+      year: 'numeric', month: 'long', day: 'numeric'
+    });
+  }
+
+  function updatePreview() {
+    const title   = document.getElementById('title-input').value.trim();
+    const eyebrow = document.getElementById('eyebrow-input').value.trim();
+    const date    = document.getElementById('date-input').value;
+    const content = document.getElementById('content-input').value;
+
+    // Header
+    const headerEl = document.getElementById('preview-header');
+    headerEl.innerHTML = `
+      ${eyebrow ? `<p class="preview-eyebrow">${esc(eyebrow)}</p>` : ''}
+      <h1 class="preview-title${title ? '' : ' empty'}">${title ? esc(title) : 'Your title here…'}</h1>
+      <p class="preview-date">${formatDate(date)}</p>
+    `;
+
+    // Body
+    const bodyWrap = document.getElementById('preview-body-wrap');
+    if (content.trim()) {
+      bodyWrap.innerHTML = `<div class="preview-body">${marked.parse(content)}</div>`;
+    } else {
+      bodyWrap.innerHTML = `<p class="preview-empty-body">Your content will appear here…</p>`;
+    }
+  }
+
+  function esc(str) {
+    return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
+  // ── Status ───────────────────────────────────────────────
+
+  let statusTimer;
+  function setStatus(msg, cls) {
+    const el = document.getElementById('status');
+    el.textContent = msg;
+    el.className = 'topbar-status' + (cls ? ' ' + cls : '');
+    clearTimeout(statusTimer);
+    if (cls !== 'err') statusTimer = setTimeout(() => { el.textContent = ''; }, 4000);
+  }
+
+  // ── GitHub API ───────────────────────────────────────────
+
+  async function ghRequest(method, path, body) {
+    const token  = localStorage.getItem('be_token');
+    const repo   = localStorage.getItem('be_repo') || 'chomp-chomp-chomp/be';
+    if (!token) throw new Error('No GitHub token — open Settings and add one.');
+    const res = await fetch(`https://api.github.com/repos/${repo}/contents/${path}`, {
+      method,
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Content-Type': 'application/json',
+        'Accept': 'application/vnd.github+json',
+      },
+      body: body ? JSON.stringify(body) : undefined,
+    });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.message || `GitHub API error ${res.status}`);
+    return data;
+  }
+
+  async function getFileSHA(path) {
+    try {
+      const branch = localStorage.getItem('be_branch') || 'main';
+      const data = await ghRequest('GET', `${path}?ref=${branch}`);
+      return data.sha;
+    } catch { return null; }
+  }
+
+  function b64(str) {
+    return btoa(unescape(encodeURIComponent(str)));
+  }
+
+  // ── Publish ──────────────────────────────────────────────
+
+  async function publish() {
+    const title   = document.getElementById('title-input').value.trim();
+    const slug    = document.getElementById('slug-input').value.trim();
+    const eyebrow = document.getElementById('eyebrow-input').value.trim();
+    const date    = document.getElementById('date-input').value;
+    const excerpt = document.getElementById('excerpt-input').value.trim();
+    const content = document.getElementById('content-input').value.trim();
+    const branch  = localStorage.getItem('be_branch') || 'main';
+
+    if (!title)   return setStatus('Add a title first.', 'err');
+    if (!slug)    return setStatus('Slug is missing.', 'err');
+    if (!content) return setStatus('Write something first.', 'err');
+    if (!localStorage.getItem('be_token')) return setStatus('Open Settings and add your GitHub token.', 'err');
+
+    const post = { slug, title, date, content };
+    if (eyebrow) post.eyebrow = eyebrow;
+    if (excerpt) post.excerpt = excerpt;
+
+    const btn = document.getElementById('publish-btn');
+    btn.disabled = true;
+    setStatus('Publishing…', '');
+
+    try {
+      const filePath = `posts/${slug}.json`;
+      const existing = await getFileSHA(filePath);
+      const body = {
+        message: `Add post: ${title}`,
+        content: b64(JSON.stringify(post, null, 2) + '\n'),
+        branch,
+      };
+      if (existing) {
+        body.message = `Update post: ${title}`;
+        body.sha = existing;
+      }
+      await ghRequest('PUT', filePath, body);
+      setStatus(existing ? 'Updated! Building…' : 'Published! Building…', 'ok');
+    } catch (err) {
+      setStatus(err.message, 'err');
+    } finally {
+      btn.disabled = false;
+    }
+  }
+
+  // ── Init ─────────────────────────────────────────────────
+
+  updatePreview();
+
+  // Show settings prompt if no token saved
+  if (!localStorage.getItem('be_token')) {
+    setTimeout(() => {
+      document.getElementById('settings-drawer').classList.add('open');
+      loadSettings();
+      setStatus('Add your GitHub token in Settings to publish.', '');
+    }, 300);
+  }
+</script>
+</body>
+</html>
