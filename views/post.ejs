@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= post.title %> – The Baking Experience</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="page">
+    <div class="card">
+
+      <header class="post-header">
+        <% if (post.eyebrow) { %>
+          <p class="eyebrow"><%= post.eyebrow %></p>
+        <% } %>
+        <h1 class="post-title"><%= post.title %></h1>
+        <p class="post-date"><%= formatDate(post.date) %></p>
+      </header>
+
+      <hr class="divider">
+
+      <div class="post-body">
+        <%- post.content %>
+      </div>
+
+      <div class="post-footer">
+        <a href="/">&larr; All posts</a>
+        <span class="tagline">The Baking Experience</span>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>
