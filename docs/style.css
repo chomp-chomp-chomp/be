@@ -221,7 +221,15 @@ a:hover { text-decoration: underline; }
 
 .post-body li { margin-bottom: 6px; }
 
-.post-body a { color: #e8956d; font-weight: 500; }
+.post-body a { color: #e8956d; font-weight: 500; text-decoration: underline; }
+
+.post-body img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 4px auto 24px;
+  border-radius: 8px;
+}
 
 .post-body blockquote {
   margin: 0 0 24px;
