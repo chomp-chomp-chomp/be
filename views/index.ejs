@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Baking Experience</title>
-  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="page">
@@ -12,29 +12,30 @@
 
       <header class="site-header">
         <img src="https://ik.imagekit.io/chompchomp/Baking%20Experience%20logo" alt="The Baking Experience" width="440">
-        <p>Stories &bull; Recipes &bull; Culture &bull; Tradition</p>
+        <p class="site-tagline">Stories &bull; Recipes &bull; Culture &bull; Tradition</p>
       </header>
 
       <div class="post-list">
         <% if (posts.length === 0) { %>
-          <div class="not-found">
-            <p>No posts yet.</p>
-          </div>
+          <p class="empty">No posts yet.</p>
         <% } %>
         <% posts.forEach(post => { %>
-          <div class="post-list-item">
-            <span class="date"><%= formatDate(post.date) %></span>
-            <div>
-              <a href="/<%= post.slug %>">
-                <div class="title"><%= post.title %></div>
-                <% if (post.excerpt) { %>
-                  <div class="excerpt"><%= post.excerpt %></div>
-                <% } %>
-              </a>
+          <a class="post-list-item" href="<%= post.slug %>/">
+            <div class="post-list-meta">
+              <span class="post-list-date"><%= formatDate(post.date) %></span>
+              <% if (post.eyebrow) { %><span class="post-list-eyebrow"><%= post.eyebrow %></span><% } %>
             </div>
-          </div>
+            <div class="post-list-title"><%= post.title %></div>
+            <% if (post.excerpt) { %>
+              <div class="post-list-excerpt"><%= post.excerpt %></div>
+            <% } %>
+          </a>
         <% }) %>
       </div>
+
+      <footer class="site-footer">
+        <p>The Baking Experience &mdash; a Skadden Experience Employee Group</p>
+      </footer>
 
     </div>
   </div>
