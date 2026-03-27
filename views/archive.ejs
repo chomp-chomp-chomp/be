@@ -3,27 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>be.</title>
+  <title>Archive – be.</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=EB+Garamond:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="../style.css">
 </head>
 <body>
   <div class="page">
 
-    <header class="be-header">
-      <div class="be-banner">
-        <img src="https://ik.imagekit.io/chompchomp/Untitled%20design%20-%202.png" alt="be" class="banner-light">
-        <img src="https://ik.imagekit.io/chompchomp/Untitled%20design%20-%201.png" alt="be" class="banner-dark">
-      </div>
+    <nav class="site-nav">
+      <a href="../">← be.</a>
+    </nav>
+
+    <header class="post-header">
+      <h1>Archive</h1>
+      <hr>
     </header>
 
     <div class="post-list">
-      <% if (posts.length === 0) { %>
-        <p class="empty">No posts yet.</p>
-      <% } %>
-      <% posts.slice(0, 10).forEach(post => { %>
-        <a class="post-list-item" href="<%= post.slug %>/">
+      <% posts.forEach(post => { %>
+        <a class="post-list-item" href="../<%= post.slug %>/">
           <div class="post-list-meta">
             <span class="post-list-date"><%= formatDate(post.date) %></span>
             <% if (post.eyebrow) { %><span class="post-list-eyebrow"><%= post.eyebrow %></span><% } %>
@@ -34,9 +33,6 @@
           <% } %>
         </a>
       <% }) %>
-      <% if (posts.length > 10) { %>
-        <a class="post-list-more" href="archive/">All posts →</a>
-      <% } %>
     </div>
 
     <footer class="site-colophon">

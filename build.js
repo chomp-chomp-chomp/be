@@ -66,6 +66,9 @@ console.log('copied admin/');
 // Home page
 write('docs/index.html', render('index.ejs', { posts, formatDate }));
 
+// Archive page
+write('docs/archive/index.html', render('archive.ejs', { posts, formatDate }));
+
 // Post pages
 for (const post of posts) {
   write(path.join('docs', post.slug, 'index.html'), render('post.ejs', { post, formatDate }));
