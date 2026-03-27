@@ -47,6 +47,12 @@ const posts = fs.readdirSync('posts')
 fs.rmSync('docs', { recursive: true, force: true });
 fs.mkdirSync('docs');
 
+// Preserve CNAME for GitHub Pages custom domain
+const cnameFile = 'CNAME';
+if (fs.existsSync(cnameFile)) {
+  fs.copyFileSync(cnameFile, path.join('docs', cnameFile));
+}
+
 // Public assets
 for (const file of fs.readdirSync('public')) {
   fs.copyFileSync(path.join('public', file), path.join('docs', file));
