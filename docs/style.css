@@ -170,27 +170,33 @@ a:hover { color: var(--link-hover); }
 
 .be-masthead { margin-bottom: var(--space-xl); }
 
-.be-mark {
-  display: inline-flex;
-  align-items: flex-end;
-  gap: 0.1em;
+.be-subtitle {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5em;
+  margin-bottom: var(--space-m);
   font-family: var(--font-masthead);
-  font-size: clamp(56px, 10vw, 96px);
-  line-height: 0.95;
+}
+
+.be-subtitle-main {
+  font-size: 32px;
+  line-height: 1.1;
   color: var(--text);
 }
 
-.be-mark__cookie {
-  display: inline-block;
-  width: 0.34em;
-  height: 0.34em;
-  transform: translate(-0.02em, -0.02em);
-  vertical-align: baseline;
+.be-subtitle-aside {
+  font-size: 22px;
+  color: var(--muted);
+  font-style: italic;
 }
 
-.be-tagline { margin-top: 24px; font-family: var(--font-masthead); color: var(--text); }
-.be-tagline__line { display: block; font-size: 22px; line-height: 1.35; }
-.be-tagline__line--aside { font-style: italic; margin-top: 2px; }
+.site-tagline {
+  font-family: var(--font-masthead);
+  font-size: 19px;
+  line-height: 1.65;
+  color: var(--muted);
+  font-style: italic;
+}
 
 /* =========================================================
    UI / META
@@ -386,9 +392,32 @@ td { color: var(--muted); }
   margin-top: var(--space-xxl);
   padding-top: var(--space-l);
   border-top: 1px solid var(--rule);
+  text-align: center;
+  color: var(--muted);
+}
+
+.colophon-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.colophon-inner .colophon-line:first-child {
+  font-family: var(--font-title);
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.02em;
+}
+
+.colophon-line {
   font-family: var(--font-ui);
-  font-size: 14px;
-  line-height: 1.5;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.colophon-line a {
   color: var(--muted);
 }
 
@@ -538,7 +567,9 @@ html[data-theme="dark"] .banner-dark  { display: block; }
   h3 { font-size: 22px; }
 
   .lead { font-size: 19px; }
-  .be-tagline__line { font-size: 18px; }
+  .be-subtitle-main { font-size: 26px; }
+  .be-subtitle-aside { font-size: 18px; }
+  .site-tagline { font-size: 17px; }
   .pullquote, .markdown .pullquote { font-size: 22px; }
 
   .meta, .metadata, .byline, .site-nav, table { font-size: 13px; }
