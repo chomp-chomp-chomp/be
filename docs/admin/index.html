@@ -4,42 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Editor · The Baking Experience</title>
+  <!-- Blog CSS: provides all theme tokens and post styles used in the preview -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=EB+Garamond:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
   <script src="https://cdn.jsdelivr.net/npm/marked@9/marked.min.js"></script>
   <style>
-    :root {
-      --bg:           #fdfdfd;
-      --card-bg:      #ffffff;
-      --subtle-bg:    #f5f5f5;
-      --border:       #e0e0e0;
-      --text:         #353535;
-      --text-muted:   #7d7d7d;
-      --text-light:   #9d9d9d;
-      --accent:       #e73b42;
-      --accent-hover: #d12d34;
-    }
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg:           #231f1f;
-        --card-bg:      #2b2626;
-        --subtle-bg:    #2b2626;
-        --border:       #3b3636;
-        --text:         #d9d4d4;
-        --text-muted:   #b9b4b4;
-        --text-light:   #948f8f;
-        --accent:       #ff6b7a;
-        --accent-hover: #ff8590;
-      }
-    }
-    *, *::before, *::after { box-sizing: border-box; }
+    /* ── Admin layout overrides ── */
+    /* CSS variables and theme tokens come from ../style.css */
 
-    /* ── Base ── */
     body {
-      margin: 0;
-      font-family: 'Inter', 'Source Sans 3', system-ui, sans-serif;
-      background: var(--bg);
-      color: var(--text);
+      font-family: var(--font-ui);
+      font-size: 14px;
+      line-height: 1.5;
       height: 100vh;
       display: flex;
       flex-direction: column;
@@ -58,49 +35,46 @@
       padding: 24px;
     }
     .lock-card {
-      background: var(--card-bg);
+      background: var(--surface);
+      border: 1px solid var(--rule);
       border-radius: 8px;
-      box-shadow: 0 2px 24px rgba(0,0,0,0.08);
       padding: 48px 52px 44px;
       width: 100%;
       max-width: 400px;
       text-align: center;
     }
     .lock-logo {
-      font-family: 'Inter', 'Source Sans 3', system-ui, sans-serif;
+      font-family: var(--font-masthead);
       font-size: 13px;
-      color: var(--text-light);
+      color: var(--muted);
       letter-spacing: 0.06em;
       margin: 0 0 8px;
       text-decoration: none;
       display: block;
     }
+    .lock-logo:hover { color: var(--accent); }
     .lock-title {
-      font-family: 'Inter', 'Source Sans 3', system-ui, sans-serif;
-      font-size: 28px;
-      font-weight: normal;
+      font-family: var(--font-title);
+      font-size: 32px;
+      font-weight: 500;
       color: var(--text);
       margin: 0 0 6px;
       line-height: 1.2;
     }
-    .lock-subtitle {
-      font-size: 13px;
-      color: var(--text-light);
-      margin: 0 0 32px;
-    }
+    .lock-subtitle { font-size: 14px; color: var(--muted); margin: 0 0 28px; }
     .lock-form { display: flex; flex-direction: column; gap: 12px; }
     .lock-input {
       width: 100%;
       padding: 11px 16px;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      font-family: inherit;
+      border: 1px solid var(--rule);
+      border-radius: 6px;
+      font-family: var(--font-ui);
       font-size: 15px;
       color: var(--text);
-      background: var(--card-bg);
+      background: var(--surface);
       text-align: center;
-      letter-spacing: 0.08em;
-      transition: border-color 0.12s;
+      letter-spacing: 0.05em;
+      transition: border-color 0.15s;
     }
     .lock-input:focus { outline: none; border-color: var(--accent); }
     .lock-btn {
@@ -109,26 +83,16 @@
       background: var(--accent);
       color: #fff;
       border: none;
-      border-radius: 8px;
-      font-family: inherit;
+      border-radius: 6px;
+      font-family: var(--font-ui);
       font-size: 15px;
       font-weight: 600;
       cursor: pointer;
-      letter-spacing: 0.03em;
-      transition: opacity 0.12s;
+      transition: opacity 0.15s;
     }
-    .lock-btn:hover { opacity: 0.88; }
-    .lock-error {
-      font-size: 13px;
-      color: #c0504a;
-      min-height: 18px;
-      margin-top: 4px;
-    }
-    .lock-hint {
-      font-size: 12px;
-      color: var(--text-light);
-      margin-top: 20px;
-    }
+    .lock-btn:hover { opacity: 0.85; }
+    .lock-error { font-size: 13px; color: var(--accent); min-height: 18px; margin-top: 8px; }
+    .lock-hint { font-size: 12px; color: var(--muted); margin-top: 20px; }
 
     /* ── Top bar ── */
     .topbar {
@@ -136,96 +100,73 @@
       align-items: center;
       gap: 16px;
       padding: 0 24px;
-      height: 52px;
-      background: var(--card-bg);
-      border-bottom: 1px solid var(--border);
+      height: 50px;
+      background: var(--surface);
+      border-bottom: 1px solid var(--rule);
       flex-shrink: 0;
     }
     .topbar-logo {
-      font-family: 'Inter', 'Source Sans 3', system-ui, sans-serif;
-      font-size: 15px;
-      color: var(--text-muted);
+      font-family: var(--font-masthead);
+      font-size: 16px;
+      color: var(--muted);
       text-decoration: none;
       font-style: italic;
     }
     .topbar-logo:hover { color: var(--accent); }
-    .topbar-sep { color: #ddd; }
-    .topbar-title { font-size: 14px; font-weight: 600; color: var(--text); }
+    .topbar-sep { color: var(--rule); }
+    .topbar-title { font-size: 13px; font-weight: 600; color: var(--text); letter-spacing: 0.02em; }
     .topbar-spacer { flex: 1; }
-    .topbar-status { font-size: 13px; color: var(--text-muted); }
-    .topbar-status.ok { color: #6aaa6a; }
-    .topbar-status.err { color: #c0504a; }
+    .topbar-status { font-size: 13px; color: var(--muted); }
+    .topbar-status.ok  { color: #2d8a2d; }
+    .topbar-status.err { color: var(--accent); }
 
     .btn {
-      padding: 7px 16px;
-      border-radius: 6px;
+      padding: 6px 14px;
+      border-radius: 4px;
       border: none;
       cursor: pointer;
-      font-family: inherit;
+      font-family: var(--font-ui);
       font-size: 13px;
       font-weight: 600;
-      letter-spacing: 0.03em;
-      transition: opacity 0.12s;
+      transition: opacity 0.15s;
     }
-    .btn:hover { opacity: 0.85; }
+    .btn:hover { opacity: 0.82; }
     .btn:disabled { opacity: 0.4; cursor: default; }
     .btn-primary { background: var(--accent); color: #fff; }
-    .btn-ghost {
-      background: none;
-      color: var(--text-muted);
-      border: 1px solid var(--border);
-    }
-    .btn-ghost:hover { color: var(--text); border-color: var(--border); }
+    .btn-ghost { background: none; color: var(--muted); border: 1px solid var(--rule); }
+    .btn-ghost:hover { color: var(--text); }
 
     /* ── Settings drawer ── */
     .settings-drawer {
-      background: var(--subtle-bg);
-      border-bottom: 1px solid var(--border);
+      background: var(--bg);
+      border-bottom: 1px solid var(--rule);
       padding: 0 24px;
       overflow: hidden;
       max-height: 0;
       transition: max-height 0.25s ease, padding 0.25s ease;
       flex-shrink: 0;
     }
-    .settings-drawer.open {
-      max-height: 180px;
-      padding: 16px 24px;
-    }
+    .settings-drawer.open { max-height: 180px; padding: 16px 24px; }
     .settings-rows { display: flex; flex-direction: column; gap: 10px; }
-    .settings-row {
-      display: flex;
-      gap: 12px;
-      align-items: flex-end;
-      flex-wrap: wrap;
-    }
+    .settings-row { display: flex; gap: 12px; align-items: flex-end; flex-wrap: wrap; }
     .settings-field { display: flex; flex-direction: column; gap: 4px; }
-    .settings-field label { font-size: 11px; color: var(--text-muted); letter-spacing: 0.05em; text-transform: uppercase; }
+    .settings-field label { font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase; }
     .settings-field input {
       padding: 6px 10px;
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      font-family: monospace;
-      font-size: 13px;
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      font-family: var(--font-mono);
+      font-size: 12px;
       color: var(--text);
-      background: var(--card-bg);
+      background: var(--surface);
       width: 200px;
     }
     .settings-field input:focus { outline: none; border-color: var(--accent); }
     .settings-field.narrow input { width: 100px; }
-    .settings-divider {
-      width: 1px;
-      height: 36px;
-      background: var(--border);
-      align-self: flex-end;
-      margin: 0 4px;
-    }
+    .settings-divider { width: 1px; height: 32px; background: var(--rule); align-self: flex-end; margin: 0 4px; }
 
     /* ── Main split ── */
-    .main {
-      display: flex;
-      flex: 1;
-      overflow: hidden;
-    }
+    .main { display: flex; flex: 1; overflow: hidden; }
 
     /* ── Editor panel ── */
     .editor-panel {
@@ -233,8 +174,8 @@
       flex-shrink: 0;
       display: flex;
       flex-direction: column;
-      border-right: 1px solid var(--border);
-      background: var(--card-bg);
+      border-right: 1px solid var(--rule);
+      background: var(--surface);
       overflow-y: auto;
       padding: 20px 24px 28px;
       gap: 12px;
@@ -243,239 +184,129 @@
     .field { display: flex; flex-direction: column; gap: 5px; }
     .field label {
       font-size: 11px;
-      color: var(--text-muted);
+      color: var(--muted);
       letter-spacing: 0.06em;
       text-transform: uppercase;
       display: flex;
       gap: 6px;
       align-items: center;
     }
-    .optional {
-      font-size: 10px;
-      color: var(--text-light);
-      font-weight: normal;
-      letter-spacing: 0.03em;
-      text-transform: none;
-    }
+    .optional { font-size: 10px; color: var(--muted); font-weight: normal; letter-spacing: 0.02em; text-transform: none; opacity: 0.7; }
     .field input,
-    .field textarea {
+    .field textarea,
+    .field select {
       padding: 8px 12px;
-      border: 1px solid var(--border);
-      border-radius: 7px;
-      font-family: inherit;
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      font-family: var(--font-ui);
       font-size: 14px;
       color: var(--text);
-      background: var(--card-bg);
+      background: var(--surface);
       resize: none;
       transition: border-color 0.12s;
     }
     .field input:focus,
-    .field textarea:focus { outline: none; border-color: var(--accent); }
-    .field input.muted { color: var(--text-muted); font-size: 13px; }
+    .field textarea:focus,
+    .field select:focus { outline: none; border-color: var(--accent); }
+    .field input.muted { color: var(--muted); font-size: 13px; }
 
-    #title-input { font-family: 'Inter', 'Source Sans 3', system-ui, sans-serif; font-size: 17px; }
+    #title-input { font-family: var(--font-title); font-size: 17px; }
     #content-input {
-      font-family: 'Courier New', monospace;
-      font-size: 13px;
+      font-family: var(--font-mono);
+      font-size: 12px;
       line-height: 1.7;
       min-height: 180px;
     }
-    .field-grow { display: flex; flex-direction: column; }
-    .field-grow textarea { flex: 1; }
 
-    /* ── Markdown hints ── */
-    .md-hints {
-      border-top: 1px solid var(--border);
-      padding-top: 12px;
+    /* ── Hints ── */
+    .hints-block {
+      border-top: 1px solid var(--rule);
+      padding-top: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
     }
-    .md-hints-title {
+    .hints-section-title {
       font-size: 10px;
-      color: var(--text-light);
+      color: var(--muted);
       letter-spacing: 0.07em;
       text-transform: uppercase;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
-    .md-hints-grid {
+    .hints-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 5px 12px;
     }
-    .md-hint {
+    .hint {
       display: flex;
       align-items: center;
       gap: 6px;
       font-size: 12px;
-      color: var(--text-light);
-      white-space: nowrap;
+      color: var(--muted);
     }
-    .md-hint code {
-      font-family: 'Courier New', monospace;
+    .hint code, .marker-hint code {
+      font-family: var(--font-mono);
       font-size: 11px;
       background: var(--bg);
-      color: var(--text-muted);
+      color: var(--text);
       padding: 2px 5px;
       border-radius: 3px;
+      white-space: nowrap;
     }
-    .md-hint-full {
-      grid-column: 1 / -1;
-    }
-
-    .publish-row {
+    .hint-full { grid-column: 1 / -1; }
+    .marker-hint {
       display: flex;
-      justify-content: flex-end;
-      padding-top: 4px;
+      flex-direction: column;
+      gap: 2px;
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.4;
     }
+    .marker-hint code { display: inline-block; margin-bottom: 1px; }
+    .marker-desc { color: var(--muted); opacity: 0.75; font-size: 11px; }
+    .markers-list { display: flex; flex-direction: column; gap: 8px; }
+
+    .publish-row { display: flex; justify-content: flex-end; padding-top: 4px; }
 
     /* ── Preview panel ── */
     .preview-panel {
       flex: 1;
       overflow-y: auto;
-      padding: 32px 24px 48px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 16px;
+      padding: 28px 32px 48px;
+      background: var(--bg);
     }
     .preview-label {
       font-size: 11px;
-      color: var(--text-light);
-      letter-spacing: 0.08em;
+      color: var(--muted);
+      letter-spacing: 0.07em;
       text-transform: uppercase;
-      align-self: flex-start;
-      padding-left: 4px;
+      margin-bottom: 20px;
     }
-
-    /* Scoped blog styles for preview */
-    .preview-card {
-      background: var(--card-bg);
-      border-radius: 8px;
-      box-shadow: 0 2px 24px rgba(0,0,0,0.08);
-      overflow: hidden;
-      width: 100%;
-      max-width: 560px;
-    }
-    .preview-post-header {
-      text-align: center;
-      padding: 40px 48px 32px;
-      border-bottom: 1px solid var(--border);
-    }
-    .preview-eyebrow {
-      margin: 0 0 12px;
-      font-size: 12px;
-      color: var(--accent);
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-    .preview-title {
-      margin: 0 0 14px;
-      font-family: 'Inter', 'Source Sans 3', system-ui, sans-serif;
-      font-size: 34px;
-      font-weight: normal;
-      color: var(--text);
-      line-height: 1.18;
-    }
-    .preview-title.empty { color: var(--text-light); font-style: italic; font-size: 24px; }
-    .preview-date {
-      margin: 0;
-      font-size: 13px;
-      color: var(--text-light);
-      letter-spacing: 0.04em;
-    }
-    .preview-body {
-      padding: 36px 48px 32px;
-      border-bottom: 1px solid var(--border);
-    }
-    .preview-body p {
-      margin: 0 0 20px;
-      font-size: 16px;
-      line-height: 1.82;
-      color: var(--text);
-    }
-    .preview-body p:last-child { margin-bottom: 0; }
-    .preview-body h2 {
-      font-family: 'Inter', 'Source Sans 3', system-ui, sans-serif;
-      font-size: 22px;
-      font-weight: normal;
-      color: var(--text);
-      margin: 32px 0 12px;
-    }
-    .preview-body h3 {
-      font-family: 'Inter', 'Source Sans 3', system-ui, sans-serif;
-      font-size: 18px;
-      font-weight: normal;
-      color: var(--text);
-      margin: 24px 0 8px;
-    }
-    .preview-body ul, .preview-body ol {
-      margin: 0 0 20px;
-      padding-left: 24px;
-      font-size: 16px;
-      line-height: 1.82;
-      color: var(--text);
-    }
-    .preview-body blockquote {
-      margin: 0 0 22px;
-      padding: 16px 20px;
-      border-left: 3px solid var(--accent);
-      background: var(--subtle-bg);
-      border-radius: 0 8px 8px 0;
-      font-family: 'Inter', 'Source Sans 3', system-ui, sans-serif;
-      font-style: italic;
-      font-size: 17px;
-      line-height: 1.72;
-      color: var(--text-muted);
-    }
-    .preview-body blockquote p { margin: 0; font-size: inherit; line-height: inherit; color: inherit; }
-    .preview-body a { color: var(--accent); font-weight: 500; text-decoration: underline; }
-    .preview-body img {
-      max-width: 100%;
-      border-radius: 8px;
-      display: block;
-      margin: 4px auto 20px;
-      height: auto;
-    }
-    .preview-body hr {
-      border: none;
-      border-top: 1px solid var(--border);
-      margin: 28px 0;
-    }
-    .preview-footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 18px 48px 24px;
-      background: var(--subtle-bg);
-    }
-    .preview-footer-back { font-size: 13px; color: var(--accent); font-weight: 600; }
-    .preview-footer-tag { font-size: 11px; color: var(--text-light); letter-spacing: 0.07em; }
-    .preview-empty-body {
-      padding: 28px 48px;
-      font-size: 14px;
-      color: var(--text-light);
-      font-style: italic;
+    /* The preview renders using actual blog CSS classes */
+    .preview-blog {
+      max-width: var(--max-text);
     }
 
     /* ── Mobile ── */
     @media (max-width: 720px) {
       body { overflow: auto; }
       .main { flex-direction: column; overflow: visible; }
-      .editor-panel { width: 100%; border-right: none; border-bottom: 1px solid var(--border); overflow: visible; }
+      .editor-panel { width: 100%; border-right: none; border-bottom: 1px solid var(--rule); overflow: visible; }
       #content-input { min-height: 140px; }
-      .preview-panel { padding: 24px 16px 48px; }
-      .md-hints-grid { grid-template-columns: 1fr; }
+      .hints-grid { grid-template-columns: 1fr; }
       .lock-card { padding: 36px 28px 32px; }
+      .preview-panel { padding: 24px 18px 48px; }
     }
   </style>
 </head>
 <body>
 
-<!-- ── Lock screen ──────────────────────────────────────── -->
+<!-- ── Lock screen ────────────────────────────────────── -->
 <div id="lock-screen">
   <div class="lock-card">
     <a class="lock-logo" href="../">The Baking Experience</a>
 
-    <!-- Login form -->
     <div id="lock-login">
       <h1 class="lock-title">Editor</h1>
       <p class="lock-subtitle">Enter your password to continue.</p>
@@ -486,7 +317,6 @@
       <p class="lock-error" id="lock-error"></p>
     </div>
 
-    <!-- First-time setup form -->
     <div id="lock-setup" style="display:none">
       <h1 class="lock-title">Set a password</h1>
       <p class="lock-subtitle">Protect your editor with a password.</p>
@@ -501,8 +331,8 @@
   </div>
 </div>
 
-<!-- ── App (hidden until authed) ────────────────────────── -->
-<div id="app" style="display:none; height:100%; display:none; flex-direction:column;">
+<!-- ── App ───────────────────────────────────────────── -->
+<div id="app" style="display:none; flex-direction:column;">
 
   <div class="topbar">
     <a class="topbar-logo" href="../">The Baking Experience</a>
@@ -543,6 +373,7 @@
 
   <div class="main">
 
+    <!-- ── Editor ── -->
     <div class="editor-panel">
 
       <div class="field">
@@ -556,8 +387,17 @@
       </div>
 
       <div class="field">
-        <label>Eyebrow <span class="optional">optional</span></label>
+        <label>Eyebrow <span class="optional">optional label</span></label>
         <input id="eyebrow-input" placeholder="e.g. Recipe · Story · Essay" autocomplete="off" oninput="updatePreview()">
+      </div>
+
+      <div class="field">
+        <label>Mode <span class="optional">paragraph style</span></label>
+        <select id="mode-input" onchange="updatePreview()">
+          <option value="">Default</option>
+          <option value="article">Article — indented paragraphs</option>
+          <option value="recipe">Recipe — spaced paragraphs</option>
+        </select>
       </div>
 
       <div class="field">
@@ -570,25 +410,64 @@
         <textarea id="excerpt-input" rows="2" placeholder="One or two sentences…"></textarea>
       </div>
 
-      <div class="field field-grow">
+      <div class="field">
         <label>Content <span class="optional">markdown</span></label>
         <textarea id="content-input" placeholder="Write your post here…" oninput="updatePreview()"></textarea>
       </div>
 
-      <div class="md-hints">
-        <div class="md-hints-title">Markdown reference</div>
-        <div class="md-hints-grid">
-          <div class="md-hint"><code>**bold**</code></div>
-          <div class="md-hint"><code>*italic*</code></div>
-          <div class="md-hint md-hint-full"><code>[Link text](https://example.com)</code></div>
-          <div class="md-hint md-hint-full"><code>![Alt text](https://image-url.com)</code> — embed image</div>
-          <div class="md-hint"><code>## Heading</code></div>
-          <div class="md-hint"><code>### Subheading</code></div>
-          <div class="md-hint md-hint-full"><code>> Blockquote text</code></div>
-          <div class="md-hint"><code>- bullet item</code></div>
-          <div class="md-hint"><code>1. numbered</code></div>
-          <div class="md-hint"><code>---</code> divider</div>
+      <!-- Hints -->
+      <div class="hints-block">
+
+        <div>
+          <div class="hints-section-title">Markdown</div>
+          <div class="hints-grid">
+            <div class="hint"><code>**bold**</code></div>
+            <div class="hint"><code>*italic*</code></div>
+            <div class="hint hint-full"><code>[Link text](https://url)</code></div>
+            <div class="hint hint-full"><code>![Alt text](https://image-url)</code> — image</div>
+            <div class="hint"><code>## Heading</code></div>
+            <div class="hint"><code>### Sub</code></div>
+            <div class="hint hint-full"><code>> Blockquote</code></div>
+            <div class="hint"><code>- bullet</code></div>
+            <div class="hint"><code>1. numbered</code></div>
+            <div class="hint"><code>---</code> rule</div>
+          </div>
         </div>
+
+        <div>
+          <div class="hints-section-title">Style markers — paste into content</div>
+          <div class="markers-list">
+            <div class="marker-hint">
+              <code>&lt;p class="lead"&gt;Intro text…&lt;/p&gt;</code>
+              <span class="marker-desc">Larger intro paragraph (21px)</span>
+            </div>
+            <div class="marker-hint">
+              <code>&lt;div class="pullquote"&gt;A memorable line.&lt;/div&gt;</code>
+              <span class="marker-desc">Large centered pull quote</span>
+            </div>
+            <div class="marker-hint">
+              <code>&lt;div class="note-block"&gt;An aside or caveat.&lt;/div&gt;</code>
+              <span class="marker-desc">Italic side note with left rule</span>
+            </div>
+            <div class="marker-hint">
+              <code>&lt;div class="section-break"&gt;* * *&lt;/div&gt;</code>
+              <span class="marker-desc">Ornamental section divider</span>
+            </div>
+            <div class="marker-hint">
+              <code>&lt;figure&gt;&lt;img src="…"&gt;&lt;figcaption&gt;Caption&lt;/figcaption&gt;&lt;/figure&gt;</code>
+              <span class="marker-desc">Image with caption below</span>
+            </div>
+            <div class="marker-hint">
+              <code>&lt;cite&gt;— Source name&lt;/cite&gt;</code>
+              <span class="marker-desc">Attribution after a blockquote</span>
+            </div>
+            <div class="marker-hint">
+              <code>&lt;div class="recipe-meta"&gt;&lt;div&gt;&lt;strong&gt;Prep&lt;/strong&gt; 20 min&lt;/div&gt;&lt;div&gt;&lt;strong&gt;Makes&lt;/strong&gt; 24&lt;/div&gt;&lt;/div&gt;</code>
+              <span class="marker-desc">Recipe stats grid (use with Recipe mode)</span>
+            </div>
+          </div>
+        </div>
+
       </div>
 
       <div class="publish-row">
@@ -597,23 +476,27 @@
 
     </div>
 
+    <!-- ── Preview ── -->
     <div class="preview-panel">
       <div class="preview-label">Preview</div>
-      <div class="preview-card">
-        <div class="preview-post-header" id="preview-header"></div>
-        <div id="preview-body-wrap"></div>
-        <div class="preview-footer">
-          <span class="preview-footer-back">← All posts</span>
-          <span class="preview-footer-tag">Stories · Recipes · Culture · Tradition</span>
+      <div class="preview-blog">
+        <nav class="site-nav" style="margin-bottom:var(--space-m)">
+          <span style="color:var(--muted)">← The Baking Experience</span>
+        </nav>
+        <header class="post-header" id="preview-header"></header>
+        <div id="preview-body-wrap" class="post-body markdown"></div>
+        <div class="post-footer" style="margin-top:var(--space-l)">
+          <span>← All posts</span>
+          <span>Stories · Recipes · Culture · Tradition</span>
         </div>
       </div>
     </div>
 
   </div>
-</div><!-- #app -->
+</div>
 
 <script>
-  // ── Auth helpers ──────────────────────────────────────────
+  // ── Auth ─────────────────────────────────────────────────
 
   async function sha256(str) {
     const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
@@ -633,8 +516,7 @@
   async function tryLogin(e) {
     e.preventDefault();
     const pw = document.getElementById('lock-password').value;
-    const hash = await sha256(pw);
-    if (hash === localStorage.getItem('be_pw_hash')) {
+    if ((await sha256(pw)) === localStorage.getItem('be_pw_hash')) {
       sessionStorage.setItem('be_authed', '1');
       showApp();
     } else {
@@ -650,7 +532,7 @@
     const pw2 = document.getElementById('setup-pw2').value;
     const err = document.getElementById('setup-error');
     if (pw1.length < 6) return (err.textContent = 'At least 6 characters please.');
-    if (pw1 !== pw2)    return (err.textContent = 'Passwords don\'t match.');
+    if (pw1 !== pw2)    return (err.textContent = "Passwords don't match.");
     localStorage.setItem('be_pw_hash', await sha256(pw1));
     sessionStorage.setItem('be_authed', '1');
     showApp();
@@ -679,7 +561,7 @@
   }
 
   function clearSettings() {
-    if (!confirm('This will remove your token and password. You\'ll need to set them up again. Continue?')) return;
+    if (!confirm("This will remove your token and password. Continue?")) return;
     ['be_token','be_repo','be_branch','be_pw_hash'].forEach(k => localStorage.removeItem(k));
     sessionStorage.removeItem('be_authed');
     location.reload();
@@ -690,37 +572,34 @@
     d.classList.toggle('open');
     if (d.classList.contains('open')) loadSettings();
   }
-  function closeSettings() {
-    document.getElementById('settings-drawer').classList.remove('open');
-  }
+  function closeSettings() { document.getElementById('settings-drawer').classList.remove('open'); }
 
   // ── Slug ─────────────────────────────────────────────────
 
   let slugManuallyEdited = false;
 
-  function toSlug(title) {
-    return title.toLowerCase()
-      .replace(/['']/g, '')
-      .replace(/[^a-z0-9]+/g, '-')
-      .replace(/^-+|-+$/g, '');
+  function toSlug(t) {
+    return t.toLowerCase().replace(/['']/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'');
   }
 
   function onTitleChange(val) {
     if (!slugManuallyEdited) document.getElementById('slug-input').value = toSlug(val);
     updatePreview();
   }
-
   document.getElementById('slug-input').addEventListener('keydown', () => { slugManuallyEdited = true; });
 
   // ── Date default ─────────────────────────────────────────
-
   document.getElementById('date-input').value = new Date().toISOString().slice(0, 10);
 
   // ── Preview ──────────────────────────────────────────────
 
   function formatDate(str) {
     if (!str) return '';
-    return new Date(str + 'T00:00:00').toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+    return new Date(str + 'T00:00:00').toLocaleDateString('en-US', { year:'numeric', month:'long', day:'numeric' });
+  }
+
+  function esc(s) {
+    return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
   }
 
   function updatePreview() {
@@ -728,21 +607,20 @@
     const eyebrow = document.getElementById('eyebrow-input').value.trim();
     const date    = document.getElementById('date-input').value;
     const content = document.getElementById('content-input').value;
+    const mode    = document.getElementById('mode-input').value;
 
     document.getElementById('preview-header').innerHTML = `
-      ${eyebrow ? `<p class="preview-eyebrow">${esc(eyebrow)}</p>` : ''}
-      <h1 class="preview-title${title ? '' : ' empty'}">${title ? esc(title) : 'Your title here…'}</h1>
-      <p class="preview-date">${formatDate(date)}</p>
+      ${eyebrow ? `<p class="kicker">${esc(eyebrow)}</p>` : ''}
+      <h1 ${title ? '' : 'style="color:var(--muted);font-style:italic;font-size:28px;"'}>${title ? esc(title) : 'Your title here…'}</h1>
+      <p class="meta">${formatDate(date)}</p>
+      <hr>
     `;
 
     const bodyWrap = document.getElementById('preview-body-wrap');
+    bodyWrap.className = `post-body markdown${mode ? ' ' + mode : ''}`;
     bodyWrap.innerHTML = content.trim()
-      ? `<div class="preview-body">${marked.parse(content)}</div>`
-      : `<p class="preview-empty-body">Your content will appear here…</p>`;
-  }
-
-  function esc(s) {
-    return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+      ? marked.parse(content)
+      : `<p style="color:var(--muted);font-style:italic;">Your content will appear here…</p>`;
   }
 
   // ── Status ───────────────────────────────────────────────
@@ -791,6 +669,7 @@
     const title   = document.getElementById('title-input').value.trim();
     const slug    = document.getElementById('slug-input').value.trim();
     const eyebrow = document.getElementById('eyebrow-input').value.trim();
+    const mode    = document.getElementById('mode-input').value;
     const date    = document.getElementById('date-input').value;
     const excerpt = document.getElementById('excerpt-input').value.trim();
     const content = document.getElementById('content-input').value.trim();
@@ -804,6 +683,7 @@
     const post = { slug, title, date, content };
     if (eyebrow) post.eyebrow = eyebrow;
     if (excerpt) post.excerpt = excerpt;
+    if (mode)    post.mode    = mode;
 
     const btn = document.getElementById('publish-btn');
     btn.disabled = true;
@@ -832,15 +712,12 @@
   (function init() {
     const hash   = localStorage.getItem('be_pw_hash');
     const authed = sessionStorage.getItem('be_authed');
-
     if (!hash) {
-      // No password set yet — show setup
       document.getElementById('lock-login').style.display = 'none';
       document.getElementById('lock-setup').style.display = '';
     } else if (authed) {
       showApp();
     }
-    // else: show login (default state)
   })();
 </script>
 </body>

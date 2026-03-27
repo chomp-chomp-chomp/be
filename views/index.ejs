@@ -5,41 +5,39 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Baking Experience</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=EB+Garamond:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="page">
-    <div class="card">
 
-      <header class="site-header">
-        <img src="https://ik.imagekit.io/chompchomp/Baking%20Experience%20logo" alt="The Baking Experience" width="440">
-        <p class="site-tagline">Stories &bull; Recipes &bull; Culture &bull; Tradition</p>
-      </header>
+    <header class="be-masthead">
+      <img class="banner-light" src="https://ik.imagekit.io/chompchomp/Untitled%20design%20-%202.png" alt="The Baking Experience">
+      <img class="banner-dark"  src="https://ik.imagekit.io/chompchomp/Untitled%20design%20-%201.png" alt="The Baking Experience">
+    </header>
 
-      <div class="post-list">
-        <% if (posts.length === 0) { %>
-          <p class="empty">No posts yet.</p>
-        <% } %>
-        <% posts.forEach(post => { %>
-          <a class="post-list-item" href="<%= post.slug %>/">
-            <div class="post-list-meta">
-              <span class="post-list-date"><%= formatDate(post.date) %></span>
-              <% if (post.eyebrow) { %><span class="post-list-eyebrow"><%= post.eyebrow %></span><% } %>
-            </div>
-            <div class="post-list-title"><%= post.title %></div>
-            <% if (post.excerpt) { %>
-              <div class="post-list-excerpt"><%= post.excerpt %></div>
-            <% } %>
-          </a>
-        <% }) %>
-      </div>
-
-      <footer class="site-footer">
-        <p>The Baking Experience &mdash; a Skadden Experience Employee Group</p>
-      </footer>
-
+    <div class="post-list">
+      <% if (posts.length === 0) { %>
+        <p class="empty">No posts yet.</p>
+      <% } %>
+      <% posts.forEach(post => { %>
+        <a class="post-list-item" href="<%= post.slug %>/">
+          <div class="post-list-meta">
+            <span class="post-list-date"><%= formatDate(post.date) %></span>
+            <% if (post.eyebrow) { %><span class="post-list-eyebrow"><%= post.eyebrow %></span><% } %>
+          </div>
+          <div class="post-list-title"><%= post.title %></div>
+          <% if (post.excerpt) { %>
+            <div class="post-list-excerpt"><%= post.excerpt %></div>
+          <% } %>
+        </a>
+      <% }) %>
     </div>
+
+    <footer class="site-footer">
+      The Baking Experience &mdash; a Skadden Experience Employee Group
+    </footer>
+
   </div>
 </body>
 </html>
