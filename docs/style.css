@@ -191,26 +191,30 @@ a:hover { color: var(--link-hover); }
   gap: 0.5em;
   margin-bottom: var(--space-m);
   font-family: var(--font-masthead);
+  text-align: center;
 }
 
 .be-subtitle-main {
-  font-size: 32px;
+  font-size: 18px;
   line-height: 1.1;
   color: var(--text);
+text-align: center;
 }
 
 .be-subtitle-aside {
-  font-size: 22px;
+  font-size: 13px;
   color: var(--muted);
   font-style: italic;
+   text-align: center;
 }
 
 .site-tagline {
   font-family: var(--font-masthead);
-  font-size: 19px;
+  font-size: 16px;
   line-height: 1.65;
   color: var(--muted);
   font-style: italic;
+  text-alight: right;
 }
 
 /* =========================================================
