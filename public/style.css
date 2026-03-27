@@ -35,9 +35,11 @@
 
   --font-masthead: "EB Garamond", Garamond, serif;
   --font-title: "Cormorant Garamond", Garamond, serif;
-  --font-body: "Source Serif 4", Georgia, serif;
+  --font-body: "Crimson Text", Georgia, serif;
   --font-ui: "Inter", Arial, sans-serif;
   --font-mono: "IBM Plex Mono", monospace;
+
+  --soft: #444444;
 }
 
 html[data-theme="dark"] {
@@ -46,6 +48,7 @@ html[data-theme="dark"] {
   --text: #ededed;
   --muted: #c4c4c4;
   --light-muted: #aaaaaa;
+  --soft: #bbbbbb;
   --rule: #3a3535;
   --accent: #ff4d6d;
   --link: #ededed;
@@ -64,6 +67,7 @@ html[data-theme="dark"] {
     --text: #ededed;
     --muted: #c4c4c4;
     --light-muted: #aaaaaa;
+    --soft: #bbbbbb;
     --rule: #3a3535;
     --accent: #ff4d6d;
     --link: #ededed;
@@ -165,32 +169,48 @@ a { color: var(--link); text-decoration-thickness: 1px; text-underline-offset: 2
 a:hover { color: var(--link-hover); }
 
 /* =========================================================
-   MASTHEAD / BE
+   HEADER / BE
    ========================================================= */
 
-.be-masthead { margin-bottom: var(--space-xl); }
+.be-header {
+  margin-bottom: var(--space-xl);
+}
 
-.be-mark {
-  display: inline-flex;
-  align-items: flex-end;
-  gap: 0.1em;
+.be-banner {
+  margin-bottom: var(--space-m);
+}
+
+.be-banner img {
+  max-width: 100%;
+  height: auto;
+}
+
+.be-subtitle {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5em;
+  margin-bottom: var(--space-s);
   font-family: var(--font-masthead);
-  font-size: clamp(56px, 10vw, 96px);
-  line-height: 0.95;
+}
+
+.be-subtitle-main {
+  font-size: 22px;
   color: var(--text);
 }
 
-.be-mark__cookie {
-  display: inline-block;
-  width: 0.34em;
-  height: 0.34em;
-  transform: translate(-0.02em, -0.02em);
-  vertical-align: baseline;
+.be-subtitle-aside {
+  font-size: 16px;
+  color: var(--muted);
+  font-style: italic;
 }
 
-.be-tagline { margin-top: 24px; font-family: var(--font-masthead); color: var(--text); }
-.be-tagline__line { display: block; font-size: 22px; line-height: 1.35; }
-.be-tagline__line--aside { font-style: italic; margin-top: 2px; }
+.site-tagline {
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.55;
+  color: var(--soft);
+  font-style: italic;
+}
 
 /* =========================================================
    UI / META
@@ -379,17 +399,31 @@ th { font-weight: 600; color: var(--text); }
 td { color: var(--muted); }
 
 /* =========================================================
-   SITE FOOTER
+   SITE COLOPHON
    ========================================================= */
 
-.site-footer {
+.site-colophon {
   margin-top: var(--space-xxl);
   padding-top: var(--space-l);
   border-top: 1px solid var(--rule);
   font-family: var(--font-ui);
-  font-size: 14px;
-  line-height: 1.5;
+  font-size: 13px;
+  line-height: 1.6;
   color: var(--muted);
+}
+
+.colophon-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.colophon-line a {
+  color: var(--muted);
+  text-decoration: none;
+}
+.colophon-line a:hover {
+  color: var(--link-hover);
 }
 
 /* =========================================================
@@ -405,6 +439,7 @@ td { color: var(--muted); }
 .masthead-font{ font-family: var(--font-masthead); }
 .title-font   { font-family: var(--font-title); }
 .mono         { font-family: var(--font-mono); }
+.smallcaps    { font-variant: small-caps; letter-spacing: 0.04em; }
 
 /* =========================================================
    BLOG-SPECIFIC
@@ -504,20 +539,14 @@ html[data-theme="dark"] .banner-dark  { display: block; }
   margin: 8px auto 24px;
 }
 
-/* Post footer */
-.post-footer {
+/* Post back link */
+.post-back {
   margin-top: var(--space-xl);
-  padding-top: var(--space-m);
-  border-top: 1px solid var(--rule);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   font-family: var(--font-ui);
   font-size: 14px;
-  color: var(--muted);
 }
-.post-footer a { color: var(--link); text-decoration: none; }
-.post-footer a:hover { color: var(--link-hover); }
+.post-back a { color: var(--link); text-decoration: none; }
+.post-back a:hover { color: var(--link-hover); }
 
 /* 404 */
 .not-found { text-align: center; padding: var(--space-xxl) 0; }
@@ -538,7 +567,8 @@ html[data-theme="dark"] .banner-dark  { display: block; }
   h3 { font-size: 22px; }
 
   .lead { font-size: 19px; }
-  .be-tagline__line { font-size: 18px; }
+  .be-subtitle-main { font-size: 19px; }
+  .site-tagline { font-size: 16px; }
   .pullquote, .markdown .pullquote { font-size: 22px; }
 
   .meta, .metadata, .byline, .site-nav, table { font-size: 13px; }
