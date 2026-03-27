@@ -528,6 +528,16 @@ html[data-theme="dark"] .banner-dark  { display: block; }
   line-height: 1.55;
 }
 
+.post-list-more {
+  display: block;
+  padding: var(--space-m) 0;
+  font-family: var(--font-ui);
+  font-size: 14px;
+  color: var(--muted);
+  text-decoration: none;
+}
+.post-list-more:hover { color: var(--link-hover); }
+
 .empty {
   padding: var(--space-xl) 0;
   font-family: var(--font-ui);
