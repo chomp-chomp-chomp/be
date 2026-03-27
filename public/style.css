@@ -38,6 +38,8 @@
   --font-body: "Source Serif 4", Georgia, serif;
   --font-ui: "Inter", Arial, sans-serif;
   --font-mono: "IBM Plex Mono", monospace;
+
+  --soft: #444444;
 }
 
 html[data-theme="dark"] {
@@ -46,6 +48,7 @@ html[data-theme="dark"] {
   --text: #ededed;
   --muted: #c4c4c4;
   --light-muted: #aaaaaa;
+  --soft: #bbbbbb;
   --rule: #3a3535;
   --accent: #ff4d6d;
   --link: #ededed;
@@ -64,6 +67,7 @@ html[data-theme="dark"] {
     --text: #ededed;
     --muted: #c4c4c4;
     --light-muted: #aaaaaa;
+    --soft: #bbbbbb;
     --rule: #3a3535;
     --accent: #ff4d6d;
     --link: #ededed;
@@ -165,10 +169,21 @@ a { color: var(--link); text-decoration-thickness: 1px; text-underline-offset: 2
 a:hover { color: var(--link-hover); }
 
 /* =========================================================
-   MASTHEAD / BE
+   HEADER / BE
    ========================================================= */
 
-.be-masthead { margin-bottom: var(--space-xl); }
+.be-header {
+  margin-bottom: var(--space-xl);
+}
+
+.be-banner {
+  margin-bottom: var(--space-m);
+}
+
+.be-banner img {
+  max-width: 100%;
+  height: auto;
+}
 
 .be-subtitle {
   display: flex;
@@ -385,10 +400,10 @@ th { font-weight: 600; color: var(--text); }
 td { color: var(--muted); }
 
 /* =========================================================
-   SITE FOOTER
+   SITE COLOPHON
    ========================================================= */
 
-.site-footer {
+.site-colophon {
   margin-top: var(--space-xxl);
   padding-top: var(--space-l);
   border-top: 1px solid var(--rule);
@@ -419,6 +434,10 @@ td { color: var(--muted); }
 
 .colophon-line a {
   color: var(--muted);
+  text-decoration: none;
+}
+.colophon-line a:hover {
+  color: var(--link-hover);
 }
 
 /* =========================================================
@@ -434,6 +453,7 @@ td { color: var(--muted); }
 .masthead-font{ font-family: var(--font-masthead); }
 .title-font   { font-family: var(--font-title); }
 .mono         { font-family: var(--font-mono); }
+.smallcaps    { font-variant: small-caps; letter-spacing: 0.04em; }
 
 /* =========================================================
    BLOG-SPECIFIC
@@ -533,20 +553,14 @@ html[data-theme="dark"] .banner-dark  { display: block; }
   margin: 8px auto 24px;
 }
 
-/* Post footer */
-.post-footer {
+/* Post back link */
+.post-back {
   margin-top: var(--space-xl);
-  padding-top: var(--space-m);
-  border-top: 1px solid var(--rule);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   font-family: var(--font-ui);
   font-size: 14px;
-  color: var(--muted);
 }
-.post-footer a { color: var(--link); text-decoration: none; }
-.post-footer a:hover { color: var(--link-hover); }
+.post-back a { color: var(--link); text-decoration: none; }
+.post-back a:hover { color: var(--link-hover); }
 
 /* 404 */
 .not-found { text-align: center; padding: var(--space-xxl) 0; }
