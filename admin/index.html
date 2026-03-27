@@ -166,7 +166,8 @@
     .settings-divider { width: 1px; height: 32px; background: var(--rule); align-self: flex-end; margin: 0 4px; }
 
     /* ── Main split ── */
-    .main { display: flex; flex: 1; overflow: hidden; }
+    #app { flex: 1; min-height: 0; }
+    .main { display: flex; flex: 1; overflow: hidden; min-height: 0; }
 
     /* ── Editor panel ── */
     .editor-panel {
@@ -177,6 +178,7 @@
       border-right: 1px solid var(--rule);
       background: var(--surface);
       overflow-y: auto;
+      min-height: 0;
       padding: 20px 24px 28px;
       gap: 12px;
     }
