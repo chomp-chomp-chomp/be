@@ -508,7 +508,7 @@
 <script>
   // ── Auth ─────────────────────────────────────────────────
   // Hash is injected at build time from the ADMIN_PW_HASH GitHub Secret.
-  const ADMIN_HASH = '';
+  const ADMIN_HASH = '13db08ebe5dee72ce63784b90659b0c6affe1e890260bf9f74983b8dbcaa9b7f';
 
   async function sha256(str) {
     const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
