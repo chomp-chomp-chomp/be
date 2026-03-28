@@ -220,6 +220,19 @@
       min-height: 180px;
     }
 
+    /* ── Load post ── */
+    .load-row {
+      display: flex;
+      gap: 8px;
+      align-items: flex-end;
+    }
+    .load-row select { flex: 1; }
+    .divider-line {
+      border: 0;
+      border-top: 1px solid var(--rule);
+      margin: 4px 0;
+    }
+
     /* ── Hints ── */
     .hints-block {
       border-top: 1px solid var(--rule);
@@ -379,6 +392,18 @@
     <div class="editor-panel">
 
       <div class="field">
+        <label>Load existing post <span class="optional">to edit</span></label>
+        <div class="load-row">
+          <select id="load-select" onchange="onLoadSelectChange()">
+            <option value="">— new post —</option>
+          </select>
+          <button class="btn btn-ghost" onclick="loadPost()">Load</button>
+        </div>
+      </div>
+
+      <hr class="divider-line">
+
+      <div class="field">
         <label>Title</label>
         <input id="title-input" placeholder="Post title…" oninput="onTitleChange(this.value)" autocomplete="off">
       </div>
@@ -510,6 +535,7 @@
     const app = document.getElementById('app');
     app.style.display = 'flex';
     updatePreview();
+    fetchPostList();
     if (!localStorage.getItem('be_token')) {
       setTimeout(() => { document.getElementById('settings-drawer').classList.add('open'); loadSettings(); }, 300);
     }
@@ -702,11 +728,74 @@
       if (existing) body.sha = existing;
       await ghRequest('PUT', filePath, body);
       setStatus(existing ? 'Updated! Building…' : 'Published! Building…', 'ok');
+      fetchPostList();
     } catch (err) {
       setStatus(err.message, 'err');
     } finally {
       btn.disabled = false;
     }
+  }
+
+  // ── Load existing posts ──────────────────────────────────
+
+  async function fetchPostList() {
+    try {
+      const branch = localStorage.getItem('be_branch') || 'main';
+      const data = await ghRequest('GET', `posts?ref=${branch}`);
+      const select = document.getElementById('load-select');
+      // keep the "— new post —" option, remove any old ones
+      select.innerHTML = '<option value="">— new post —</option>';
+      data
+        .filter(f => f.name.endsWith('.json'))
+        .sort((a, b) => a.name.localeCompare(b.name))
+        .forEach(f => {
+          const opt = document.createElement('option');
+          opt.value = f.path;
+          opt.textContent = f.name.replace('.json', '');
+          select.appendChild(opt);
+        });
+    } catch (e) {
+      // silently skip if token not set yet
+    }
+  }
+
+  function onLoadSelectChange() {
+    // nothing on change — user clicks Load button to confirm
+  }
+
+  async function loadPost() {
+    const path = document.getElementById('load-select').value;
+    if (!path) { clearEditor(); return; }
+    try {
+      setStatus('Loading…', '');
+      const branch = localStorage.getItem('be_branch') || 'main';
+      const file = await ghRequest('GET', `${path}?ref=${branch}`);
+      const post = JSON.parse(atob(file.content.replace(/\n/g, '')));
+      document.getElementById('title-input').value   = post.title   || '';
+      document.getElementById('slug-input').value    = post.slug    || '';
+      document.getElementById('eyebrow-input').value = post.eyebrow || '';
+      document.getElementById('date-input').value    = post.date    || '';
+      document.getElementById('excerpt-input').value = post.excerpt || '';
+      document.getElementById('content-input').value = post.content || '';
+      document.getElementById('mode-input').value    = post.mode    || '';
+      slugManuallyEdited = true;
+      updatePreview();
+      setStatus('Loaded — edit and publish to update.', '');
+    } catch (e) {
+      setStatus(e.message, 'err');
+    }
+  }
+
+  function clearEditor() {
+    document.getElementById('title-input').value   = '';
+    document.getElementById('slug-input').value    = '';
+    document.getElementById('eyebrow-input').value = '';
+    document.getElementById('date-input').value    = new Date().toISOString().slice(0, 10);
+    document.getElementById('excerpt-input').value = '';
+    document.getElementById('content-input').value = '';
+    document.getElementById('mode-input').value    = '';
+    slugManuallyEdited = false;
+    updatePreview();
   }
 
   // ── Init ─────────────────────────────────────────────────
