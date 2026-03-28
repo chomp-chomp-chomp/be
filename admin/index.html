@@ -331,18 +331,6 @@
       </form>
       <p class="lock-error" id="lock-error"></p>
     </div>
-
-    <div id="lock-setup" style="display:none">
-      <h1 class="lock-title">Set a password</h1>
-      <p class="lock-subtitle">Protect your editor with a password.</p>
-      <form class="lock-form" onsubmit="trySetup(event)">
-        <input class="lock-input" type="password" id="setup-pw1" placeholder="Choose a password" autocomplete="new-password">
-        <input class="lock-input" type="password" id="setup-pw2" placeholder="Confirm password" autocomplete="new-password">
-        <button class="lock-btn" type="submit">Set password →</button>
-      </form>
-      <p class="lock-error" id="setup-error"></p>
-      <p class="lock-hint">You can change this any time in Settings.</p>
-    </div>
   </div>
 </div>
 
@@ -372,11 +360,6 @@
         <div class="settings-field narrow">
           <label>Branch</label>
           <input type="text" id="s-branch" placeholder="main">
-        </div>
-        <div class="settings-divider"></div>
-        <div class="settings-field narrow">
-          <label>New password</label>
-          <input type="password" id="s-newpw" placeholder="leave blank to keep" autocomplete="new-password">
         </div>
       </div>
       <div class="settings-row">
@@ -524,6 +507,8 @@
 
 <script>
   // ── Auth ─────────────────────────────────────────────────
+  // Hash is injected at build time from the ADMIN_PW_HASH GitHub Secret.
+  const ADMIN_HASH = '__ADMIN_PW_HASH__';
 
   async function sha256(str) {
     const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
@@ -544,7 +529,11 @@
   async function tryLogin(e) {
     e.preventDefault();
     const pw = document.getElementById('lock-password').value;
-    if ((await sha256(pw)) === localStorage.getItem('be_pw_hash')) {
+    if (ADMIN_HASH === '__ADMIN_PW_HASH__') {
+      document.getElementById('lock-error').textContent = 'Admin password not configured. Set ADMIN_PW_HASH in GitHub Secrets.';
+      return;
+    }
+    if ((await sha256(pw)) === ADMIN_HASH) {
       sessionStorage.setItem('be_authed', '1');
       showApp();
     } else {
@@ -554,43 +543,25 @@
     }
   }
 
-  async function trySetup(e) {
-    e.preventDefault();
-    const pw1 = document.getElementById('setup-pw1').value;
-    const pw2 = document.getElementById('setup-pw2').value;
-    const err = document.getElementById('setup-error');
-    if (pw1.length < 6) return (err.textContent = 'At least 6 characters please.');
-    if (pw1 !== pw2)    return (err.textContent = "Passwords don't match.");
-    localStorage.setItem('be_pw_hash', await sha256(pw1));
-    sessionStorage.setItem('be_authed', '1');
-    showApp();
-  }
-
   // ── Settings ─────────────────────────────────────────────
 
   function loadSettings() {
     document.getElementById('s-token').value  = localStorage.getItem('be_token')  || '';
     document.getElementById('s-repo').value   = localStorage.getItem('be_repo')   || 'chomp-chomp-chomp/be';
     document.getElementById('s-branch').value = localStorage.getItem('be_branch') || 'main';
-    document.getElementById('s-newpw').value  = '';
   }
 
-  async function saveSettings() {
+  function saveSettings() {
     localStorage.setItem('be_token',  document.getElementById('s-token').value.trim());
     localStorage.setItem('be_repo',   document.getElementById('s-repo').value.trim());
     localStorage.setItem('be_branch', document.getElementById('s-branch').value.trim());
-    const newpw = document.getElementById('s-newpw').value;
-    if (newpw) {
-      if (newpw.length < 6) return setStatus('New password must be at least 6 characters.', 'err');
-      localStorage.setItem('be_pw_hash', await sha256(newpw));
-    }
     closeSettings();
     setStatus('Settings saved.', '');
   }
 
   function clearSettings() {
-    if (!confirm("This will remove your token and password. Continue?")) return;
-    ['be_token','be_repo','be_branch','be_pw_hash'].forEach(k => localStorage.removeItem(k));
+    if (!confirm("This will remove your token and settings. Continue?")) return;
+    ['be_token','be_repo','be_branch'].forEach(k => localStorage.removeItem(k));
     sessionStorage.removeItem('be_authed');
     location.reload();
   }
@@ -801,14 +772,7 @@
   // ── Init ─────────────────────────────────────────────────
 
   (function init() {
-    const hash   = localStorage.getItem('be_pw_hash');
-    const authed = sessionStorage.getItem('be_authed');
-    if (!hash) {
-      document.getElementById('lock-login').style.display = 'none';
-      document.getElementById('lock-setup').style.display = '';
-    } else if (authed) {
-      showApp();
-    }
+    if (sessionStorage.getItem('be_authed')) showApp();
   })();
 </script>
 </body>
