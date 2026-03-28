@@ -10,6 +10,8 @@ on:
       - 'admin/**'
       - 'build.js'
       - 'package.json'
+      - '.github/workflows/build.yml'
+  workflow_dispatch:
 
 jobs:
   build:
