@@ -59,12 +59,15 @@ for (const file of fs.readdirSync('public')) {
   console.log('copied', file);
 }
 
-// Admin editor — inject password hash from env
+// Admin editor — hash plain-text credentials from env and inject
+const crypto = require('crypto');
 copyDir('admin', path.join('docs', 'admin'));
 const adminPath = path.join('docs', 'admin', 'index.html');
-const adminHtml = fs.readFileSync(adminPath, 'utf8');
-const pwHash = process.env.ADMIN_PW_HASH || '';
-fs.writeFileSync(adminPath, adminHtml.replace('__ADMIN_PW_HASH__', pwHash));
+let adminHtml = fs.readFileSync(adminPath, 'utf8');
+const hashOf = s => s ? crypto.createHash('sha256').update(s).digest('hex') : '';
+adminHtml = adminHtml.replace('__ADMIN_USER_HASH__',  hashOf(process.env.ADMIN_USER     || ''));
+adminHtml = adminHtml.replace('__ADMIN_PW_HASH__',   hashOf(process.env.ADMIN_PASSWORD  || ''));
+fs.writeFileSync(adminPath, adminHtml);
 console.log('copied admin/');
 
 // Home page

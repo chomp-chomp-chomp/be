@@ -324,9 +324,10 @@
 
     <div id="lock-login">
       <h1 class="lock-title">Editor</h1>
-      <p class="lock-subtitle">Enter your password to continue.</p>
+      <p class="lock-subtitle">Sign in to continue.</p>
       <form class="lock-form" onsubmit="tryLogin(event)">
-        <input class="lock-input" type="password" id="lock-password" placeholder="Password" autofocus autocomplete="current-password">
+        <input class="lock-input" type="text" id="lock-user" placeholder="Username" autofocus autocomplete="username">
+        <input class="lock-input" type="password" id="lock-password" placeholder="Password" autocomplete="current-password">
         <button class="lock-btn" type="submit">Enter →</button>
       </form>
       <p class="lock-error" id="lock-error"></p>
@@ -507,8 +508,9 @@
 
 <script>
   // ── Auth ─────────────────────────────────────────────────
-  // Hash is injected at build time from the ADMIN_PW_HASH GitHub Secret.
-  const ADMIN_HASH = '__ADMIN_PW_HASH__';
+  // Hashes injected at build time from ADMIN_USER / ADMIN_PASSWORD GitHub Secrets.
+  const ADMIN_USER_HASH = '__ADMIN_USER_HASH__';
+  const ADMIN_PW_HASH   = '__ADMIN_PW_HASH__';
 
   async function sha256(str) {
     const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
@@ -528,18 +530,20 @@
 
   async function tryLogin(e) {
     e.preventDefault();
-    const pw = document.getElementById('lock-password').value;
-    if (ADMIN_HASH === '__ADMIN_PW_HASH__') {
-      document.getElementById('lock-error').textContent = 'Admin password not configured. Set ADMIN_PW_HASH in GitHub Secrets.';
+    const user = document.getElementById('lock-user').value;
+    const pw   = document.getElementById('lock-password').value;
+    if (ADMIN_USER_HASH === '__ADMIN_USER_HASH__' || ADMIN_PW_HASH === '__ADMIN_PW_HASH__') {
+      document.getElementById('lock-error').textContent = 'Admin credentials not configured. Set ADMIN_USER and ADMIN_PASSWORD in GitHub Secrets.';
       return;
     }
-    if ((await sha256(pw)) === ADMIN_HASH) {
+    const [uh, ph] = await Promise.all([sha256(user), sha256(pw)]);
+    if (uh === ADMIN_USER_HASH && ph === ADMIN_PW_HASH) {
       sessionStorage.setItem('be_authed', '1');
       showApp();
     } else {
-      document.getElementById('lock-error').textContent = 'Incorrect password.';
+      document.getElementById('lock-error').textContent = 'Incorrect username or password.';
       document.getElementById('lock-password').value = '';
-      document.getElementById('lock-password').focus();
+      document.getElementById('lock-user').focus();
     }
   }
 

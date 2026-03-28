@@ -29,7 +29,8 @@ jobs:
 
       - run: npm run build
         env:
-          ADMIN_PW_HASH: ${{ secrets.ADMIN_PW_HASH }}
+          ADMIN_USER:     ${{ secrets.ADMIN_USER }}
+          ADMIN_PASSWORD: ${{ secrets.ADMIN_PASSWORD }}
 
       - name: Commit and push docs
         run: |
