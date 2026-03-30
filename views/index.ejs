@@ -14,20 +14,23 @@
     <header class="ps-header">
       <div class="header-bar">
         <a href="https://chom.ps" class="chomp-home-link" title="chom.ps">
-          <span class="icon-cookie">🍪</span><span class="icon-heart">♥</span>
+          <div class="site-logo-icon">
+            <img src="https://ik.imagekit.io/chompchomp/logo-default_01ng4rCAq.png" alt="chom.ps" class="logo-default">
+            <img src="https://ik.imagekit.io/chompchomp/logo-hover_Xkgt_S3PG.jpg" alt="chom.ps" class="logo-hover">
+          </div>
         </a>
-        <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
-          <span class="nav-toggle-icon">☰</span>
-          <span class="nav-toggle-close">✕</span>
-        </button>
+        <div class="nav-tools-dropdown">
+          <button class="menu-toggle" onclick="toggleToolsDropdown()">☰</button>
+          <button class="tools-dropdown-btn" onclick="toggleToolsDropdown()">Menu ▼</button>
+          <ul class="tools-dropdown-menu" id="toolsDropdown">
+            <li><a href="https://chom.ps">Chomp</a></li>
+            <li><a href="https://chom.ps/about">About</a></li>
+            <li><a href="https://chom.ps/store">Store</a></li>
+            <li><a href="https://chom.ps/tools/">Lab</a></li>
+            <li><a href="https://chom.ps/tools/ipsum">Ipsum</a></li>
+          </ul>
+        </div>
       </div>
-      <nav class="sandwich-nav" id="sandwich-nav">
-        <a href="https://chom.ps">Chomp</a>
-        <a href="https://chom.ps/about">About</a>
-        <a href="https://chom.ps/store">Store</a>
-        <a href="https://chom.ps/tools/">Lab</a>
-        <a href="https://chom.ps/tools/ipsum">Ipsum</a>
-      </nav>
       <div class="ps-banner">
         <img src="https://ik.imagekit.io/chompchomp/postscript%20light" alt="postscript" class="banner-light">
         <img src="https://ik.imagekit.io/chompchomp/postscript%20dark" alt="postscript" class="banner-dark">
@@ -64,16 +67,20 @@
 
   </div>
   <script>
-    (function () {
-      var btn = document.querySelector('.nav-toggle');
-      var nav = document.getElementById('sandwich-nav');
-      if (btn && nav) {
-        btn.addEventListener('click', function () {
-          var open = nav.classList.toggle('is-open');
-          btn.setAttribute('aria-expanded', open);
-        });
+    function toggleToolsDropdown() {
+      var dropdown = document.getElementById('toolsDropdown');
+      var container = document.querySelector('.nav-tools-dropdown');
+      if (dropdown) dropdown.classList.toggle('active');
+      if (container) container.classList.toggle('active');
+    }
+    document.addEventListener('click', function (e) {
+      if (!e.target.closest('.nav-tools-dropdown')) {
+        var dropdown = document.getElementById('toolsDropdown');
+        var container = document.querySelector('.nav-tools-dropdown');
+        if (dropdown) dropdown.classList.remove('active');
+        if (container) container.classList.remove('active');
       }
-    })();
+    });
   </script>
 </body>
 </html>
