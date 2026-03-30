@@ -169,7 +169,7 @@ a { color: var(--link); text-decoration-thickness: 1px; text-underline-offset: 2
 a:hover { color: var(--link-hover); }
 
 /* =========================================================
-   HEADER / BE
+   HEADER / BE (legacy)
    ========================================================= */
 
 .be-header {
@@ -181,6 +181,170 @@ a:hover { color: var(--link-hover); }
 }
 
 .be-banner img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* =========================================================
+   HEADER / POSTSCRIPT
+   ========================================================= */
+
+.ps-header {
+  margin-bottom: var(--space-xl);
+}
+
+.header-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-s);
+}
+
+/* Cookie / heart home link — morph on hover/click */
+.chomp-home-link {
+  display: inline-block;
+  position: relative;
+  width: 1.2em;
+  height: 1.2em;
+  text-decoration: none;
+  font-size: 20px;
+  line-height: 1;
+}
+
+.icon-cookie,
+.icon-heart {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  line-height: 1;
+  transition: opacity 0.35s ease, transform 0.35s ease, filter 0.35s ease;
+}
+
+/* Light mode: cookie visible, heart hidden */
+.icon-cookie {
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+  filter: blur(0px);
+}
+.icon-heart {
+  opacity: 0;
+  transform: scale(0.4) rotate(-20deg);
+  filter: blur(6px);
+  color: var(--accent);
+}
+
+/* Light mode hover/active: cookie morphs out, heart morphs in */
+.chomp-home-link:hover .icon-cookie,
+.chomp-home-link:active .icon-cookie,
+.chomp-home-link:focus-visible .icon-cookie {
+  opacity: 0;
+  transform: scale(1.6) rotate(15deg);
+  filter: blur(6px);
+}
+.chomp-home-link:hover .icon-heart,
+.chomp-home-link:active .icon-heart,
+.chomp-home-link:focus-visible .icon-heart {
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+  filter: blur(0px);
+}
+
+/* Dark mode: heart visible, cookie hidden */
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) .icon-cookie {
+    opacity: 0;
+    transform: scale(0.4) rotate(-20deg);
+    filter: blur(6px);
+  }
+  html:not([data-theme="light"]) .icon-heart {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+    filter: blur(0px);
+    color: var(--accent);
+  }
+  html:not([data-theme="light"]) .chomp-home-link:hover .icon-cookie,
+  html:not([data-theme="light"]) .chomp-home-link:active .icon-cookie,
+  html:not([data-theme="light"]) .chomp-home-link:focus-visible .icon-cookie {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+    filter: blur(0px);
+  }
+  html:not([data-theme="light"]) .chomp-home-link:hover .icon-heart,
+  html:not([data-theme="light"]) .chomp-home-link:active .icon-heart,
+  html:not([data-theme="light"]) .chomp-home-link:focus-visible .icon-heart {
+    opacity: 0;
+    transform: scale(1.6) rotate(15deg);
+    filter: blur(6px);
+  }
+}
+html[data-theme="dark"] .icon-cookie {
+  opacity: 0;
+  transform: scale(0.4) rotate(-20deg);
+  filter: blur(6px);
+}
+html[data-theme="dark"] .icon-heart {
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+  filter: blur(0px);
+  color: var(--accent);
+}
+html[data-theme="dark"] .chomp-home-link:hover .icon-cookie,
+html[data-theme="dark"] .chomp-home-link:active .icon-cookie,
+html[data-theme="dark"] .chomp-home-link:focus-visible .icon-cookie {
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+  filter: blur(0px);
+}
+html[data-theme="dark"] .chomp-home-link:hover .icon-heart,
+html[data-theme="dark"] .chomp-home-link:active .icon-heart,
+html[data-theme="dark"] .chomp-home-link:focus-visible .icon-heart {
+  opacity: 0;
+  transform: scale(1.6) rotate(15deg);
+  filter: blur(6px);
+}
+
+/* Sandwich toggle button */
+.nav-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px 0 4px 8px;
+  font-size: 20px;
+  color: var(--text);
+  line-height: 1;
+  display: flex;
+  align-items: center;
+}
+.nav-toggle:hover { color: var(--link-hover); }
+
+.nav-toggle-close { display: none; }
+.nav-toggle[aria-expanded="true"] .nav-toggle-icon { display: none; }
+.nav-toggle[aria-expanded="true"] .nav-toggle-close { display: inline; }
+
+/* Sandwich dropdown nav */
+.sandwich-nav {
+  display: none;
+  flex-direction: column;
+  gap: 0;
+  padding: var(--space-xs) 0;
+  margin-bottom: var(--space-m);
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+.sandwich-nav.is-open { display: flex; }
+
+.sandwich-nav a {
+  font-family: var(--font-ui);
+  font-size: 15px;
+  padding: 8px 0;
+  color: var(--text);
+  text-decoration: none;
+}
+.sandwich-nav a:hover { color: var(--link-hover); }
+
+/* Postscript banner */
+.ps-banner img {
   max-width: 100%;
   height: auto;
 }

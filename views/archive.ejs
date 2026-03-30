@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Archive – be.</title>
+  <title>Archive – ps.</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=EB+Garamond:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../style.css">
@@ -11,8 +11,21 @@
 <body>
   <div class="page">
 
-    <nav class="site-nav">
-      <a href="../">← be.</a>
+    <div class="header-bar">
+      <a href="https://chom.ps" class="chomp-home-link" title="chom.ps">
+        <span class="icon-cookie">🍪</span><span class="icon-heart">♥</span>
+      </a>
+      <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+        <span class="nav-toggle-icon">☰</span>
+        <span class="nav-toggle-close">✕</span>
+      </button>
+    </div>
+    <nav class="sandwich-nav" id="sandwich-nav">
+      <a href="https://chom.ps">Chomp</a>
+      <a href="https://chom.ps/about">About</a>
+      <a href="https://chom.ps/store">Store</a>
+      <a href="https://chom.ps/tools/">Lab</a>
+      <a href="https://chom.ps/tools/ipsum">Ipsum</a>
     </nav>
 
     <header class="post-header">
@@ -43,5 +56,17 @@
     </footer>
 
   </div>
+  <script>
+    (function () {
+      var btn = document.querySelector('.nav-toggle');
+      var nav = document.getElementById('sandwich-nav');
+      if (btn && nav) {
+        btn.addEventListener('click', function () {
+          var open = nav.classList.toggle('is-open');
+          btn.setAttribute('aria-expanded', open);
+        });
+      }
+    })();
+  </script>
 </body>
 </html>
