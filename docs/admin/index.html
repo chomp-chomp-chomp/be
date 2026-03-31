@@ -171,7 +171,7 @@
 
     /* ── Editor panel ── */
     .editor-panel {
-      width: 400px;
+      width: clamp(380px, 42%, 560px);
       flex-shrink: 0;
       display: flex;
       flex-direction: column;
@@ -217,7 +217,8 @@
       font-family: var(--font-mono);
       font-size: 12px;
       line-height: 1.7;
-      min-height: 180px;
+      min-height: 320px;
+      resize: vertical;
     }
 
     /* ── Load post ── */
@@ -303,15 +304,38 @@
       max-width: var(--max-text);
     }
 
+    /* ── Mobile tabs ── */
+    .mobile-tabs {
+      display: none;
+      border-bottom: 1px solid var(--rule);
+      background: var(--surface);
+      flex-shrink: 0;
+    }
+    .mobile-tab {
+      flex: 1;
+      padding: 10px;
+      background: none;
+      border: none;
+      border-bottom: 2px solid transparent;
+      font-family: var(--font-ui);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--muted);
+      cursor: pointer;
+      transition: color 0.15s, border-color 0.15s;
+    }
+    .mobile-tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+
     /* ── Mobile ── */
     @media (max-width: 720px) {
       body { overflow: auto; }
+      .mobile-tabs { display: flex; }
       .main { flex-direction: column; overflow: visible; }
-      .editor-panel { width: 100%; border-right: none; border-bottom: 1px solid var(--rule); overflow: visible; }
-      #content-input { min-height: 140px; }
+      .editor-panel { width: 100%; border-right: none; border-bottom: none; overflow: visible; }
+      .preview-panel { display: none; }
+      #content-input { min-height: 220px; }
       .hints-grid { grid-template-columns: 1fr; }
       .lock-card { padding: 36px 28px 32px; }
-      .preview-panel { padding: 24px 18px 48px; }
     }
   </style>
 </head>
@@ -368,6 +392,11 @@
         <button class="btn btn-ghost" onclick="clearSettings()">Forget all</button>
       </div>
     </div>
+  </div>
+
+  <div class="mobile-tabs">
+    <button class="mobile-tab active" onclick="showTab('editor')">Edit</button>
+    <button class="mobile-tab" onclick="showTab('preview')">Preview</button>
   </div>
 
   <div class="main">
@@ -745,7 +774,8 @@
       setStatus('Loading…', '');
       const branch = localStorage.getItem('be_branch') || 'main';
       const file = await ghRequest('GET', `${path}?ref=${branch}`);
-      const post = JSON.parse(atob(file.content.replace(/\n/g, '')));
+      const bytes = Uint8Array.from(atob(file.content.replace(/\s/g, '')), c => c.charCodeAt(0));
+      const post = JSON.parse(new TextDecoder().decode(bytes));
       document.getElementById('title-input').value   = post.title   || '';
       document.getElementById('slug-input').value    = post.slug    || '';
       document.getElementById('eyebrow-input').value = post.eyebrow || '';
@@ -772,6 +802,31 @@
     slugManuallyEdited = false;
     updatePreview();
   }
+
+  // ── Mobile tabs ──────────────────────────────────────────
+
+  function showTab(tab) {
+    var editor  = document.querySelector('.editor-panel');
+    var preview = document.querySelector('.preview-panel');
+    var tabs    = document.querySelectorAll('.mobile-tab');
+    if (tab === 'preview') {
+      editor.style.display  = 'none';
+      preview.style.display = 'block';
+      updatePreview();
+    } else {
+      editor.style.display  = 'flex';
+      preview.style.display = 'none';
+    }
+    tabs[0].classList.toggle('active', tab === 'editor');
+    tabs[1].classList.toggle('active', tab === 'preview');
+  }
+
+  window.addEventListener('resize', function () {
+    if (window.innerWidth > 720) {
+      document.querySelector('.editor-panel').style.display = '';
+      document.querySelector('.preview-panel').style.display = '';
+    }
+  });
 
   // ── Init ─────────────────────────────────────────────────
 
