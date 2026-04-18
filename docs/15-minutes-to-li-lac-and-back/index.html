@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>15-Minutes to Li-Lac and Back – ps.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=EB+Garamond:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <div class="page">
+
+    <div class="header-bar">
+      <a href="https://ps.chom.ps" class="chomp-home-link" title="ps.chom.ps">
+        <div class="site-logo-icon">
+          <img src="https://ik.imagekit.io/chompchomp/logo-default_01ng4rCAq.png" alt="chom.ps" class="logo-default">
+          <img src="https://ik.imagekit.io/chompchomp/logo-hover_Xkgt_S3PG.jpg" alt="chom.ps" class="logo-hover">
+        </div>
+      </a>
+      <div class="nav-tools-dropdown">
+        <button class="menu-toggle" onclick="toggleToolsDropdown()">☰</button>
+        <button class="tools-dropdown-btn" onclick="toggleToolsDropdown()">Menu ▼</button>
+        <ul class="tools-dropdown-menu" id="toolsDropdown">
+          <li><a href="https://chom.ps">Chomp</a></li>
+          <li><a href="https://chom.ps/about">About</a></li>
+          <li><a href="https://chom.ps/store">Store</a></li>
+          <li><a href="https://chom.ps/tools/">Lab</a></li>
+          <li><a href="https://chom.ps/tools/ipsum">Ipsum</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <header class="post-header">
+      <p class="kicker">Essay</p>
+      <h1>15-Minutes to Li-Lac and Back</h1>
+      <p class="meta">April 18, 2026</p>
+      <hr>
+    </header>
+
+    <div class="post-body markdown">
+      <p>One of the perks of working where I work in the city is being so close to great food. But we don&#39;t know the half of what&#39;s out there. I don&#39;t anyway. Sometimes the best thing you can do on an afternoon break is explore. Take 15 mins. That&#39;s all you need, and you need it.</p>
+<p>A co-worker recently challenged me to go on a little field trip during a 15-minute afternoon break: walk a loop from our office over to Li-Lac Chocolates at The Shops in Hudson Yards and back. It would count as a walk, a break, a little neighborhood education, and — crucially — by taking the field trip, I could experience real chocolate.</p>
+<p><a href="https://www.li-lacchocolates.com/">Li-Lac Chocolates</a> is Manhattan&#39;s oldest chocolate house and has been making chocolate in New York City since 1923, when a Greek immigrant named George Demetrious opened a shop on Christopher Street in Greenwich Village. His original recipes — almond bark, hazelnut truffle squares, fudge — are still the ones in use today, made in small batches by hand. The company changed ownership a few times over the decades and now has six locations across the city, including a Hudson Yards shop near my office. It&#39;s a small chocolatier that never automated, never reinvented itself, and is still around over a century later because of that.</p>
+<p>A hundred-year-old chocolate shop, less than ten minutes from my desk, making things by hand. What is right in the world? This.</p>
+<p>And so of course I went. I timed it at 22 minutes for the entire loop — but I didn&#39;t know where the elevators were in the Shops at Hudson Yards, and then it took some time to merely ponder the chocolate, much less choose what to buy. Wonderfully, the sales associate had samples. I took a little piece of bittersweet almond bark. I thought about asking for more, but I didn&#39;t want to push it and my timer was ticking. Hell yes, it was good chocolate. Very good.</p>
+<p>Before leaving, I bought something I could share: a 1 lb bag of milk chocolate nonpareils.</p>
+<hr>
+<p><strong>0–4 min / The Walk:</strong> Step out of the office and head west toward the Shops at Hudson Yards. This is the part where you breathe and anticipate.</p>
+<p><strong>4–9 min / The Selection:</strong> Enter the Shops and take the escalator to Level 4. Li-Lac&#39;s Hudson Yards outpost carries the full range - but if you want a place to start, the Nonpareils (milk chocolate discs blanketed in rainbow sprinkles, a New York classic) and the Almond Bark (freshly roasted almonds, chocolate, nothing else) are both exactly what a 15-minute break deserves. Everything is made in small batches using recipes that probably predate your grandparents. That&#39;s the 1923 spirit.</p>
+<p><strong>9–15 min / The Return:</strong> Walk back through the plaza. Don&#39;t rush it. The whole point is the fresh air as much as the chocolate - one is better with the other anyway.</p>
+<hr>
+<p>Stepping away from focused work gives the brain a chance to shift into a more diffuse mode of thinking, where connections form more freely and problems that felt stuck start to loosen. You come back with more mental clarity and, counterintuitively, more capacity — not less. You could also come back with chocolate.</p>
+<p><em>Break is over. Back to work. Share the chocolate.</em></p>
+<p><img src="https://ik.imagekit.io/chompchomp/IMG_6552.JPG" alt="Li-Lac Field Trip"></p>
+
+    </div>
+
+    <div class="post-back">
+      <a href="../">← All posts</a>
+    </div>
+
+    <footer class="site-colophon">
+      <div class="colophon-inner">
+        <div class="colophon-line">An archive of zen baking and chomp theory</div>
+        <div class="colophon-line small"><a href="https://chom.ps">chom.ps</a></div>
+      </div>
+    </footer>
+
+  </div>
+  <script>
+    function toggleToolsDropdown() {
+      var dropdown = document.getElementById('toolsDropdown');
+      var container = document.querySelector('.nav-tools-dropdown');
+      if (dropdown) dropdown.classList.toggle('active');
+      if (container) container.classList.toggle('active');
+    }
+    document.addEventListener('click', function (e) {
+      if (!e.target.closest('.nav-tools-dropdown')) {
+        var dropdown = document.getElementById('toolsDropdown');
+        var container = document.querySelector('.nav-tools-dropdown');
+        if (dropdown) dropdown.classList.remove('active');
+        if (container) container.classList.remove('active');
+      }
+    });
+  </script>
+</body>
+</html>
