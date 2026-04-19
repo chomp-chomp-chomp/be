@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Editor · The Baking Experience</title>
+  <title>Editor · .ps</title>
   <!-- Blog CSS: provides all theme tokens and post styles used in the preview -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=EB+Garamond:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&display=swap" rel="stylesheet">
@@ -344,7 +344,7 @@
 <!-- ── Lock screen ────────────────────────────────────── -->
 <div id="lock-screen">
   <div class="lock-card">
-    <a class="lock-logo" href="../">The Baking Experience</a>
+    <a class="lock-logo" href="../">.ps</a>
 
     <div id="lock-login">
       <h1 class="lock-title">Editor</h1>
@@ -363,7 +363,7 @@
 <div id="app" style="display:none; flex-direction:column;">
 
   <div class="topbar">
-    <a class="topbar-logo" href="../">The Baking Experience</a>
+    <a class="topbar-logo" href="../">.ps</a>
     <span class="topbar-sep">/</span>
     <span class="topbar-title">New Post</span>
     <div class="topbar-spacer"></div>
@@ -521,7 +521,7 @@
       <div class="preview-label">Preview</div>
       <div class="preview-blog">
         <nav class="site-nav" style="margin-bottom:var(--space-m)">
-          <span style="color:var(--muted)">← The Baking Experience</span>
+          <span style="color:var(--muted)">← .ps</span>
         </nav>
         <header class="post-header" id="preview-header"></header>
         <div id="preview-body-wrap" class="post-body markdown"></div>
@@ -538,8 +538,8 @@
 <script>
   // ── Auth ─────────────────────────────────────────────────
   // Hashes injected at build time from ADMIN_USER / ADMIN_PASSWORD GitHub Secrets.
-  const ADMIN_USER_HASH = '99eb5a58c917e47d8bf11fac8ab38503e9ee27ab46d926482ad0b032d09c8d55';
-  const ADMIN_PW_HASH   = '0012ae256c2b3ea85b8ace0d3994e32d7491f862873c5cf14bdcf76c15d47cf6';
+  const ADMIN_USER_HASH = '';
+  const ADMIN_PW_HASH   = '';
 
   async function sha256(str) {
     const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
