@@ -11,6 +11,10 @@ function formatDate(dateStr) {
   });
 }
 
+function wordCount(markdown) {
+  return markdown.replace(/[#*`_[\]()>~]/g, ' ').split(/\s+/).filter(Boolean).length;
+}
+
 function render(template, data) {
   const src = fs.readFileSync(path.join('views', template), 'utf8');
   return ejs.render(src, data, { filename: path.join('views', template) });
@@ -38,6 +42,8 @@ const posts = fs.readdirSync('posts')
   .map(f => {
     const post = JSON.parse(fs.readFileSync(path.join('posts', f), 'utf8'));
     post.contentHtml = marked.parse(post.content);
+    post.wordCount = wordCount(post.content);
+    post.readingTime = Math.max(1, Math.ceil(post.wordCount / 200));
     return post;
   })
   .sort((a, b) => new Date(b.date) - new Date(a.date));

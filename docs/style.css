@@ -168,6 +168,9 @@ strong, b { font-weight: 600; }
 a { color: var(--link); text-decoration-thickness: 1px; text-underline-offset: 2px; }
 a:hover { color: var(--link-hover); }
 
+.post-body a { color: var(--accent); }
+.post-body a:hover { color: var(--link-hover); }
+
 /* =========================================================
    HEADER / BE (legacy)
    ========================================================= */
@@ -715,9 +718,21 @@ html[data-theme="dark"] .banner-dark  { display: block; }
   margin: 8px auto 24px;
 }
 
+/* Post footer (word count, reading time) */
+.post-footer {
+  margin-top: var(--space-xl);
+  padding-top: var(--space-m);
+  border-top: 1px solid var(--rule);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-family: var(--font-ui);
+  font-size: 13px;
+  color: var(--muted);
+}
+
 /* Post back link */
 .post-back {
-  margin-top: var(--space-xl);
   font-family: var(--font-ui);
   font-size: 14px;
 }
