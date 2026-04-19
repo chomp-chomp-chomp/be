@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>What we do at this hour – .ps</title>
+  <title>About – .ps</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=EB+Garamond:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../style.css">
@@ -32,29 +32,18 @@
     </div>
 
     <header class="post-header">
-      <p class="kicker">Mindfulness</p>
-      <h1>What we do at this hour</h1>
-      <p class="meta">March 27, 2026</p>
+      <h1>About</h1>
       <hr>
     </header>
 
-    <div class="post-body markdown">
-      <p>The world is asleep, and so I move quietly through it, one cookie at a time.</p>
-<p>At 4 a.m., the kitchen is a small universe. The lights are dim enough to see, not enough to awaken the sleepers. Every movement is deliberate, even when I am too tired to be deliberate. The spoon scrapes gently. The cabinet opens with a whisper. The oven door closes like a secret. The chaos of the world is suspended, and I, too, am suspended within it.</p>
-<p>Except for the dog. There is always a dog. Should always be a dog.</p>
-<p>Dogs understand the universe better than anyone else. So, in my case, it&#39;s Scrubber who understands it better than me. He sits beside me, still, alert, perhaps judging my kneading technique. There is no need for words. Sometimes he sighs. Sometimes he leans just a little, as if to say: I am here, and this is what we do at this hour. His presence is the quiet anchor of my meditation, and my sole audience.</p>
-<p>I listen to music with one headphone, leaving the other ear open for the subtle sounds of the kitchen and the sighs of the dog. Sometimes I hum quietly - to him, to the dough, or to the cooling cookies - and the dough seems to respond with a pliancy it would not otherwise show. Perhaps it is listening. Perhaps it is indifferent. Either way, it folds itself gently beneath my hands.</p>
-<p>While the cookies bake, I clean. Bowls, counters, trays. The work is simple, and yet necessary. A clean kitchen is a clean mind. And a dozen cookies, arranged in imperfect rows on the cooling rack, is a small triumph over impermanence. Even a monk would nod.</p>
-<p>By 6 a.m., there is stillness. The cookies are warm. My dog is still beside me, contemplating the mysteries of butter and sugar. The house sleeps. The world sleeps. And I have done something - quietly, humbly, and without ceremony - that is entirely my own.</p>
-<p>It is Zen. It is absurd. It is baking.</p>
-<p>And if anyone were to wake up and ask what I am doing, I would simply smile, point to the tray, and say: Practicing impermanence, with chocolate chips.</p>
-<p><img src="https://ik.imagekit.io/chompchomp/4%20am%20baking%202.png" alt="4 am"></p>
-
+    <div class="post-body markdown about">
+      <p>A personal, lyrical blog about the meditative side of everyday cooking and baking — less about recipes and more about the quiet rituals, patience, and emotional texture that surround them.</p>
+      <p>Moments like middle-of-the-night cookie baking or a temperamental oven become entry points into deeper reflections on grief, presence, and finding meaning in small acts.</p>
+      <p class="meta"><a href="mailto:db@chom.ps">db@chom.ps</a></p>
     </div>
 
-    <div class="post-footer">
-      <a href="../" class="post-back">← All posts</a>
-      <span>376 words · 2 min read</span>
+    <div class="post-back" style="margin-top: var(--space-xl);">
+      <a href="../">← All posts</a>
     </div>
 
     <footer class="site-colophon">
@@ -70,7 +59,7 @@
       var dropdown = document.getElementById('toolsDropdown');
       var container = document.querySelector('.nav-tools-dropdown');
       if (dropdown) dropdown.classList.toggle('active');
-      if (container) container.classList.toggle('active');
+      if (container) container.classList.remove('active');
     }
     document.addEventListener('click', function (e) {
       if (!e.target.closest('.nav-tools-dropdown')) {
