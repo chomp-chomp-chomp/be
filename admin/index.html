@@ -283,7 +283,25 @@
     .marker-desc { color: var(--muted); opacity: 0.75; font-size: 11px; }
     .markers-list { display: flex; flex-direction: column; gap: 8px; }
 
-    .publish-row { display: flex; justify-content: flex-end; padding-top: 4px; }
+    .publish-row { display: flex; justify-content: space-between; align-items: center; padding-top: 4px; gap: 8px; }
+    .actions-left { display: flex; gap: 6px; }
+    .delete-row { padding-top: 2px; }
+    .btn-danger { background: none; color: var(--accent); border: 1px solid var(--rule); }
+    .btn-danger:hover { border-color: var(--accent); }
+    #post-status-row { padding: 2px 0 6px; }
+    .status-chip {
+      display: inline-flex;
+      align-items: center;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      border: 1px solid var(--rule);
+      color: var(--muted);
+    }
+    .status-chip.draft { border-color: var(--accent); color: var(--accent); }
 
     /* ── PDF upload ── */
     .pdf-section {
@@ -459,6 +477,10 @@
 
       <hr class="divider-line">
 
+      <div id="post-status-row" style="display:none">
+        <span class="status-chip" id="post-status-chip"></span>
+      </div>
+
       <div class="field">
         <label>Title</label>
         <input id="title-input" placeholder="Post title…" oninput="onTitleChange(this.value)" autocomplete="off">
@@ -558,7 +580,14 @@
       </div>
 
       <div class="publish-row">
+        <div class="actions-left">
+          <button class="btn btn-ghost" id="draft-btn" onclick="saveAsDraft()">Save as Draft</button>
+          <button class="btn btn-ghost" id="archive-btn" style="display:none" onclick="toggleArchive()">Archive</button>
+        </div>
         <button class="btn btn-primary" id="publish-btn" onclick="publish()">Publish →</button>
+      </div>
+      <div class="delete-row" id="delete-row" style="display:none">
+        <button class="btn btn-danger" id="delete-btn" onclick="deletePost()">Delete post</button>
       </div>
 
       <!-- PDF Upload -->
@@ -675,6 +704,8 @@
   // ── Slug ─────────────────────────────────────────────────
 
   let slugManuallyEdited = false;
+  let currentPostPath = null;
+  let currentPostStatus = 'published';
 
   function toSlug(t) {
     return t.toLowerCase().replace(/['']/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'');
@@ -761,9 +792,9 @@
 
   function b64(str) { return btoa(unescape(encodeURIComponent(str))); }
 
-  // ── Publish ──────────────────────────────────────────────
+  // ── Save / publish / draft / archive / delete ────────────
 
-  async function publish() {
+  async function savePost({ status = null, btnId = 'publish-btn', msgNew = 'Add post', msgExisting = 'Update post', successMsg = null } = {}) {
     const title   = document.getElementById('title-input').value.trim();
     const slug    = document.getElementById('slug-input').value.trim();
     const eyebrow = document.getElementById('eyebrow-input').value.trim();
@@ -782,27 +813,74 @@
     if (eyebrow) post.eyebrow = eyebrow;
     if (excerpt) post.excerpt = excerpt;
     if (mode)    post.mode    = mode;
+    if (status)  post.status  = status;
 
-    const btn = document.getElementById('publish-btn');
-    btn.disabled = true;
-    setStatus('Publishing…', '');
+    const btn = document.getElementById(btnId);
+    if (btn) btn.disabled = true;
+    setStatus('Saving…', '');
 
     try {
       const filePath = `posts/${slug}.json`;
       const existing = await getFileSHA(filePath);
       const body = {
-        message: existing ? `Update post: ${title}` : `Add post: ${title}`,
+        message: `${existing ? msgExisting : msgNew}: ${title}`,
         content: b64(JSON.stringify(post, null, 2) + '\n'),
         branch,
       };
       if (existing) body.sha = existing;
       await ghRequest('PUT', filePath, body);
-      setStatus(existing ? 'Updated! Building…' : 'Published! Building…', 'ok');
+      currentPostPath = filePath;
+      currentPostStatus = status || 'published';
+      updatePostStatusUI();
+      setStatus(successMsg || (existing ? 'Updated! Building…' : 'Published! Building…'), 'ok');
       fetchPostList();
     } catch (err) {
       setStatus(err.message, 'err');
     } finally {
-      btn.disabled = false;
+      if (btn) btn.disabled = false;
+    }
+  }
+
+  async function publish() {
+    await savePost({ btnId: 'publish-btn', msgNew: 'Add post', msgExisting: 'Update post' });
+  }
+
+  async function saveAsDraft() {
+    await savePost({ status: 'draft', btnId: 'draft-btn', msgNew: 'Save draft', msgExisting: 'Update draft', successMsg: 'Saved as draft.' });
+  }
+
+  async function toggleArchive() {
+    if (currentPostStatus === 'archived') {
+      await savePost({ status: null, btnId: 'archive-btn', msgNew: 'Restore post', msgExisting: 'Restore post', successMsg: 'Restored. Building…' });
+    } else {
+      await savePost({ status: 'archived', btnId: 'archive-btn', msgNew: 'Archive post', msgExisting: 'Archive post', successMsg: 'Archived.' });
+    }
+  }
+
+  async function deletePost() {
+    const title = document.getElementById('title-input').value.trim() || 'this post';
+    if (!confirm(`Permanently delete "${title}"? This cannot be undone.`)) return;
+
+    const slug = document.getElementById('slug-input').value.trim();
+    if (!slug) return setStatus('No slug — cannot identify the file.', 'err');
+
+    const branch = localStorage.getItem('be_branch') || 'main';
+    const filePath = `posts/${slug}.json`;
+
+    const btn = document.getElementById('delete-btn');
+    if (btn) btn.disabled = true;
+    setStatus('Deleting…', '');
+    try {
+      const sha = await getFileSHA(filePath);
+      if (!sha) return setStatus('File not found on this branch.', 'err');
+      await ghRequest('DELETE', filePath, { message: `Delete post: ${title}`, sha, branch });
+      setStatus('Deleted. Building…', 'ok');
+      clearEditor();
+      fetchPostList();
+    } catch (err) {
+      setStatus(err.message, 'err');
+    } finally {
+      if (btn) btn.disabled = false;
     }
   }
 
@@ -812,16 +890,29 @@
     try {
       const branch = localStorage.getItem('be_branch') || 'main';
       const data = await ghRequest('GET', `posts?ref=${branch}`);
+      const files = data.filter(f => f.name.endsWith('.json'));
+
+      const infos = await Promise.all(files.map(async f => {
+        try {
+          const fileData = await ghRequest('GET', `${f.path}?ref=${branch}`);
+          const bytes = Uint8Array.from(atob(fileData.content.replace(/\s/g, '')), c => c.charCodeAt(0));
+          const { status } = JSON.parse(new TextDecoder().decode(bytes));
+          return { path: f.path, name: f.name, status: status || 'published' };
+        } catch {
+          return { path: f.path, name: f.name, status: 'published' };
+        }
+      }));
+
       const select = document.getElementById('load-select');
-      // keep the "— new post —" option, remove any old ones
       select.innerHTML = '<option value="">— new post —</option>';
-      data
-        .filter(f => f.name.endsWith('.json'))
+      infos
         .sort((a, b) => a.name.localeCompare(b.name))
-        .forEach(f => {
+        .forEach(({ path, name, status }) => {
           const opt = document.createElement('option');
-          opt.value = f.path;
-          opt.textContent = f.name.replace('.json', '');
+          opt.value = path;
+          const label = name.replace('.json', '');
+          const suffix = status === 'draft' ? ' (draft)' : status === 'archived' ? ' (archived)' : '';
+          opt.textContent = label + suffix;
           select.appendChild(opt);
         });
     } catch (e) {
@@ -850,6 +941,9 @@
       document.getElementById('content-input').value = post.content || '';
       document.getElementById('mode-input').value    = post.mode    || '';
       slugManuallyEdited = true;
+      currentPostPath = path;
+      currentPostStatus = post.status || 'published';
+      updatePostStatusUI();
       updatePreview();
       setStatus('Loaded — edit and publish to update.', '');
     } catch (e) {
@@ -866,6 +960,9 @@
     document.getElementById('content-input').value = '';
     document.getElementById('mode-input').value    = '';
     slugManuallyEdited = false;
+    currentPostPath = null;
+    currentPostStatus = 'published';
+    updatePostStatusUI();
     updatePreview();
   }
 
@@ -893,6 +990,36 @@
       document.querySelector('.preview-panel').style.display = '';
     }
   });
+
+  // ── Post status UI ───────────────────────────────────────
+
+  function updatePostStatusUI() {
+    const statusRow = document.getElementById('post-status-row');
+    const chip = document.getElementById('post-status-chip');
+    const archiveBtn = document.getElementById('archive-btn');
+    const deleteRow = document.getElementById('delete-row');
+
+    if (currentPostStatus === 'draft') {
+      chip.textContent = 'Draft';
+      chip.className = 'status-chip draft';
+      statusRow.style.display = 'block';
+    } else if (currentPostStatus === 'archived') {
+      chip.textContent = 'Archived';
+      chip.className = 'status-chip archived';
+      statusRow.style.display = 'block';
+    } else {
+      statusRow.style.display = 'none';
+    }
+
+    if (currentPostPath) {
+      archiveBtn.textContent = currentPostStatus === 'archived' ? 'Restore' : 'Archive';
+      archiveBtn.style.display = '';
+      deleteRow.style.display = 'flex';
+    } else {
+      archiveBtn.style.display = 'none';
+      deleteRow.style.display = 'none';
+    }
+  }
 
   // ── PDF upload ────────────────────────────────────────────
 

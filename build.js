@@ -46,6 +46,7 @@ const posts = fs.readdirSync('posts')
     post.readingTime = Math.max(1, Math.ceil(post.wordCount / 200));
     return post;
   })
+  .filter(post => !post.status || post.status === 'published')
   .sort((a, b) => new Date(b.date) - new Date(a.date));
 
 // ── Build ─────────────────────────────────────────────────
