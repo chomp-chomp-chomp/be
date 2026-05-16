@@ -60,10 +60,8 @@ if (fs.existsSync(cnameFile)) {
 }
 
 // Public assets
-for (const file of fs.readdirSync('public')) {
-  fs.copyFileSync(path.join('public', file), path.join('docs', file));
-  console.log('copied', file);
-}
+copyDir('public', 'docs');
+console.log('copied public/');
 
 // Admin editor — hash plain-text credentials from env and inject
 const crypto = require('crypto');
