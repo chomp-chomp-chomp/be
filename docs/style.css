@@ -478,6 +478,25 @@ figure { margin: 32px 0; }
 figcaption { margin-top: 10px; font-family: var(--font-ui); font-size: 13px; line-height: 1.4; color: var(--muted); }
 
 /* =========================================================
+   PDF EMBEDS
+   ========================================================= */
+
+.pdf-embed { margin: var(--space-l) 0; }
+
+.pdf-frame {
+  display: block;
+  width: 100%;
+  height: 680px;
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  background: var(--code-bg);
+}
+
+@media (max-width: 768px) {
+  .pdf-frame { height: 420px; }
+}
+
+/* =========================================================
    NAV
    ========================================================= */
 
