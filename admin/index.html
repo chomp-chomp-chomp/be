@@ -302,6 +302,7 @@
       color: var(--muted);
     }
     .status-chip.draft { border-color: var(--accent); color: var(--accent); }
+    .status-chip.unlisted { border-style: dashed; }
 
     /* ── PDF upload ── */
     .pdf-section {
@@ -582,6 +583,7 @@
       <div class="publish-row">
         <div class="actions-left">
           <button class="btn btn-ghost" id="draft-btn" onclick="saveAsDraft()">Save as Draft</button>
+          <button class="btn btn-ghost" id="unlisted-btn" style="display:none" onclick="toggleUnlisted()">Make Unlisted</button>
           <button class="btn btn-ghost" id="archive-btn" style="display:none" onclick="toggleArchive()">Archive</button>
         </div>
         <button class="btn btn-primary" id="publish-btn" onclick="publish()">Publish →</button>
@@ -911,7 +913,7 @@
           const opt = document.createElement('option');
           opt.value = path;
           const label = name.replace('.json', '');
-          const suffix = status === 'draft' ? ' (draft)' : status === 'archived' ? ' (archived)' : '';
+          const suffix = status === 'draft' ? ' (draft)' : status === 'archived' ? ' (archived)' : status === 'unlisted' ? ' (unlisted)' : '';
           opt.textContent = label + suffix;
           select.appendChild(opt);
         });
@@ -996,28 +998,41 @@
   function updatePostStatusUI() {
     const statusRow = document.getElementById('post-status-row');
     const chip = document.getElementById('post-status-chip');
+    const unlistedBtn = document.getElementById('unlisted-btn');
     const archiveBtn = document.getElementById('archive-btn');
     const deleteRow = document.getElementById('delete-row');
 
     if (currentPostStatus === 'draft') {
-      chip.textContent = 'Draft';
-      chip.className = 'status-chip draft';
+      chip.textContent = 'Draft'; chip.className = 'status-chip draft';
       statusRow.style.display = 'block';
     } else if (currentPostStatus === 'archived') {
-      chip.textContent = 'Archived';
-      chip.className = 'status-chip archived';
+      chip.textContent = 'Archived'; chip.className = 'status-chip archived';
+      statusRow.style.display = 'block';
+    } else if (currentPostStatus === 'unlisted') {
+      chip.textContent = 'Unlisted'; chip.className = 'status-chip unlisted';
       statusRow.style.display = 'block';
     } else {
       statusRow.style.display = 'none';
     }
 
     if (currentPostPath) {
+      unlistedBtn.textContent = currentPostStatus === 'unlisted' ? 'Re-list' : 'Make Unlisted';
+      unlistedBtn.style.display = currentPostStatus === 'archived' ? 'none' : '';
       archiveBtn.textContent = currentPostStatus === 'archived' ? 'Restore' : 'Archive';
       archiveBtn.style.display = '';
       deleteRow.style.display = 'flex';
     } else {
+      unlistedBtn.style.display = 'none';
       archiveBtn.style.display = 'none';
       deleteRow.style.display = 'none';
+    }
+  }
+
+  async function toggleUnlisted() {
+    if (currentPostStatus === 'unlisted') {
+      await savePost({ status: null, btnId: 'unlisted-btn', msgNew: 'Re-list post', msgExisting: 'Re-list post', successMsg: 'Re-listed. Building…' });
+    } else {
+      await savePost({ status: 'unlisted', btnId: 'unlisted-btn', msgNew: 'Unlist post', msgExisting: 'Unlist post', successMsg: 'Unlisted. Building…' });
     }
   }
 
