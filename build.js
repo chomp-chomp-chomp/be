@@ -37,7 +37,7 @@ function copyDir(src, dest) {
 
 // ── Load posts ────────────────────────────────────────────
 
-const posts = fs.readdirSync('posts')
+const allBuiltPosts = fs.readdirSync('posts')
   .filter(f => f.endsWith('.json'))
   .map(f => {
     const post = JSON.parse(fs.readFileSync(path.join('posts', f), 'utf8'));
@@ -46,7 +46,11 @@ const posts = fs.readdirSync('posts')
     post.readingTime = Math.max(1, Math.ceil(post.wordCount / 200));
     return post;
   })
+  .filter(post => !post.status || post.status === 'published' || post.status === 'unlisted')
   .sort((a, b) => new Date(b.date) - new Date(a.date));
+
+// unlisted posts get their page but are excluded from home/archive listings
+const posts = allBuiltPosts.filter(post => !post.status || post.status === 'published');
 
 // ── Build ─────────────────────────────────────────────────
 
@@ -84,8 +88,8 @@ write('docs/archive/index.html', render('archive.ejs', { posts, formatDate }));
 write('docs/about/index.html', render('about.ejs', {}));
 
 // Post pages
-for (const post of posts) {
+for (const post of allBuiltPosts) {
   write(path.join('docs', post.slug, 'index.html'), render('post.ejs', { post, formatDate }));
 }
 
-console.log(`\nBuilt ${posts.length} post(s) → docs/`);
+console.log(`\nBuilt ${allBuiltPosts.length} post(s) → docs/`);
