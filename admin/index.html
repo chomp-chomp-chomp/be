@@ -549,7 +549,7 @@
               <span class="marker-desc">Recipe stats grid (use with Recipe mode)</span>
             </div>
             <div class="marker-hint">
-              <code>&lt;figure class="pdf-embed"&gt;&lt;iframe src="/pdfs/file.pdf" title="…" class="pdf-frame" loading="lazy"&gt;&lt;/iframe&gt;&lt;figcaption&gt;&lt;a href="/pdfs/file.pdf" target="_blank" rel="noopener"&gt;Open ↗&lt;/a&gt;&lt;/figcaption&gt;&lt;/figure&gt;</code>
+              <code>&lt;figure class="pdf-embed"&gt;&lt;object data="/pdfs/file.pdf" type="application/pdf" class="pdf-frame"&gt;&lt;a href="/pdfs/file.pdf" target="_blank" rel="noopener" class="pdf-placeholder"&gt;Open ↗&lt;/a&gt;&lt;/object&gt;&lt;figcaption&gt;…&lt;/figcaption&gt;&lt;/figure&gt;</code>
               <span class="marker-desc">Embedded PDF — use Upload PDF below to generate this automatically</span>
             </div>
           </div>
@@ -565,8 +565,12 @@
       <div class="pdf-section">
         <div class="pdf-section-title">Upload PDF</div>
         <div class="pdf-upload-row">
-          <input type="file" id="pdf-file-input" accept=".pdf">
+          <input type="file" id="pdf-file-input" accept=".pdf" placeholder="PDF file">
           <button class="btn btn-ghost" onclick="uploadPdf()">Upload</button>
+        </div>
+        <div class="pdf-upload-row">
+          <input type="file" id="pdf-cover-input" accept="image/*">
+          <span style="font-size:11px;color:var(--muted);white-space:nowrap;align-self:center;">cover image (optional)</span>
         </div>
         <div class="pdf-code-box" id="pdf-code-box">
           <textarea id="pdf-embed-code" rows="4" readonly onclick="this.select()"></textarea>
@@ -903,36 +907,45 @@
 
   async function uploadPdf() {
     const input = document.getElementById('pdf-file-input');
+    const coverInput = document.getElementById('pdf-cover-input');
     const file = input.files[0];
+    const cover = coverInput.files[0] || null;
     if (!file) return setStatus('Choose a PDF file first.', 'err');
     if (!file.name.endsWith('.pdf')) return setStatus('File must be a .pdf', 'err');
     if (!localStorage.getItem('be_token')) return setStatus('Open Settings and add your GitHub token.', 'err');
 
     const branch = localStorage.getItem('be_branch') || 'main';
-    const filePath = `public/pdfs/${file.name}`;
+    const uploads = [{ file, path: `public/pdfs/${file.name}`, label: 'PDF' }];
+    let coverName = null;
+    if (cover) {
+      const ext = cover.name.includes('.') ? cover.name.slice(cover.name.lastIndexOf('.')) : '';
+      coverName = file.name.replace('.pdf', '') + '-cover' + ext;
+      uploads.push({ file: cover, path: `public/pdfs/${coverName}`, label: 'cover' });
+    }
 
-    setStatus('Uploading PDF…', '');
+    setStatus(`Uploading…`, '');
     try {
-      const base64 = await fileToBase64(file);
-      const existing = await getFileSHA(filePath);
-      const body = {
-        message: `Add PDF: ${file.name}`,
-        content: base64,
-        branch,
-      };
-      if (existing) { body.sha = existing; body.message = `Update PDF: ${file.name}`; }
-      await ghRequest('PUT', filePath, body);
-      setStatus('PDF uploaded! Building…', 'ok');
-      showPdfEmbedCode(file.name);
+      for (const u of uploads) {
+        const base64 = await fileToBase64(u.file);
+        const existing = await getFileSHA(u.path);
+        const body = { message: `Add ${u.label}: ${u.file.name}`, content: base64, branch };
+        if (existing) { body.sha = existing; body.message = `Update ${u.label}: ${u.file.name}`; }
+        await ghRequest('PUT', u.path, body);
+      }
+      setStatus('Uploaded! Building…', 'ok');
+      showPdfEmbedCode(file.name, coverName);
     } catch (err) {
       setStatus(err.message, 'err');
     }
   }
 
-  function showPdfEmbedCode(filename) {
+  function showPdfEmbedCode(filename, coverName) {
     const p = `/pdfs/${filename}`;
     const title = filename.replace('.pdf', '').replace(/-/g, ' ');
-    const code = `<figure class="pdf-embed">\n  <iframe src="${p}" title="${title}" class="pdf-frame" loading="lazy"></iframe>\n  <figcaption><a href="${p}" target="_blank" rel="noopener">Open ${title} ↗</a></figcaption>\n</figure>`;
+    const fallback = coverName
+      ? `<a href="${p}" target="_blank" rel="noopener"><img src="/pdfs/${coverName}" alt="${title}" class="pdf-cover"></a>`
+      : `<a href="${p}" target="_blank" rel="noopener" class="pdf-placeholder">Open ${title} ↗</a>`;
+    const code = `<figure class="pdf-embed">\n  <object data="${p}" type="application/pdf" class="pdf-frame">\n    ${fallback}\n  </object>\n  <figcaption><a href="${p}" target="_blank" rel="noopener">Open ${title} ↗</a></figcaption>\n</figure>`;
     document.getElementById('pdf-embed-code').value = code;
     document.getElementById('pdf-code-box').style.display = 'flex';
   }
