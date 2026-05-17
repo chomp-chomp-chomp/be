@@ -94,6 +94,16 @@ When sweetness arrives without effort, joy needs no ornament.</p>
         if (container) container.classList.remove('active');
       }
     });
+    // On mobile, extract cover image from inside <object> so CSS can display it
+    if (window.matchMedia('(max-width: 768px)').matches) {
+      document.querySelectorAll('.pdf-embed').forEach(function(embed) {
+        var obj = embed.querySelector('object.pdf-frame');
+        if (!obj || embed.querySelector('.pdf-mobile')) return;
+        var div = document.createElement('div');
+        div.innerHTML = obj.innerHTML;
+        obj.parentNode.insertBefore(div, obj.nextSibling);
+      });
+    }
   </script>
 </body>
 </html>
