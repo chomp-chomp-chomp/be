@@ -867,16 +867,24 @@
     if (!slug) return setStatus('No slug — cannot identify the file.', 'err');
 
     const branch = localStorage.getItem('be_branch') || 'main';
-    const filePath = `posts/${slug}.json`;
+    const postPath = `posts/${slug}.json`;
+    const docsPath = `docs/${slug}/index.html`;
 
     const btn = document.getElementById('delete-btn');
     if (btn) btn.disabled = true;
     setStatus('Deleting…', '');
     try {
-      const sha = await getFileSHA(filePath);
+      const sha = await getFileSHA(postPath);
       if (!sha) return setStatus('File not found on this branch.', 'err');
-      await ghRequest('DELETE', filePath, { message: `Delete post: ${title}`, sha, branch });
-      setStatus('Deleted. Building…', 'ok');
+      await ghRequest('DELETE', postPath, { message: `Delete post: ${title}`, sha, branch });
+
+      // Also remove the built page immediately so the URL goes dark right away
+      const docsSha = await getFileSHA(docsPath);
+      if (docsSha) {
+        await ghRequest('DELETE', docsPath, { message: `Remove page: ${slug}`, sha: docsSha, branch });
+      }
+
+      setStatus('Deleted.', 'ok');
       clearEditor();
       fetchPostList();
     } catch (err) {
