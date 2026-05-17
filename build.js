@@ -87,6 +87,9 @@ write('docs/archive/index.html', render('archive.ejs', { posts, formatDate }));
 // About page
 write('docs/about/index.html', render('about.ejs', {}));
 
+// 404 page
+write('docs/404.html', render('404.ejs', {}));
+
 // Post pages
 for (const post of allBuiltPosts) {
   write(path.join('docs', post.slug, 'index.html'), render('post.ejs', { post, formatDate }));
