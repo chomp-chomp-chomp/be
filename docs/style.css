@@ -482,7 +482,7 @@ figcaption { margin-top: 10px; font-family: var(--font-ui); font-size: 13px; lin
    ========================================================= */
 
 .pdf-embed { margin: var(--space-l) 0; }
-.pdf-embed figcaption { margin-top: 5px; }
+.markdown .pdf-embed figcaption { margin-top: 5px; }
 
 .pdf-frame {
   display: block;
