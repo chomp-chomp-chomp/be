@@ -1084,10 +1084,10 @@
   function showPdfEmbedCode(filename, coverName) {
     const p = `/pdfs/${filename}`;
     const title = filename.replace('.pdf', '').replace(/-/g, ' ');
-    const fallback = coverName
-      ? `<a href="${p}" target="_blank" rel="noopener"><img src="/pdfs/${coverName}" alt="${title}" class="pdf-cover"></a>`
-      : `<a href="${p}" target="_blank" rel="noopener" class="pdf-placeholder">Open ${title} ↗</a>`;
-    const code = `<figure class="pdf-embed">\n  <object data="${p}" type="application/pdf" class="pdf-frame">\n    ${fallback}\n  </object>\n  <figcaption><a href="${p}" target="_blank" rel="noopener">Open ${title} ↗</a></figcaption>\n</figure>`;
+    const mobile = coverName
+      ? `<a href="${p}" target="_blank" rel="noopener" class="pdf-mobile"><img src="/pdfs/${coverName}" alt="${title}" class="pdf-cover"></a>`
+      : `<a href="${p}" target="_blank" rel="noopener" class="pdf-mobile pdf-placeholder">Open ${title} ↗</a>`;
+    const code = `<figure class="pdf-embed">\n  <object data="${p}" type="application/pdf" class="pdf-frame">\n    <a href="${p}" target="_blank" rel="noopener" class="pdf-placeholder">Open ${title} ↗</a>\n  </object>\n  ${mobile}\n  <figcaption><a href="${p}" target="_blank" rel="noopener">Open ${title} ↗</a></figcaption>\n</figure>`;
     document.getElementById('pdf-embed-code').value = code;
     document.getElementById('pdf-code-box').style.display = 'flex';
   }
