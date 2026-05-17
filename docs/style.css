@@ -481,13 +481,33 @@ figcaption { margin-top: 10px; font-family: var(--font-ui); font-size: 13px; lin
    PDF EMBEDS
    ========================================================= */
 
-.pdf-embed { margin: var(--space-l) 0; }
-.markdown .pdf-embed figcaption { margin-top: 5px; }
+.pdf-embed { margin: var(--space-l) 0; position: relative; }
+.markdown .pdf-embed figcaption { margin-top: 12px; }
+
+/* Scroll hint pill — appears on hover at bottom of viewer */
+.pdf-embed::after {
+  content: "↕  scroll";
+  position: absolute;
+  bottom: 42px;
+  right: 14px;
+  font-family: var(--font-ui);
+  font-size: 10px;
+  letter-spacing: 0.05em;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.48);
+  padding: 3px 9px;
+  border-radius: 10px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  z-index: 2;
+}
+.pdf-embed:hover::after { opacity: 1; }
 
 .pdf-frame {
   display: block;
   width: 100%;
-  height: 480px;
+  height: 360px;
   border: 1px solid var(--rule);
   border-radius: 8px;
   background: var(--code-bg);
