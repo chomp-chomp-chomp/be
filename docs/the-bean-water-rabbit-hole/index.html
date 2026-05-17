@@ -127,14 +127,18 @@
         if (container) container.classList.remove('active');
       }
     });
-    // On mobile, extract cover image from inside <object> so CSS can display it
+    // On mobile, replace <object> PDF viewers with cover image / fallback link
     if (window.matchMedia('(max-width: 768px)').matches) {
       document.querySelectorAll('.pdf-embed').forEach(function(embed) {
         var obj = embed.querySelector('object.pdf-frame');
-        if (!obj || embed.querySelector('.pdf-mobile')) return;
-        var div = document.createElement('div');
-        div.innerHTML = obj.innerHTML;
-        obj.parentNode.insertBefore(div, obj.nextSibling);
+        if (!obj) return;
+        if (!embed.querySelector('.pdf-mobile')) {
+          // Old embed format: extract cover image from inside <object>
+          var div = document.createElement('div');
+          div.innerHTML = obj.innerHTML;
+          obj.parentNode.insertBefore(div, obj.nextSibling);
+        }
+        obj.remove(); // Remove from DOM — display:none alone doesn't stop PDF rendering
       });
     }
   </script>
