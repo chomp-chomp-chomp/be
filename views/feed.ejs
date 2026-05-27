@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>.ps</title>
+    <link>https://ps.chom.ps</link>
+    <description>An archive of zen baking and chomp theory</description>
+    <language>en-us</language>
+    <lastBuildDate><%- buildDate %></lastBuildDate>
+    <atom:link href="https://ps.chom.ps/feed.xml" rel="self" type="application/rss+xml"/>
+    <% for (const post of posts) { %>
+    <item>
+      <title><%- post.title.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;') %></title>
+      <link>https://ps.chom.ps/<%= post.slug %>/</link>
+      <guid isPermaLink="true">https://ps.chom.ps/<%= post.slug %>/</guid>
+      <pubDate><%- formatRssDate(post.date) %></pubDate>
+      <% if (post.excerpt) { %>
+      <description><%- post.excerpt.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;') %></description>
+      <% } %>
+      <content:encoded><![CDATA[<%- post.contentHtml %>]]></content:encoded>
+    </item>
+    <% } %>
+  </channel>
+</rss>
