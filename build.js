@@ -11,6 +11,10 @@ function formatDate(dateStr) {
   });
 }
 
+function formatRssDate(dateStr) {
+  return new Date(dateStr + 'T00:00:00Z').toUTCString();
+}
+
 function wordCount(markdown) {
   return markdown.replace(/[#*`_[\]()>~]/g, ' ').split(/\s+/).filter(Boolean).length;
 }
@@ -89,6 +93,10 @@ write('docs/about/index.html', render('about.ejs', {}));
 
 // 404 page
 write('docs/404.html', render('404.ejs', {}));
+
+// RSS feed (opt-in: only posts with rss: true)
+const rssPosts = posts.filter(p => p.rss === true);
+write('docs/feed.xml', render('feed.ejs', { posts: rssPosts, formatRssDate, buildDate: new Date().toUTCString() }));
 
 // Post pages
 for (const post of allBuiltPosts) {
