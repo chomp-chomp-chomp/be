@@ -95,7 +95,7 @@ write('docs/about/index.html', render('about.ejs', {}));
 write('docs/404.html', render('404.ejs', {}));
 
 // RSS feed (opt-in: only posts with rss: true)
-const rssPosts = posts.filter(p => p.rss === true);
+const rssPosts = posts.filter(p => p.rss !== false);
 write('docs/feed.xml', render('feed.ejs', { posts: rssPosts, formatRssDate, buildDate: new Date().toUTCString() }));
 
 // Post pages
