@@ -511,6 +511,11 @@
         <input type="date" id="date-input" oninput="updatePreview()">
       </div>
 
+      <div class="field" style="flex-direction:row;align-items:center;gap:8px;">
+        <input type="checkbox" id="rss-input" checked style="width:auto;margin:0;">
+        <label for="rss-input" style="text-transform:none;letter-spacing:normal;font-size:13px;cursor:pointer;">Include in RSS feed</label>
+      </div>
+
       <div class="field">
         <label>Excerpt <span class="optional">shown on home page</span></label>
         <textarea id="excerpt-input" rows="2" placeholder="One or two sentences…"></textarea>
@@ -811,11 +816,13 @@
     if (!content) return setStatus('Write something first.', 'err');
     if (!localStorage.getItem('be_token')) return setStatus('Open Settings and add your GitHub token.', 'err');
 
+    const rss = document.getElementById('rss-input').checked;
     const post = { slug, title, date, content };
-    if (eyebrow) post.eyebrow = eyebrow;
-    if (excerpt) post.excerpt = excerpt;
-    if (mode)    post.mode    = mode;
-    if (status)  post.status  = status;
+    if (eyebrow)  post.eyebrow = eyebrow;
+    if (excerpt)  post.excerpt = excerpt;
+    if (mode)     post.mode    = mode;
+    if (status)   post.status  = status;
+    if (!rss)     post.rss     = false;
 
     const btn = document.getElementById(btnId);
     if (btn) btn.disabled = true;
@@ -950,6 +957,7 @@
       document.getElementById('excerpt-input').value = post.excerpt || '';
       document.getElementById('content-input').value = post.content || '';
       document.getElementById('mode-input').value    = post.mode    || '';
+      document.getElementById('rss-input').checked  = post.rss !== false;
       slugManuallyEdited = true;
       currentPostPath = path;
       currentPostStatus = post.status || 'published';
@@ -969,6 +977,7 @@
     document.getElementById('excerpt-input').value = '';
     document.getElementById('content-input').value = '';
     document.getElementById('mode-input').value    = '';
+    document.getElementById('rss-input').checked  = true;
     slugManuallyEdited = false;
     currentPostPath = null;
     currentPostStatus = 'published';
