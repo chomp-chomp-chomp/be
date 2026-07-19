@@ -414,6 +414,7 @@
       <form class="lock-form" onsubmit="tryLogin(event)">
         <input class="lock-input" type="text" id="lock-user" placeholder="Username" autofocus autocomplete="username">
         <input class="lock-input" type="password" id="lock-password" placeholder="Password" autocomplete="current-password">
+        <input class="lock-input" type="password" id="lock-token" placeholder="GitHub token (ghp_…)" autocomplete="off" style="font-size:13px;letter-spacing:0.02em;">
         <button class="lock-btn" type="submit">Enter →</button>
       </form>
       <p class="lock-error" id="lock-error"></p>
@@ -654,9 +655,6 @@
     app.style.display = 'flex';
     updatePreview();
     fetchPostList();
-    if (!localStorage.getItem('be_token')) {
-      setTimeout(() => { document.getElementById('settings-drawer').classList.add('open'); loadSettings(); }, 300);
-    }
   }
 
   async function tryLogin(e) {
@@ -670,6 +668,8 @@
     const [uh, ph] = await Promise.all([sha256(user), sha256(pw)]);
     if (uh === ADMIN_USER_HASH && ph === ADMIN_PW_HASH) {
       localStorage.setItem('be_authed', '1');
+      const token = document.getElementById('lock-token').value.trim();
+      if (token) localStorage.setItem('be_token', token);
       showApp();
     } else {
       document.getElementById('lock-error').textContent = 'Incorrect username or password.';
@@ -1118,6 +1118,8 @@
   // ── Init ─────────────────────────────────────────────────
 
   (function init() {
+    const saved = localStorage.getItem('be_token');
+    if (saved) document.getElementById('lock-token').value = saved;
     if (localStorage.getItem('be_authed')) showApp();
   })();
 </script>
