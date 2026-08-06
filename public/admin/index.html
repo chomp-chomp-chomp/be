@@ -334,6 +334,16 @@
         </div>
       </div>
 
+      <!-- Migrate from GitHub -->
+      <div class="pdf-section" id="migrate-section">
+        <div class="pdf-section-title">Migrate posts from GitHub <span style="font-weight:normal;text-transform:none;font-size:10px;opacity:0.65">(one-time setup)</span></div>
+        <div style="font-size:12px;color:var(--muted);line-height:1.5;margin-bottom:6px;">Imports all posts from the GitHub repo into the Worker KV. Requires a GitHub token in Settings.</div>
+        <div class="pdf-upload-row">
+          <button class="btn btn-ghost" onclick="migrateFromGitHub()" id="migrate-btn">Import all posts from GitHub</button>
+        </div>
+        <div id="migrate-progress" style="font-size:12px;color:var(--muted);margin-top:6px;display:none;"></div>
+      </div>
+
     </div>
 
     <!-- ── Preview ── -->
@@ -593,7 +603,11 @@
     if (!content) return setStatus('Write something first.', 'err');
     if (!adminToken()) return setStatus('No admin token — open Settings.', 'err');
 
-    const post = { slug, title, date, content };
+    // Render markdown here so the Worker doesn't need a markdown library
+    const contentHtml = marked.parse(content);
+    const wc = content.replace(/[#*`_[\]()>~]/g, ' ').split(/\s+/).filter(Boolean).length;
+
+    const post = { slug, title, date, content, contentHtml, wordCount: wc, readingTime: Math.max(1, Math.ceil(wc / 200)) };
     if (eyebrow)     post.eyebrow = eyebrow;
     if (excerpt)     post.excerpt = excerpt;
     if (mode)        post.mode    = mode;
@@ -792,6 +806,68 @@
     const ta = document.getElementById('pdf-embed-code');
     ta.select();
     navigator.clipboard.writeText(ta.value).then(() => setStatus('Copied!', 'ok'));
+  }
+
+  // ── Migrate from GitHub ───────────────────────────────────
+
+  async function ghFetch(path) {
+    const token = localStorage.getItem('be_token');
+    if (!token) throw new Error('No GitHub token — add one in Settings to migrate posts.');
+    const res = await fetch('https://api.github.com' + path, {
+      headers: { 'Authorization': 'Bearer ' + token, 'Accept': 'application/vnd.github+json' },
+    });
+    if (!res.ok) throw new Error('GitHub API error: ' + res.status);
+    return res.json();
+  }
+
+  async function migrateFromGitHub() {
+    const btn  = document.getElementById('migrate-btn');
+    const prog = document.getElementById('migrate-progress');
+    if (!localStorage.getItem('be_token')) return setStatus('Add a GitHub token in Settings first.', 'err');
+    if (!adminToken()) return setStatus('Log in first.', 'err');
+    if (!confirm('Import all posts from chomp-chomp-chomp/be on GitHub into KV? Existing KV posts with the same slug will be overwritten.')) return;
+
+    btn.disabled = true;
+    prog.style.display = 'block';
+    prog.textContent = 'Listing posts…';
+
+    try {
+      const files = await ghFetch('/repos/chomp-chomp-chomp/be/contents/posts?ref=main');
+      const jsonFiles = files.filter(function(f){ return f.name.endsWith('.json'); });
+      let done = 0, failed = 0;
+
+      for (const file of jsonFiles) {
+        try {
+          prog.textContent = 'Fetching ' + file.name + ' (' + (done + failed + 1) + '/' + jsonFiles.length + ')…';
+          const fileData = await ghFetch('/repos/chomp-chomp-chomp/be/contents/' + file.path + '?ref=main');
+          const bytes = Uint8Array.from(atob(fileData.content.replace(/\s/g, '')), function(c){ return c.charCodeAt(0); });
+          const post = JSON.parse(new TextDecoder().decode(bytes));
+
+          const content = post.content || '';
+          const contentHtml = marked.parse(content);
+          const wc = content.replace(/[#*`_[\]()>~]/g, ' ').split(/\s+/).filter(Boolean).length;
+
+          await apiRequest('PUT', '/api/posts/' + post.slug, Object.assign({}, post, {
+            contentHtml: contentHtml,
+            wordCount: wc,
+            readingTime: Math.max(1, Math.ceil(wc / 200)),
+          }));
+          done++;
+        } catch (e) {
+          console.warn('Failed:', file.name, e);
+          failed++;
+        }
+      }
+
+      prog.textContent = 'Done! Imported ' + done + ' posts' + (failed ? ', ' + failed + ' failed (see console).' : '.');
+      setStatus('Migration complete — ' + done + ' posts imported!', 'ok');
+      fetchPostList();
+    } catch (err) {
+      prog.textContent = 'Error: ' + err.message;
+      setStatus(err.message, 'err');
+    } finally {
+      btn.disabled = false;
+    }
   }
 
   // ── Init ─────────────────────────────────────────────────
