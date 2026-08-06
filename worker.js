@@ -103,10 +103,16 @@ a:hover { color: var(--link-hover); }
 .chomp-home-link { display: inline-block; text-decoration: none; flex-shrink: 0; }
 .site-logo-icon { position: relative; width: 44px; height: 44px; display: inline-block; }
 .site-logo-icon img { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; position: absolute; top: 0; left: 0; transition: opacity 0.3s ease, transform 0.35s ease; }
-.logo-default { opacity: 1; transform: scale(1); }
-.logo-hover { opacity: 0; transform: scale(0.55); }
-.chomp-home-link:hover .logo-default, .chomp-home-link:active .logo-default, .chomp-home-link:focus-visible .logo-default { opacity: 0; transform: scale(1.45); }
-.chomp-home-link:hover .logo-hover, .chomp-home-link:active .logo-hover, .chomp-home-link:focus-visible .logo-hover { opacity: 1; transform: scale(1); }
+.logo-default { opacity: 0; transform: scale(0.55); }
+.logo-hover { opacity: 1; transform: scale(1); }
+.chomp-home-link:hover .logo-default, .chomp-home-link:active .logo-default, .chomp-home-link:focus-visible .logo-default { opacity: 1; transform: scale(1); }
+.chomp-home-link:hover .logo-hover, .chomp-home-link:active .logo-hover, .chomp-home-link:focus-visible .logo-hover { opacity: 0; transform: scale(1.45); }
+.ps-page-logo { display: flex; align-items: center; line-height: 0; text-decoration: none; flex-shrink: 0; }
+.ps-logo-light { display: block; height: 26px; width: auto; }
+.ps-logo-dark  { display: none;  height: 26px; width: auto; }
+@media (prefers-color-scheme: dark) { html:not([data-theme="light"]) .ps-logo-light { display: none; } html:not([data-theme="light"]) .ps-logo-dark { display: block; } }
+html[data-theme="dark"] .ps-logo-light { display: none; }
+html[data-theme="dark"] .ps-logo-dark { display: block; }
 
 .nav-tools-dropdown { position: relative; }
 .menu-toggle { display: block; background: none; border: none; font-size: 1.4em; color: var(--text); cursor: pointer; padding: 4px 0; line-height: 1; transition: opacity 0.2s; }
@@ -130,7 +136,7 @@ html[data-theme="dark"] .banner-dark { display: block; }
 .meta, .metadata, .byline, .kicker, .nav, .ui-text { font-family: var(--font-ui); }
 .meta, .metadata, .meta-block { font-size: 14px; line-height: 1.4; color: var(--muted); }
 .meta-block { margin: 16px 0 24px; }
-.kicker { font-size: 13px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); margin-bottom: var(--space-s); }
+.kicker { font-size: 13px; letter-spacing: 0.04em; text-transform: uppercase; color: #ff0032; margin-bottom: var(--space-s); }
 .byline { font-size: 14px; color: var(--muted); margin-bottom: var(--space-m); }
 
 .article p { margin-top: 0; margin-bottom: 0; text-indent: 1.5em; }
@@ -213,7 +219,7 @@ td { color: var(--muted); }
 .post-list-item:hover { opacity: 0.65; text-decoration: none; }
 .post-list-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 4px; }
 .post-list-date { font-family: var(--font-ui); font-size: 13px; color: var(--muted); }
-.post-list-eyebrow { font-family: var(--font-ui); font-size: 11px; color: var(--accent); font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; }
+.post-list-eyebrow { font-family: var(--font-ui); font-size: 11px; color: #ff0032; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; }
 .post-list-title { font-family: var(--font-title); font-size: 26px; font-weight: 500; color: var(--text); line-height: 1.25; margin-bottom: 5px; }
 .post-list-excerpt { font-family: var(--font-ui); font-size: 14px; color: var(--muted); line-height: 1.55; }
 .post-list-more { display: block; padding: var(--space-m) 0; font-family: var(--font-ui); font-size: 14px; color: var(--muted); text-decoration: none; }
@@ -320,15 +326,13 @@ const ICONS = `  <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">`;
 
-function headerBar(logoHref) {
-  return `    <div class="header-bar">
-      <a href="${logoHref || BASE}" class="chomp-home-link" title="ps.chom.ps">
-        <div class="site-logo-icon">
-          <img src="https://ik.imagekit.io/chompchomp/logo-default_01ng4rCAq.png" alt="chom.ps" class="logo-default">
-          <img src="https://ik.imagekit.io/chompchomp/logo-hover_Xkgt_S3PG.jpg" alt="chom.ps" class="logo-hover">
-        </div>
-      </a>
-      <div class="nav-tools-dropdown">
+function headerBar(logoHref, psLogo) {
+  const right = psLogo
+    ? `      <a href="/" class="ps-page-logo">
+        <img src="https://ik.imagekit.io/chompchomp/Iightps.jpeg" class="ps-logo-light" alt=".ps">
+        <img src="https://ik.imagekit.io/chompchomp/darkps.jpeg" class="ps-logo-dark" alt=".ps">
+      </a>`
+    : `      <div class="nav-tools-dropdown">
         <button class="menu-toggle" onclick="toggleToolsDropdown()">&#9776;</button>
         <ul class="tools-dropdown-menu" id="toolsDropdown">
           <li><a href="https://chom.ps">Chomp</a></li>
@@ -337,7 +341,15 @@ function headerBar(logoHref) {
           <li><a href="https://chom.ps/tools/">Lab</a></li>
           <li><a href="https://chom.ps/tools/ipsum">Ipsum</a></li>
         </ul>
-      </div>
+      </div>`;
+  return `    <div class="header-bar">
+      <a href="${logoHref || BASE}" class="chomp-home-link" title="ps.chom.ps">
+        <div class="site-logo-icon">
+          <img src="https://ik.imagekit.io/chompchomp/logo-default_01ng4rCAq.png" alt="chom.ps" class="logo-default">
+          <img src="https://ik.imagekit.io/chompchomp/logo-hover_Xkgt_S3PG.jpg" alt="chom.ps" class="logo-hover">
+        </div>
+      </a>
+${right}
     </div>`;
 }
 
@@ -436,12 +448,11 @@ ${ICONS}
 </head>
 <body>
   <div class="page">
-${headerBar()}
+${headerBar(null, true)}
     <header class="post-header"><h1>Archive</h1><hr></header>
     <div class="post-list">${items}</div>
 ${colophon()}
   </div>
-${DROPDOWN_JS}
 </body>
 </html>`;
 }
@@ -458,7 +469,7 @@ ${ICONS}
 </head>
 <body>
   <div class="page">
-${headerBar()}
+${headerBar(null, true)}
     <header class="post-header"><h1>About</h1><hr></header>
     <div class="post-body markdown about">
       <p>A personal, lyrical blog about the meditative side of everyday cooking and baking &mdash; less about recipes and more about the quiet rituals, patience, and emotional texture that surround them.</p>
@@ -468,7 +479,6 @@ ${headerBar()}
     <div class="post-back" style="margin-top:var(--space-xl)"><a href="/">&larr; All posts</a></div>
 ${colophon()}
   </div>
-${DROPDOWN_JS}
 </body>
 </html>`;
 }
@@ -501,7 +511,7 @@ ${ICONS}
 </head>
 <body>
   <div class="page">
-${headerBar()}
+${headerBar(null, true)}
     <header class="post-header">
       ${post.eyebrow ? '<p class="kicker">' + post.eyebrow + '</p>' : ''}
       <h1>${post.title}</h1>
@@ -520,7 +530,6 @@ ${colophon()}
   <script>
     if(window.matchMedia('(max-width:768px)').matches){document.querySelectorAll('.pdf-embed').forEach(function(e){var o=e.querySelector('object.pdf-frame');if(!o)return;if(!e.querySelector('.pdf-mobile')){var d=document.createElement('div');d.innerHTML=o.innerHTML;o.parentNode.insertBefore(d,o.nextSibling);}o.remove();});}
   <\/script>
-${DROPDOWN_JS}
 </body>
 </html>`;
 }
