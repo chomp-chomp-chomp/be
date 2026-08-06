@@ -1,0 +1,17 @@
+name = "ps-chom-ps"
+main = "worker.js"
+compatibility_date = "2024-09-23"
+
+# Route: everything on ps.chom.ps goes through the Worker
+[[routes]]
+pattern   = "ps.chom.ps/*"
+zone_name = "chom.ps"
+
+# KV namespace for posts + admin HTML
+# After running `wrangler kv namespace create POSTS`, paste the id below.
+[[kv_namespaces]]
+binding = "POSTS"
+id      = "REPLACE_WITH_YOUR_KV_NAMESPACE_ID"
+
+# Secrets (set via `wrangler secret put ADMIN_TOKEN`):
+#   ADMIN_TOKEN — Bearer token for admin write endpoints
