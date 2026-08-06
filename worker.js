@@ -107,9 +107,9 @@ a:hover { color: var(--link-hover); }
 .logo-hover { opacity: 1; transform: scale(1); }
 .chomp-home-link:hover .logo-default, .chomp-home-link:active .logo-default, .chomp-home-link:focus-visible .logo-default { opacity: 1; transform: scale(1); }
 .chomp-home-link:hover .logo-hover, .chomp-home-link:active .logo-hover, .chomp-home-link:focus-visible .logo-hover { opacity: 0; transform: scale(1.45); }
-.ps-page-logo { display: flex; align-items: center; line-height: 0; text-decoration: none; flex-shrink: 0; }
-.ps-logo-light { display: block; height: 60px; width: auto; }
-.ps-logo-dark  { display: none;  height: 60px; width: auto; }
+.ps-page-logo { display: flex; align-items: center; line-height: 0; text-decoration: none; flex-shrink: 0; margin-left: auto; }
+.ps-logo-light { display: block; height: 80px; width: auto; }
+.ps-logo-dark  { display: none;  height: 80px; width: auto; }
 @media (prefers-color-scheme: dark) { html:not([data-theme="light"]) .ps-logo-light { display: none; } html:not([data-theme="light"]) .ps-logo-dark { display: block; } }
 html[data-theme="dark"] .ps-logo-light { display: none; }
 html[data-theme="dark"] .ps-logo-dark { display: block; }
@@ -339,7 +339,6 @@ function headerBar(logoHref, psLogo) {
         <img src="https://ik.imagekit.io/chompchomp/Iightps.jpeg" class="ps-logo-light" alt=".ps">
         <img src="https://ik.imagekit.io/chompchomp/darkps.jpeg" class="ps-logo-dark" alt=".ps">
       </a>
-${cookieLink}
     </div>`;
   }
   return `    <div class="header-bar">
