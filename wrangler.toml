@@ -1,0 +1,22 @@
+name = "ps-chom-ps"
+main = "worker.js"
+compatibility_date = "2024-09-23"
+
+# Static assets (CSS, favicons, admin, PDFs) served from public/
+[assets]
+directory = "public"
+binding   = "ASSETS"
+
+# Route: catch everything on ps.chom.ps
+[[routes]]
+pattern   = "ps.chom.ps/*"
+zone_name = "chom.ps"
+
+# KV namespace for posts
+# After running `wrangler kv namespace create POSTS`, paste the id below.
+[[kv_namespaces]]
+binding = "POSTS"
+id      = "REPLACE_WITH_YOUR_KV_NAMESPACE_ID"
+
+# Secrets (set via `wrangler secret put ADMIN_TOKEN`):
+#   ADMIN_TOKEN — the token used to authenticate admin POST/PUT/DELETE requests
