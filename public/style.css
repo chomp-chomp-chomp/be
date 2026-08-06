@@ -260,8 +260,8 @@ a:hover { color: var(--link-hover); }
   text-decoration: none;
   flex-shrink: 0;
 }
-.ps-logo-light { display: block; height: 26px; width: auto; }
-.ps-logo-dark  { display: none;  height: 26px; width: auto; }
+.ps-logo-light { display: block; height: 60px; width: auto; }
+.ps-logo-dark  { display: none;  height: 60px; width: auto; }
 
 @media (prefers-color-scheme: dark) {
   html:not([data-theme="light"]) .ps-logo-light { display: none; }
