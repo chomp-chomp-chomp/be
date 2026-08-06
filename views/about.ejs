@@ -22,17 +22,10 @@
           <img src="https://ik.imagekit.io/chompchomp/logo-hover_Xkgt_S3PG.jpg" alt="chom.ps" class="logo-hover">
         </div>
       </a>
-      <div class="nav-tools-dropdown">
-        <button class="menu-toggle" onclick="toggleToolsDropdown()">☰</button>
-        <button class="tools-dropdown-btn" onclick="toggleToolsDropdown()">Menu ▼</button>
-        <ul class="tools-dropdown-menu" id="toolsDropdown">
-          <li><a href="https://chom.ps">Chomp</a></li>
-          <li><a href="https://chom.ps/about">About</a></li>
-          <li><a href="https://chom.ps/store">Store</a></li>
-          <li><a href="https://chom.ps/tools/">Lab</a></li>
-          <li><a href="https://chom.ps/tools/ipsum">Ipsum</a></li>
-        </ul>
-      </div>
+      <a href="/" class="ps-page-logo">
+        <img src="https://ik.imagekit.io/chompchomp/Iightps.jpeg" class="ps-logo-light" alt=".ps">
+        <img src="https://ik.imagekit.io/chompchomp/darkps.jpeg" class="ps-logo-dark" alt=".ps">
+      </a>
     </div>
 
     <header class="post-header">
@@ -58,21 +51,5 @@
     </footer>
 
   </div>
-  <script>
-    function toggleToolsDropdown() {
-      var dropdown = document.getElementById('toolsDropdown');
-      var container = document.querySelector('.nav-tools-dropdown');
-      if (dropdown) dropdown.classList.toggle('active');
-      if (container) container.classList.remove('active');
-    }
-    document.addEventListener('click', function (e) {
-      if (!e.target.closest('.nav-tools-dropdown')) {
-        var dropdown = document.getElementById('toolsDropdown');
-        var container = document.querySelector('.nav-tools-dropdown');
-        if (dropdown) dropdown.classList.remove('active');
-        if (container) container.classList.remove('active');
-      }
-    });
-  </script>
 </body>
 </html>

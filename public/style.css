@@ -229,28 +229,46 @@ a:hover { color: var(--link-hover); }
 }
 
 .logo-default {
-  opacity: 1;
-  transform: scale(1);
+  opacity: 0;
+  transform: scale(0.55);
 }
 
 .logo-hover {
-  opacity: 0;
-  transform: scale(0.55);
+  opacity: 1;
+  transform: scale(1);
 }
 
 .chomp-home-link:hover .logo-default,
 .chomp-home-link:active .logo-default,
 .chomp-home-link:focus-visible .logo-default {
-  opacity: 0;
-  transform: scale(1.45);
+  opacity: 1;
+  transform: scale(1);
 }
 
 .chomp-home-link:hover .logo-hover,
 .chomp-home-link:active .logo-hover,
 .chomp-home-link:focus-visible .logo-hover {
-  opacity: 1;
-  transform: scale(1);
+  opacity: 0;
+  transform: scale(1.45);
 }
+
+/* .ps wordmark (replaces dropdown on post/archive/about pages) */
+.ps-page-logo {
+  display: flex;
+  align-items: center;
+  line-height: 0;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+.ps-logo-light { display: block; height: 26px; width: auto; }
+.ps-logo-dark  { display: none;  height: 26px; width: auto; }
+
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) .ps-logo-light { display: none; }
+  html:not([data-theme="light"]) .ps-logo-dark  { display: block; }
+}
+html[data-theme="dark"] .ps-logo-light { display: none; }
+html[data-theme="dark"] .ps-logo-dark  { display: block; }
 
 /* Dropdown navigation */
 .nav-tools-dropdown {
@@ -382,7 +400,7 @@ a:hover { color: var(--link-hover); }
   font-size: 13px;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: #ff0032;
   margin-bottom: var(--space-s);
 }
 
@@ -733,7 +751,7 @@ html[data-theme="dark"] .banner-dark  { display: block; }
 .post-list-eyebrow {
   font-family: var(--font-ui);
   font-size: 11px;
-  color: var(--accent);
+  color: #ff0032;
   font-weight: 600;
   letter-spacing: 0.05em;
   text-transform: uppercase;
