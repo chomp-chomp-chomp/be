@@ -3,7 +3,7 @@ const { marked } = require('marked');
 const fs = require('fs');
 const path = require('path');
 
-// ── Helpers ──────────────────────────────────────────────
+// ── Helpers ────────────────────────────────────────────── ──────────────────────────────────────────────
 
 function formatDate(dateStr) {
   return new Date(dateStr + 'T00:00:00').toLocaleDateString('en-US', {
