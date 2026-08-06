@@ -108,8 +108,8 @@ a:hover { color: var(--link-hover); }
 .chomp-home-link:hover .logo-default, .chomp-home-link:active .logo-default, .chomp-home-link:focus-visible .logo-default { opacity: 1; transform: scale(1); }
 .chomp-home-link:hover .logo-hover, .chomp-home-link:active .logo-hover, .chomp-home-link:focus-visible .logo-hover { opacity: 0; transform: scale(1.45); }
 .ps-page-logo { display: flex; align-items: center; line-height: 0; text-decoration: none; flex-shrink: 0; }
-.ps-logo-light { display: block; height: 26px; width: auto; }
-.ps-logo-dark  { display: none;  height: 26px; width: auto; }
+.ps-logo-light { display: block; height: 60px; width: auto; }
+.ps-logo-dark  { display: none;  height: 60px; width: auto; }
 @media (prefers-color-scheme: dark) { html:not([data-theme="light"]) .ps-logo-light { display: none; } html:not([data-theme="light"]) .ps-logo-dark { display: block; } }
 html[data-theme="dark"] .ps-logo-light { display: none; }
 html[data-theme="dark"] .ps-logo-dark { display: block; }
@@ -327,12 +327,24 @@ const ICONS = `  <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">`;
 
 function headerBar(logoHref, psLogo) {
-  const right = psLogo
-    ? `      <a href="/" class="ps-page-logo">
+  const cookieLink = `      <a href="${logoHref || BASE}" class="chomp-home-link" title="ps.chom.ps">
+        <div class="site-logo-icon">
+          <img src="https://ik.imagekit.io/chompchomp/logo-default_01ng4rCAq.png" alt="chom.ps" class="logo-default">
+          <img src="https://ik.imagekit.io/chompchomp/logo-hover_Xkgt_S3PG.jpg" alt="chom.ps" class="logo-hover">
+        </div>
+      </a>`;
+  if (psLogo) {
+    return `    <div class="header-bar">
+      <a href="/" class="ps-page-logo">
         <img src="https://ik.imagekit.io/chompchomp/Iightps.jpeg" class="ps-logo-light" alt=".ps">
         <img src="https://ik.imagekit.io/chompchomp/darkps.jpeg" class="ps-logo-dark" alt=".ps">
-      </a>`
-    : `      <div class="nav-tools-dropdown">
+      </a>
+${cookieLink}
+    </div>`;
+  }
+  return `    <div class="header-bar">
+${cookieLink}
+      <div class="nav-tools-dropdown">
         <button class="menu-toggle" onclick="toggleToolsDropdown()">&#9776;</button>
         <ul class="tools-dropdown-menu" id="toolsDropdown">
           <li><a href="https://chom.ps">Chomp</a></li>
@@ -341,15 +353,7 @@ function headerBar(logoHref, psLogo) {
           <li><a href="https://chom.ps/tools/">Lab</a></li>
           <li><a href="https://chom.ps/tools/ipsum">Ipsum</a></li>
         </ul>
-      </div>`;
-  return `    <div class="header-bar">
-      <a href="${logoHref || BASE}" class="chomp-home-link" title="ps.chom.ps">
-        <div class="site-logo-icon">
-          <img src="https://ik.imagekit.io/chompchomp/logo-default_01ng4rCAq.png" alt="chom.ps" class="logo-default">
-          <img src="https://ik.imagekit.io/chompchomp/logo-hover_Xkgt_S3PG.jpg" alt="chom.ps" class="logo-hover">
-        </div>
-      </a>
-${right}
+      </div>
     </div>`;
 }
 
