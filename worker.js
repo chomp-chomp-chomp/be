@@ -671,7 +671,7 @@ export default {
       // Stylesheet — served inline so no Assets binding is needed
       if (path === '/style.css') {
         return new Response(CSS, {
-          headers: { 'Content-Type': 'text/css', 'Cache-Control': 'public, max-age=86400' },
+          headers: { 'Content-Type': 'text/css', 'Cache-Control': 'no-cache' },
         });
       }
 
