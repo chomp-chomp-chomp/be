@@ -11,7 +11,7 @@ zone_name = "chom.ps"
 # After running `wrangler kv namespace create POSTS`, paste the id below.
 [[kv_namespaces]]
 binding = "POSTS"
-id      = "REPLACE_WITH_YOUR_KV_NAMESPACE_ID"
+id      = "e7c7028b78cf4a28b9cfb60eda7dc1e5"
 
 # Secrets (set via `wrangler secret put ADMIN_TOKEN`):
 #   ADMIN_TOKEN — Bearer token for admin write endpoints
