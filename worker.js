@@ -697,7 +697,7 @@ export default {
       if (path === '/about' || path === '/about/') return htmlResp(200, renderAbout());
       if (path === '/feed.xml') {
         return new Response(await renderFeed(env), {
-          headers: { 'Content-Type': 'application/rss+xml;charset=UTF-8', 'Cache-Control': 'no-cache' },
+          headers: { 'Content-Type': 'application/rss+xml;charset=UTF-8', 'Cache-Control': 'no-cache', ...CORS },
         });
       }
 
