@@ -6,6 +6,7 @@ on:
     paths:
       - 'worker.js'
       - 'wrangler.toml'
+      - 'public/admin/index.html'
   workflow_dispatch:
 
 jobs:
@@ -19,3 +20,5 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          postCommands: |
+            wrangler kv key put --binding POSTS "admin-html" --path public/admin/index.html
