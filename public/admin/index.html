@@ -9,21 +9,27 @@
   <link rel="stylesheet" href="/style.css">
   <script src="https://cdn.jsdelivr.net/npm/marked@9/marked.min.js"></script>
   <script>
-    // Add id attributes to headings so anchor links (#my-section) work in posts
-    marked.use({
-      renderer: {
-        heading({ text, depth }) {
-          const id = text
-            .replace(/<[^>]+>/g, '')   // strip inline HTML (e.g. <code>)
-            .toLowerCase()
-            .replace(/[^\w\s-]/g, '')  // remove punctuation
-            .replace(/\s+/g, '-')      // spaces → hyphens
-            .replace(/-+/g, '-')       // collapse runs
-            .replace(/^-|-$/g, '');    // trim edges
-          return `<h${depth} id="${id}">${text}</h${depth}>\n`;
-        }
-      }
-    });
+    // Wrap marked.parse to inject id attributes on headings for anchor links.
+    // Post-processes the rendered HTML rather than touching the renderer,
+    // so it can't interfere with marked's parsing pipeline.
+    (function () {
+      const _parse = marked.parse.bind(marked);
+      marked.parse = function (src, options) {
+        return _parse(src, options).replace(
+          /<h([1-6])>(.*?)<\/h\1>/gs,
+          function (_, level, inner) {
+            const id = inner
+              .replace(/<[^>]+>/g, '')  // strip inline HTML (<code>, etc.)
+              .toLowerCase()
+              .replace(/[^\w\s-]/g, '') // remove punctuation
+              .replace(/\s+/g, '-')     // spaces → hyphens
+              .replace(/-+/g, '-')      // collapse runs
+              .replace(/^-|-$/g, '');   // trim edges
+            return '<h' + level + ' id="' + id + '">' + inner + '</h' + level + '>';
+          }
+        );
+      };
+    })();
   </script>
   <style>
     body {
