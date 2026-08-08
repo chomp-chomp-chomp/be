@@ -8,6 +8,23 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=EB+Garamond:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/style.css">
   <script src="https://cdn.jsdelivr.net/npm/marked@9/marked.min.js"></script>
+  <script>
+    // Add id attributes to headings so anchor links (#my-section) work in posts
+    marked.use({
+      renderer: {
+        heading({ text, depth }) {
+          const id = text
+            .replace(/<[^>]+>/g, '')   // strip inline HTML (e.g. <code>)
+            .toLowerCase()
+            .replace(/[^\w\s-]/g, '')  // remove punctuation
+            .replace(/\s+/g, '-')      // spaces → hyphens
+            .replace(/-+/g, '-')       // collapse runs
+            .replace(/^-|-$/g, '');    // trim edges
+          return `<h${depth} id="${id}">${text}</h${depth}>\n`;
+        }
+      }
+    });
+  </script>
   <style>
     body {
       font-family: var(--font-ui);
