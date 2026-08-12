@@ -184,6 +184,7 @@ figcaption { margin-top: 10px; font-family: var(--font-ui); font-size: 13px; lin
 .markdown { max-width: var(--max-text); }
 .markdown > :first-child { margin-top: 0; }
 .markdown .lead { font-size: 21px; line-height: 1.55; margin-bottom: var(--space-m); }
+.markdown .marginalia { border-left: 2px solid #999999; padding-left: 20px; margin: 24px 0; font-style: normal; }
 .markdown .note-block { margin: 24px 0; padding-left: 16px; border-left: 1px solid var(--rule); font-size: 16px; font-style: italic; color: var(--muted); }
 .markdown .pullquote { margin: 48px 0; font-family: var(--font-title); font-size: 28px; line-height: 1.3; text-align: center; color: var(--text); }
 .markdown .aside { margin: 24px 0; font-size: 16px; color: var(--muted); }
