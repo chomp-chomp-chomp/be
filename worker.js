@@ -149,7 +149,7 @@ ul, ol { margin-top: 0; margin-bottom: var(--space-m); padding-left: 1.25rem; }
 .ingredients ul, .ingredients ol, .meta-list, .ui-list { font-family: var(--font-ui); font-size: 15px; line-height: 1.6; }
 li + li { margin-top: 4px; }
 
-blockquote { margin: 32px 0; padding-left: 20px; border-left: 2px solid var(--rule); font-family: var(--font-body); font-size: 17px; line-height: 1.6; font-style: italic; color: var(--quote-text); }
+blockquote { margin: 32px 0; padding-left: 20px; border-left: 2px solid var(--rule); font-family: var(--font-body); font-size: 22px; line-height: 1.55; font-style: italic; color: var(--quote-text); }
 blockquote p:last-child { margin-bottom: 0; }
 cite { display: block; margin-top: 8px; font-family: var(--font-ui); font-size: 13px; font-style: normal; color: var(--muted); }
 .pullquote { margin: 48px 0; font-family: var(--font-title); font-size: 28px; line-height: 1.3; text-align: center; color: var(--text); }

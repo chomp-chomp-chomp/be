@@ -456,8 +456,8 @@ blockquote {
   padding-left: 20px;
   border-left: 2px solid var(--rule);
   font-family: var(--font-body);
-  font-size: 17px;
-  line-height: 1.6;
+  font-size: 22px;
+  line-height: 1.55;
   font-style: italic;
   color: var(--quote-text);
 }
