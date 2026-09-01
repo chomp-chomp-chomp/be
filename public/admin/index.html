@@ -14,14 +14,17 @@
     // so it can't interfere with marked's parsing pipeline.
     (function () {
       const _parse = marked.parse.bind(marked);
+      const _tmp = document.createElement('div');
       marked.parse = function (src, options) {
         return _parse(src, options).replace(
           /<h([1-6])>(.*?)<\/h\1>/gs,
           function (_, level, inner) {
-            const id = inner
-              .replace(/<[^>]+>/g, '')  // strip inline HTML (<code>, etc.)
+            // Use the DOM to strip tags and decode HTML entities (e.g. &#x2019; → ')
+            // before computing the slug, so apostrophes/quotes etc. are handled correctly.
+            _tmp.innerHTML = inner.replace(/<[^>]+>/g, '');
+            const id = (_tmp.textContent || '')
               .toLowerCase()
-              .replace(/[^\w\s-]/g, '') // remove punctuation
+              .replace(/[^\w\s-]/g, '') // remove punctuation (apostrophes, etc.)
               .replace(/\s+/g, '-')     // spaces → hyphens
               .replace(/-+/g, '-')      // collapse runs
               .replace(/^-|-$/g, '');   // trim edges
