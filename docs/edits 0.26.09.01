@@ -1,0 +1,40 @@
+The **biggest production issue besides the TOC is actually the fonts**. The copyright page says the book is “Set in Fraunces and Source Serif 4.”  But the PDF itself is embedding **Cambria, Cambria Bold, Cambria Italic, etc.**, not Fraunces or Source Serif 4. That strongly suggests Word substituted fonts during export. If the intended design really is Fraunces + Source Serif 4, I would absolutely re-export after ensuring those fonts are installed and embedded. If Cambria is intentional, then the colophon needs to change. This is more significant to me than any of the copyediting nits.
+
+There are also a few **PDF-level finishing items**. The PDF metadata currently identifies the author as **“Un-named”**, does not have proper title metadata, and has **no document bookmarks/outline and no clickable TOC links**. For a finished digital edition, I'd set the title to *The Catalan Twelve*, author to Donnie Boman, add chapter/interlude bookmarks, and hyperlink the TOC. None of that affects the printed book, but it makes the PDF feel professionally finished.
+
+Then I would do one focused **recipe-style consistency pass**. There are a few concrete things:
+
+* The sweet potato pie lists **“1 cup evaporated milk/cream.”**  That's ambiguous in a recipe. Does it mean either 1 cup evaporated milk *or* 1 cup heavy cream? Half-and-half? That should be made explicit.
+* Baklava says **“Bake. 350°F for 45 to 50 minutes,”** and the Southern tea cakes use the same construction.   I'd make both “Bake at 350°F…” to match normal recipe syntax.
+* The first twelve recipes predominantly use fractions such as `1/2`, `1/4`, etc., while the thirteenth switches to typographic fractions — `2½`, `¼`, `½`.  The thirteenth also uses ranges like `20–30` while much of the rest of the book uses “20 to 30.” Neither style is wrong; the book should simply pick one system and use it throughout.
+* I'd similarly standardize em dashes/hyphens. For example, **“— not the Society's note - mine”** mixes the two conventions in a single attribution. 
+
+There are a **small number of real copyedits** I'd make too. These aren't evidence that the manuscript needs another developmental edit; they're exactly the things a final proofreader should catch.
+
+The introduction has:
+
+> “which this volume does not so much argue as simply proceed from”
+
+Because “volume” is singular, that should be **“proceeds from.”** 
+
+The biscuit chapter has a comma splice:
+
+> “The visible bits of butter are the point, that's what steams…”
+
+I'd use a period, semicolon, or em dash: “The visible bits of butter are the point—they're what steam…” 
+
+And in *A Baker's Dozen*, **“genre bending recipe”** should conventionally be **“genre-bending recipe.”** 
+
+I'd also clean up the **bibliography typography**. The web references currently print literal backticks around slugs such as `` `xuxo-lore` `` and `` `15-minutes-to-xuxos` ``.  Unless the backticks are an intentional part of the faux-academic joke, they look more like leftover Markdown/code formatting than book typography. I'd either print an actual URL, omit the slug, or style it typographically without literal backticks. The bibliography could also get one final consistency pass for citation order/style.
+
+What I **wouldn't** change: the overall layout, amount of white space, photography, chapter rhythm on the page, running heads, or the deliberate shifts between cookbook / artifact / personal essay. Visually, the book is quite polished. The images are also embedded at roughly print-appropriate resolution; I didn't find a systemic low-resolution-image problem.
+
+So my actual pre-publication punch list would be:
+
+1. **Fix TOC pagination and TOC spacing.**
+2. **Fix the Fraunces/Source Serif → Cambria font-substitution problem.**
+3. **Correct PDF metadata; add bookmarks and clickable TOC links.**
+4. **Do one recipe style-sheet pass** for fractions, ranges, temperatures, dashes, and ingredient wording.
+5. **Fix the handful of copyedits above.**
+6. **Clean bibliography formatting/backticks.**
+7. Re-export and do one last page-by-page proof.
