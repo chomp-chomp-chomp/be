@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Post → Email · .ps</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <style>
+    :root {
+      --bg:       #fffdf9;
+      --surface:  #ffffff;
+      --surface2: #f2f0eb;
+      --border:   #e6e6e6;
+      --text:     #231f1f;
+      --muted:    #666666;
+      --accent:   #ff0032;
+      --pane-bg:  #f7f5f0;
+      --btn-dark-bg:  #231f1f;
+      --btn-dark-fg:  #fffdf9;
+      --shadow:   0 2px 16px rgba(0,0,0,.06);
+    }
+    html[data-theme="dark"] {
+      --bg:      #231f1f;
+      --surface: #2a2626;
+      --surface2:#333030;
+      --border:  #3a3535;
+      --text:    #ededed;
+      --muted:   #aaaaaa;
+      --pane-bg: #1e1b1b;
+      --btn-dark-bg: #ededed;
+      --btn-dark-fg: #231f1f;
+      --shadow:  0 2px 16px rgba(0,0,0,.35);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg:      #231f1f;
+        --surface: #2a2626;
+        --surface2:#333030;
+        --border:  #3a3535;
+        --text:    #ededed;
+        --muted:   #aaaaaa;
+        --pane-bg: #1e1b1b;
+        --btn-dark-bg: #ededed;
+        --btn-dark-fg: #231f1f;
+        --shadow:  0 2px 16px rgba(0,0,0,.35);
+      }
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    /* ── Header ── */
+    header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 0 20px;
+      height: 52px;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+    .logo {
+      font-family: 'EB Garamond', Georgia, serif;
+      font-size: 19px;
+      font-weight: 500;
+      color: var(--text);
+    }
+    .logo a { color: var(--accent); text-decoration: none; }
+    .logo .sep { color: var(--muted); font-weight: 400; margin: 0 4px; }
+    .header-right { margin-left: auto; display: flex; align-items: center; gap: 8px; }
+
+    .toast {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11.5px;
+      color: var(--muted);
+      opacity: 0;
+      transition: opacity .2s;
+      white-space: nowrap;
+    }
+    .toast.show { opacity: 1; }
+
+    button, a.btn {
+      font-family: 'Inter', sans-serif;
+      font-size: 12.5px;
+      font-weight: 500;
+      padding: 6px 13px;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: opacity .15s;
+      text-decoration: none;
+      display: inline-block;
+    }
+    button:hover, a.btn:hover { opacity: .82; }
+    .btn-ghost { background: var(--surface2); color: var(--text); border: 1px solid var(--border); }
+    .btn-red   { background: var(--accent); color: #fff; }
+
+    /* ── Main split ── */
+    main {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      flex: 1;
+      overflow: hidden;
+      min-height: 0;
+    }
+    .pane { display: flex; flex-direction: column; min-height: 0; }
+    .pane-bar {
+      display: flex;
+      align-items: center;
+      padding: 0 18px;
+      height: 36px;
+      font-size: 10.5px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--muted);
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      flex-shrink: 0;
+      gap: 10px;
+    }
+    .pane-bar .meta {
+      margin-left: auto;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10.5px;
+      font-weight: 400;
+      text-transform: none;
+      letter-spacing: 0;
+    }
+    .input-pane { border-right: 1px solid var(--border); background: var(--pane-bg); }
+    textarea {
+      flex: 1;
+      width: 100%;
+      resize: none;
+      border: none;
+      outline: none;
+      font-family: 'IBM Plex Mono', 'Courier New', monospace;
+      font-size: 12px;
+      line-height: 1.7;
+      color: var(--text);
+      background: var(--pane-bg);
+      padding: 20px;
+      tab-size: 2;
+    }
+    textarea::placeholder { color: var(--muted); opacity: .55; }
+
+    .preview-pane { background: var(--bg); }
+    .preview-scroll { flex: 1; overflow-y: auto; padding: 28px 20px 40px; }
+    .email-card {
+      background: #ffffff;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 40px 36px 48px;
+      border: 1px solid #e0ddd8;
+      border-radius: 3px;
+      box-shadow: var(--shadow);
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 17px;
+      line-height: 1.75;
+      color: #1a1816;
+    }
+
+    /* ── Tip bar ── */
+    .tip-bar {
+      background: var(--surface2);
+      border-top: 1px solid var(--border);
+      padding: 8px 20px;
+      font-size: 11.5px;
+      color: var(--muted);
+      flex-shrink: 0;
+    }
+    .tip-bar strong { color: var(--text); font-weight: 500; }
+    .tip-bar a { color: var(--accent); }
+
+    @media (max-width: 680px) {
+      body { overflow: auto; height: auto; }
+      main { grid-template-columns: 1fr; overflow: visible; }
+      .input-pane { height: 42vh; border-right: none; border-bottom: 1px solid var(--border); }
+      .preview-pane { min-height: 60vh; }
+      header { flex-wrap: wrap; height: auto; padding: 10px 16px; gap: 8px; }
+      .header-right { flex-wrap: wrap; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo"><a href="/">.ps</a> <span class="sep">→</span> Email</div>
+  <div class="header-right">
+    <span class="toast" id="toast"></span>
+    <button class="btn-ghost" onclick="copyHtml()">Copy HTML</button>
+    <button class="btn-red" onclick="copyForEmail()">Copy for Gmail / Outlook</button>
+  </div>
+</header>
+
+<main>
+  <div class="pane input-pane">
+    <div class="pane-bar">
+      Post content
+      <span class="meta" id="char-meta"></span>
+    </div>
+    <textarea id="input" placeholder="Paste your post markdown or HTML here…" spellcheck="false"></textarea>
+  </div>
+  <div class="pane preview-pane">
+    <div class="pane-bar">
+      Email preview — 600 px
+      <span class="meta" id="word-meta"></span>
+    </div>
+    <div class="preview-scroll">
+      <div class="email-card">
+        <div id="preview"></div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<div class="tip-bar">
+  <strong>How to use:</strong> Paste post content → <strong>Copy for Gmail / Outlook</strong> → paste into compose.
+  &ensp;<strong>Copy HTML</strong> gives raw inline-styled HTML for an ESP or HTML email editor.
+  &ensp;<a href="/admin/">← Admin</a>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/marked@9/marked.min.js"></script>
+<script>
+// ─── Inline style maps ────────────────────────────────────────────────────────
+const BASE_FONT = 'font-family:Georgia,"Times New Roman",serif;color:#1a1816;';
+
+const TAG_STYLES = {
+  H1: BASE_FONT + 'font-size:30px;font-weight:bold;line-height:1.2;margin:0 0 22px;',
+  H2: BASE_FONT + 'font-size:21px;font-weight:bold;line-height:1.3;margin:36px 0 14px;padding-bottom:8px;border-bottom:1px solid #e0ddd8;',
+  H3: BASE_FONT + 'font-size:18px;font-weight:bold;line-height:1.35;margin:28px 0 10px;',
+  H4: BASE_FONT + 'font-size:16px;font-weight:bold;margin:22px 0 8px;',
+  P:  'margin:0 0 18px;',
+  BLOCKQUOTE: 'border-left:3px solid #ff0032;margin:26px 0;padding:4px 20px;',
+  UL: 'margin:0 0 18px;padding-left:26px;',
+  OL: 'margin:0 0 18px;padding-left:26px;',
+  LI: 'margin-bottom:6px;',
+  A:  'color:#cc0028;text-decoration:underline;',
+  IMG:'max-width:100%;height:auto;display:block;margin:0 auto 8px;',
+  FIGURE:'margin:32px 0;text-align:center;',
+  FIGCAPTION: BASE_FONT + 'font-size:13px;color:#888;font-style:italic;margin-top:6px;display:block;',
+  HR: 'border:none;border-top:1px solid #e0ddd8;margin:32px 0;display:block;',
+  STRONG:'font-weight:bold;',
+  B:   'font-weight:bold;',
+  EM:  'font-style:italic;',
+  I:   'font-style:italic;',
+  CITE: BASE_FONT + 'display:block;font-size:14px;font-style:normal;color:#777;margin-top:10px;',
+  PRE: 'background:#f5f2ec;border:1px solid #e0ddd8;border-radius:3px;padding:14px 16px;margin:0 0 18px;overflow:auto;',
+  CODE:'font-family:"Courier New",Courier,monospace;font-size:13.5px;background:#f5f2ec;padding:1px 5px;border-radius:2px;',
+};
+
+const CLASS_STYLES = {
+  'pullquote':
+    BASE_FONT + 'font-size:21px;line-height:1.45;font-style:italic;' +
+    'border-left:3px solid #ff0032;padding:10px 20px;margin:32px 0;display:block;',
+  'em-rule':
+    BASE_FONT + 'font-size:14px;color:#aaa;letter-spacing:.28em;margin:-6px 0 20px;font-style:normal;display:block;',
+  'marginalia':
+    BASE_FONT + 'border-left:2px solid #999;padding-left:20px;margin:24px 0;font-size:15px;color:#555;font-style:normal;display:block;',
+  'note-block':
+    'border-left:2px solid #ccc;padding-left:20px;margin:24px 0;display:block;',
+  'section-break':
+    BASE_FONT + 'text-align:center;color:#bbb;margin:36px 0;letter-spacing:.5em;font-size:13px;display:block;',
+  'img-dark':  'display:none;',
+  'img-light': 'display:block;max-width:100%;height:auto;',
+};
+
+// ─── Conversion engine ────────────────────────────────────────────────────────
+function buildEmailHtml(src) {
+  if (!src.trim()) return '';
+  let html;
+  try { html = marked.parse(src); } catch(e) { html = src; }
+
+  const tmp = document.createElement('div');
+  tmp.innerHTML = html;
+
+  // Strip internal anchor links — keep text
+  tmp.querySelectorAll('a[href^="#"]').forEach(a => {
+    const span = document.createElement('span');
+    span.innerHTML = a.innerHTML;
+    a.replaceWith(span);
+  });
+
+  // Remove CSS custom property declarations (won't work in email)
+  tmp.querySelectorAll('[style]').forEach(el => {
+    let s = el.getAttribute('style').replace(/--[\w-]+\s*:[^;]+;?\s*/g, '').trim();
+    s ? el.setAttribute('style', s) : el.removeAttribute('style');
+  });
+
+  // Apply inline styles — class-based BEFORE we strip classes
+  tmp.querySelectorAll('*').forEach(el => {
+    let classStyle = '';
+    el.classList.forEach(cls => { if (CLASS_STYLES[cls]) classStyle += CLASS_STYLES[cls]; });
+    const tagStyle  = TAG_STYLES[el.tagName] || '';
+    const existing  = el.getAttribute('style') || '';
+    const merged    = [existing, tagStyle, classStyle].filter(Boolean).join(';');
+    if (merged) el.setAttribute('style', merged);
+    el.removeAttribute('class');
+  });
+
+  return tmp.innerHTML;
+}
+
+function getWrappedHtml() {
+  const inner = document.getElementById('preview').innerHTML;
+  const outer =
+    'font-family:Georgia,"Times New Roman",serif;font-size:17px;line-height:1.75;' +
+    'color:#1a1816;max-width:600px;margin:0 auto;';
+  return `<div style="${outer}">${inner}</div>`;
+}
+
+// ─── Copy actions ─────────────────────────────────────────────────────────────
+async function copyForEmail() {
+  const html = getWrappedHtml();
+  const text = document.getElementById('preview').innerText;
+  try {
+    await navigator.clipboard.write([
+      new ClipboardItem({
+        'text/html':  new Blob([html],  { type: 'text/html'  }),
+        'text/plain': new Blob([text], { type: 'text/plain' }),
+      })
+    ]);
+    toast('Copied! Paste into Gmail or Outlook compose.');
+  } catch(e) {
+    const sel = window.getSelection();
+    const range = document.createRange();
+    range.selectNodeContents(document.getElementById('preview').parentElement);
+    sel.removeAllRanges();
+    sel.addRange(range);
+    toast('Selected — press Ctrl+C / ⌘C to copy.');
+  }
+}
+
+async function copyHtml() {
+  try {
+    await navigator.clipboard.writeText(getWrappedHtml());
+    toast('Raw HTML copied.');
+  } catch(e) {
+    toast('Copy failed — check browser permissions.');
+  }
+}
+
+let toastTimer;
+function toast(msg) {
+  const el = document.getElementById('toast');
+  el.textContent = msg;
+  el.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => el.classList.remove('show'), 3800);
+}
+
+// ─── Live update ──────────────────────────────────────────────────────────────
+const inputEl  = document.getElementById('input');
+const charMeta = document.getElementById('char-meta');
+const wordMeta = document.getElementById('word-meta');
+
+let debounce;
+inputEl.addEventListener('input', () => {
+  const src   = inputEl.value;
+  const chars = src.length;
+  const words = src.trim() ? src.trim().split(/\s+/).length : 0;
+  charMeta.textContent = chars.toLocaleString() + ' ch';
+  wordMeta.textContent = words.toLocaleString() + ' words';
+  clearTimeout(debounce);
+  debounce = setTimeout(() => {
+    document.getElementById('preview').innerHTML = buildEmailHtml(src);
+  }, 180);
+});
+</script>
+</body>
+</html>

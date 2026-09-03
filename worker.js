@@ -702,6 +702,13 @@ export default {
         });
       }
 
+      // Email converter — served from KV key "email-converter-html"
+      if (path === '/email' || path === '/email/') {
+        const emailHtml = await env.POSTS.get('email-converter-html');
+        if (!emailHtml) return htmlResp(503, `<!DOCTYPE html><html><body style="font-family:sans-serif;padding:40px"><h2>Not set up</h2><p>Upload <code>public/email-converter/index.html</code> to KV key <code>email-converter-html</code>.</p></body></html>`);
+        return htmlResp(200, emailHtml);
+      }
+
       // Admin editor — served from KV key "admin-html"
       if (path === '/admin' || path === '/admin/') {
         const adminHtml = await env.POSTS.get('admin-html');
