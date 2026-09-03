@@ -586,6 +586,26 @@ async function handleAPI(request, path, env) {
     return jsonResp(200, await getIndex(env));
   }
 
+  // GET /api/export — full dump of all posts (index + content)
+  if (path === '/api/export' && request.method === 'GET') {
+    if (!checkAuth(request, env)) return jsonResp(401, { error: 'Unauthorized' });
+    const index = await getIndex(env);
+    const posts = await Promise.all(index.map(meta => getPost(env, meta.slug)));
+    const payload = {
+      exported: new Date().toISOString(),
+      source:   'ps.chom.ps',
+      count:    posts.filter(Boolean).length,
+      posts:    posts.filter(Boolean),
+    };
+    return new Response(JSON.stringify(payload, null, 2), {
+      headers: {
+        'Content-Type': 'application/json;charset=UTF-8',
+        'Content-Disposition': `attachment; filename="ps-posts-${new Date().toISOString().slice(0,10)}.json"`,
+        ...CORS,
+      },
+    });
+  }
+
   // /api/posts/:slug
   const m = path.match(/^\/api\/posts\/([a-z0-9][a-z0-9-]*)$/);
   if (!m) return jsonResp(404, { error: 'Not found' });
