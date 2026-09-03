@@ -246,6 +246,7 @@
             <option value="">— new post —</option>
           </select>
           <button class="btn btn-ghost" onclick="loadPost()">Load</button>
+          <button class="btn btn-ghost" id="export-btn" onclick="exportAllPosts()" title="Download all posts as JSON">↓ Export</button>
         </div>
       </div>
 
@@ -573,6 +574,34 @@
   }
 
   function onLoadSelectChange() { /* user clicks Load to confirm */ }
+
+  async function exportAllPosts() {
+    const btn = document.getElementById('export-btn');
+    btn.disabled = true;
+    btn.textContent = '↓ Exporting…';
+    try {
+      const token = adminToken();
+      const res = await fetch('/api/export', {
+        headers: { 'Authorization': `Bearer ${token}` },
+      });
+      if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
+      const blob = await res.blob();
+      const date = new Date().toISOString().slice(0, 10);
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = `ps-posts-${date}.json`;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(a.href);
+      setStatus('Export downloaded', '');
+    } catch(e) {
+      setStatus('Export failed: ' + e.message, 'error');
+    } finally {
+      btn.disabled = false;
+      btn.textContent = '↓ Export';
+    }
+  }
 
   async function loadPost() {
     const slug = document.getElementById('load-select').value;
