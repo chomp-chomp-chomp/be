@@ -201,7 +201,7 @@
   <div class="logo"><a href="/">.ps</a> <span class="sep">→</span> Email</div>
   <div class="header-right">
     <span class="toast" id="toast"></span>
-    <button class="btn-ghost" onclick="copyHtml()">Copy HTML</button>
+    <button class="btn-ghost" onclick="copyHtml()" title="Copies raw HTML for pasting into Mailchimp, Substack, or any HTML email editor">Raw HTML</button>
     <button class="btn-red" onclick="copyForEmail()">Copy for Gmail / Outlook</button>
   </div>
 </header>
@@ -228,8 +228,8 @@
 </main>
 
 <div class="tip-bar">
-  <strong>How to use:</strong> Paste post content → <strong>Copy for Gmail / Outlook</strong> → paste into compose.
-  &ensp;<strong>Copy HTML</strong> gives raw inline-styled HTML for an ESP or HTML email editor.
+  <strong>Copy for Gmail / Outlook</strong> → paste directly into compose (formatted email, images constrained).
+  &ensp;<strong>Raw HTML</strong> → paste into Mailchimp, Substack, or any HTML email editor — not into compose.
   &ensp;<a href="/admin/">← Admin</a>
 </div>
 
@@ -249,7 +249,7 @@ const TAG_STYLES = {
   OL: 'margin:0 0 18px;padding-left:26px;',
   LI: 'margin-bottom:6px;',
   A:  'color:#cc0028;text-decoration:underline;',
-  IMG:'max-width:100%;height:auto;display:block;margin:0 auto 8px;',
+  IMG:'height:auto;display:block;margin:0 auto 8px;',
   FIGURE:'margin:32px 0;text-align:center;',
   FIGCAPTION: BASE_FONT + 'font-size:13px;color:#888;font-style:italic;margin-top:6px;display:block;',
   HR: 'border:none;border-top:1px solid #e0ddd8;margin:32px 0;display:block;',
@@ -275,7 +275,7 @@ const CLASS_STYLES = {
   'section-break':
     BASE_FONT + 'text-align:center;color:#bbb;margin:36px 0;letter-spacing:.5em;font-size:13px;display:block;',
   'img-dark':  'display:none;',
-  'img-light': 'display:block;max-width:100%;height:auto;',
+  'img-light': 'display:block;height:auto;',
 };
 
 // ─── Conversion engine ────────────────────────────────────────────────────────
@@ -309,6 +309,19 @@ function buildEmailHtml(src) {
     const merged    = [existing, tagStyle, classStyle].filter(Boolean).join(';');
     if (merged) el.setAttribute('style', merged);
     el.removeAttribute('class');
+  });
+
+  // Fix image sizing for email clients (Outlook ignores CSS max-width).
+  // Only auto-size images that don't already have an explicit pixel width set.
+  tmp.querySelectorAll('img').forEach(img => {
+    const s = img.getAttribute('style') || '';
+    if (!/\bwidth\s*:\s*\d/.test(s)) {
+      // No explicit pixel width — constrain to email content width
+      img.setAttribute('width', '560');
+      img.setAttribute('style', (s ? s.replace(/;?$/, ';') : '') + 'width:100%;max-width:560px;');
+    }
+    // Always set height="auto" attribute so Outlook doesn't distort
+    img.setAttribute('height', 'auto');
   });
 
   return tmp.innerHTML;
