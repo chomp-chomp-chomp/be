@@ -23,6 +23,7 @@
             // before computing the slug, so apostrophes/quotes etc. are handled correctly.
             _tmp.innerHTML = inner.replace(/<[^>]+>/g, '');
             const id = (_tmp.textContent || '')
+              .normalize('NFD').replace(/[\u0300-\u036f]/g, '') // é→e, ü→u, etc.
               .toLowerCase()
               .replace(/[^\w\s-]/g, '') // remove punctuation (apostrophes, etc.)
               .replace(/\s+/g, '-')     // spaces → hyphens
@@ -323,8 +324,10 @@
             <div class="marker-hint"><code>&lt;div class="pullquote"&gt;A memorable line.&lt;/div&gt;</code><span class="marker-desc">Large centered pull quote</span></div>
             <div class="marker-hint"><code>&lt;div class="note-block"&gt;An aside or caveat.&lt;/div&gt;</code><span class="marker-desc">Italic side note with left rule</span></div>
             <div class="marker-hint"><code>&lt;div class="marginalia"&gt;A marginal note.&lt;/div&gt;</code><span class="marker-desc">Sidebar note with grey left rule</span></div>
-            <div class="marker-hint"><code>&lt;div class="section-break"&gt;* * *&lt;/div&gt;</code><span class="marker-desc">Ornamental section divider</span></div>
+            <div class="marker-hint"><code>&lt;div class="section-break"&gt;* * *&lt;/div&gt;</code><span class="marker-desc">Ornamental section divider (≃ works too)</span></div>
+            <div class="marker-hint"><code>&lt;div class="em-rule"&gt;— — — — — — —&lt;/div&gt;</code><span class="marker-desc">Em-dash rule, pulls up close under a heading</span></div>
             <div class="marker-hint"><code>&lt;figure&gt;&lt;img src="…"&gt;&lt;figcaption&gt;Caption&lt;/figcaption&gt;&lt;/figure&gt;</code><span class="marker-desc">Image with caption</span></div>
+            <div class="marker-hint"><code>&lt;img src="…" class="img-light" alt="…"&gt;&lt;img src="…" class="img-dark" alt="…"&gt;</code><span class="marker-desc">Different image per light/dark mode</span></div>
             <div class="marker-hint"><code>&lt;cite&gt;— Source name&lt;/cite&gt;</code><span class="marker-desc">Attribution after a blockquote</span></div>
             <div class="marker-hint"><code>&lt;div class="recipe-meta"&gt;&lt;div&gt;&lt;strong&gt;Prep&lt;/strong&gt; 20 min&lt;/div&gt;&lt;/div&gt;</code><span class="marker-desc">Recipe stats grid</span></div>
           </div>
