@@ -113,6 +113,10 @@ a:hover { color: var(--link-hover); }
 @media (prefers-color-scheme: dark) { html:not([data-theme="light"]) .ps-logo-light { display: none; } html:not([data-theme="light"]) .ps-logo-dark { display: block; } }
 html[data-theme="dark"] .ps-logo-light { display: none; }
 html[data-theme="dark"] .ps-logo-dark { display: block; }
+.img-dark { display: none; }
+@media (prefers-color-scheme: dark) { html:not([data-theme="light"]) .img-light { display: none; } html:not([data-theme="light"]) .img-dark { display: block; } }
+html[data-theme="dark"] .img-light { display: none; }
+html[data-theme="dark"] .img-dark { display: block; }
 
 .nav-tools-dropdown { position: relative; }
 .menu-toggle { display: block; background: none; border: none; font-size: 1.4em; color: var(--text); cursor: pointer; padding: 4px 0; line-height: 1; transition: opacity 0.2s; }
