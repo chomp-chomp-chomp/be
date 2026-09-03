@@ -246,7 +246,6 @@
             <option value="">— new post —</option>
           </select>
           <button class="btn btn-ghost" onclick="loadPost()">Load</button>
-          <button class="btn btn-ghost" id="export-btn" onclick="exportAllPosts()" title="Download all posts as JSON">↓ Export</button>
         </div>
       </div>
 
@@ -374,6 +373,9 @@
           <button class="btn btn-ghost" onclick="migrateFromGitHub()" id="migrate-btn">Import all posts from GitHub</button>
         </div>
         <div id="migrate-progress" style="font-size:12px;color:var(--muted);margin-top:6px;display:none;"></div>
+        <div class="pdf-upload-row" style="margin-top:6px;">
+          <button class="btn btn-ghost" id="export-btn" onclick="exportAllPosts()">Export all posts as JSON</button>
+        </div>
       </div>
 
     </div>
