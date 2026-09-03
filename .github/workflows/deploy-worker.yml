@@ -7,6 +7,7 @@ on:
       - 'worker.js'
       - 'wrangler.toml'
       - 'public/admin/index.html'
+      - 'public/email-converter/index.html'
   workflow_dispatch:
 
 jobs:
@@ -22,3 +23,4 @@ jobs:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           postCommands: |
             wrangler kv key put --binding POSTS "admin-html" --path public/admin/index.html
+            wrangler kv key put --binding POSTS "email-converter-html" --path public/email-converter/index.html
