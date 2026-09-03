@@ -339,6 +339,7 @@
           <button class="btn btn-ghost" id="draft-btn" onclick="saveAsDraft()">Save as Draft</button>
           <button class="btn btn-ghost" id="unlisted-btn" style="display:none" onclick="toggleUnlisted()">Make Unlisted</button>
           <button class="btn btn-ghost" id="archive-btn" style="display:none" onclick="toggleArchive()">Archive</button>
+          <button class="btn btn-ghost" id="copy-md-btn" onclick="copyMarkdown()" title="Copy post markdown to clipboard">Copy markdown</button>
         </div>
         <button class="btn btn-primary" id="publish-btn" onclick="publish()">Publish →</button>
       </div>
@@ -375,6 +376,9 @@
         <div id="migrate-progress" style="font-size:12px;color:var(--muted);margin-top:6px;display:none;"></div>
         <div class="pdf-upload-row" style="margin-top:6px;">
           <button class="btn btn-ghost" id="export-btn" onclick="exportAllPosts()">Export all posts as JSON</button>
+        </div>
+        <div class="pdf-upload-row" style="margin-top:6px;">
+          <a class="btn btn-ghost" href="https://claude.ai/code/artifact/19ed1180-aef6-468f-966a-d8f0f25666ed" target="_blank" rel="noopener">Post → Email converter ↗</a>
         </div>
       </div>
 
@@ -697,6 +701,17 @@
 
   async function publish()      { await savePost({ btnId: 'publish-btn' }); }
   async function saveAsDraft()  { await savePost({ status: 'draft',    btnId: 'draft-btn',   successMsg: 'Saved as draft.' }); }
+
+  async function copyMarkdown() {
+    const content = document.getElementById('content-input').value;
+    if (!content.trim()) { setStatus('Nothing to copy — post content is empty.', ''); return; }
+    try {
+      await navigator.clipboard.writeText(content);
+      setStatus('Markdown copied — paste into the email converter.', '');
+    } catch(e) {
+      setStatus('Copy failed: ' + e.message, 'err');
+    }
+  }
 
   async function toggleArchive() {
     if (currentPostStatus === 'archived') {
