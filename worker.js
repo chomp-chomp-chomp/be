@@ -189,6 +189,7 @@ figcaption { margin-top: 10px; font-family: var(--font-ui); font-size: 13px; lin
 .markdown .pullquote { margin: 48px 0; font-family: var(--font-title); font-size: 28px; line-height: 1.3; text-align: center; color: var(--text); }
 .markdown .aside { margin: 24px 0; font-size: 16px; color: var(--muted); }
 .markdown .section-break { margin: 48px 0; text-align: center; font-family: var(--font-title); font-size: 20px; color: var(--light-muted); letter-spacing: 0.08em; }
+.markdown .em-rule { margin-top: -16px; margin-bottom: var(--space-m); color: var(--muted); letter-spacing: 0.25em; }
 .markdown figure { margin: 32px 0; }
 .markdown figcaption { margin-top: 10px; font-family: var(--font-ui); font-size: 13px; line-height: 1.4; color: var(--muted); }
 .markdown .recipe-meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px 20px; margin: 24px 0 32px; font-family: var(--font-ui); font-size: 14px; line-height: 1.4; color: var(--muted); }
