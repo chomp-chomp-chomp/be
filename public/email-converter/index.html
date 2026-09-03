@@ -202,7 +202,7 @@
   <div class="header-right">
     <span class="toast" id="toast"></span>
     <button class="btn-ghost" onclick="copyHtml()" title="Copies raw HTML for pasting into Mailchimp, Substack, or any HTML email editor">Raw HTML</button>
-    <button class="btn-red" onclick="copyForEmail()">Copy for Gmail / Outlook</button>
+    <button class="btn-red" onclick="downloadHtmlEmail()">Download .html</button>
   </div>
 </header>
 
@@ -228,8 +228,8 @@
 </main>
 
 <div class="tip-bar">
-  <strong>Copy for Gmail / Outlook</strong> → paste directly into compose (formatted email, images constrained).
-  &ensp;<strong>Raw HTML</strong> → paste into Mailchimp, Substack, or any HTML email editor — not into compose.
+  <strong>Download .html</strong> saves the email as a standalone HTML file you can embed in Outlook or open in a browser.
+  &ensp;<strong>Raw HTML</strong> → copies inline-styled code for Mailchimp, Substack, or any HTML email editor.
   &ensp;<a href="/admin/">← Admin</a>
 </div>
 
@@ -335,26 +335,61 @@ function getWrappedHtml() {
   return `<div style="${outer}">${inner}</div>`;
 }
 
-// ─── Copy actions ─────────────────────────────────────────────────────────────
-async function copyForEmail() {
-  const html = getWrappedHtml();
-  const text = document.getElementById('preview').innerText;
-  try {
-    await navigator.clipboard.write([
-      new ClipboardItem({
-        'text/html':  new Blob([html],  { type: 'text/html'  }),
-        'text/plain': new Blob([text], { type: 'text/plain' }),
-      })
-    ]);
-    toast('Copied! Paste into Gmail or Outlook compose.');
-  } catch(e) {
-    const sel = window.getSelection();
-    const range = document.createRange();
-    range.selectNodeContents(document.getElementById('preview').parentElement);
-    sel.removeAllRanges();
-    sel.addRange(range);
-    toast('Selected — press Ctrl+C / ⌘C to copy.');
-  }
+// ─── Download HTML email ──────────────────────────────────────────────────────
+function downloadHtmlEmail() {
+  const inner = document.getElementById('preview').innerHTML;
+  if (!inner.trim()) { toast('Nothing to download — paste some content first.'); return; }
+
+  // Derive a filename from the first heading in the post, or fallback to date
+  const tmp = document.createElement('div');
+  tmp.innerHTML = inner;
+  const heading = tmp.querySelector('h1,h2');
+  const slug = heading
+    ? heading.textContent.trim().toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 48)
+    : 'email';
+  const date = new Date().toISOString().slice(0, 10);
+  const filename = `${date}-${slug}.html`;
+
+  const page = `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>${heading ? heading.textContent.trim() : 'Email'}</title>
+<style>
+  body { margin:0; padding:0; background-color:#f5f2ec; }
+  table, td { mso-table-lspace:0pt; mso-table-rspace:0pt; }
+  img { -ms-interpolation-mode:bicubic; }
+</style>
+</head>
+<body style="margin:0;padding:0;background-color:#f5f2ec;">
+<table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#f5f2ec;">
+  <tr>
+    <td align="center" style="padding:32px 16px;">
+      <table width="600" cellpadding="0" cellspacing="0" border="0" style="max-width:600px;width:100%;background-color:#ffffff;">
+        <tr>
+          <td style="padding:40px 36px 48px;font-family:Georgia,'Times New Roman',serif;font-size:17px;line-height:1.75;color:#1a1816;">
+            ${inner}
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>`;
+
+  const blob = new Blob([page], { type: 'text/html' });
+  const url  = URL.createObjectURL(blob);
+  const a    = document.createElement('a');
+  a.href     = url;
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 5000);
+  toast(`Downloaded ${filename}`);
 }
 
 async function copyHtml() {
