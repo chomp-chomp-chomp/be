@@ -191,7 +191,7 @@ figcaption { margin-top: 10px; font-family: var(--font-ui); font-size: 13px; lin
 .markdown .marginalia { border-left: 2px solid #999999; padding-left: 20px; margin: 24px 0; font-style: normal; }
 .markdown .note-block { border-left: 2px solid #CCCCCC; padding-left: 20px; margin: 24px 0; background: none; border-top: none; border-right: none; border-bottom: none; }
 .markdown .pullquote { margin: 48px 0; font-family: var(--font-title); font-size: 28px; line-height: 1.3; text-align: center; color: var(--text); }
-.markdown .pullquote.tight { margin-top: var(--tight-margin, 42px); margin-bottom: var(--tight-margin, 42px); }
+.markdown .pullquote.tight { margin-top: var(--tight-margin-top, var(--tight-margin, 42px)); margin-bottom: var(--tight-margin-bottom, var(--tight-margin, 42px)); }
 .markdown .aside { margin: 24px 0; font-size: 16px; color: var(--muted); }
 .markdown .section-break { margin: 48px 0; text-align: center; font-family: var(--font-title); font-size: 20px; color: var(--light-muted); letter-spacing: 0.08em; }
 .markdown .em-rule { margin-top: -16px; margin-bottom: var(--space-m); color: var(--muted); letter-spacing: 0.25em; }
