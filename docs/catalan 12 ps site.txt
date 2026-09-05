@@ -11,23 +11,25 @@
 
 *[Interlude: On the Matter of Provenance](#interlude-on-the-matter-of-provenance)*
 
-[III. King Cake](#iii-king-cake)<br>
-[IV. Cardamom Buns](#iv-cardamom-buns)<br>
-[V. Sticky Toffee Pudding](#v-sticky-toffee-pudding)<br>
-[VI. Pistachio and Rosewater Semolina Cake](#vi-pistachio-and-rosewater-semolina-cake)<br>
-[VII. Pumpkin Pie](#vii-pumpkin-pie)
+[III. Cardamom Buns](#iii-cardamom-buns)<br>
+[IV. King Cake](#iv-king-cake)<br>
+[V. Sweet Potato Pie](#v-sweet-potato-pie)<br>
+[VI. Sticky Toffee Pudding](#vi-sticky-toffee-pudding)<br>
+[VII. Gougères](#vii-gougeres)<br>
+[VIII. Baklava](#viii-baklava)<br>
+[IX. Coca de Recapte](#ix-coca-de-recapte)
 
 *[Interlude: The Society's Ledger, Partially Recovered](#interlude-the-societys-ledger-partially-recovered)*
 
-[VIII. Pastel de Nata](#viii-pastel-de-nata)<br>
-[IX. Cheddar-Scallion Muffins](#ix-cheddar-scallion-muffins)<br>
-[X. Kurisumasu Keki (Japanese Christmas Cake)](#x-kurisumasu-keki-japanese-christmas-cake)<br>
-[XI. Focaccia](#xi-focaccia)<br>
+[X. Pastéis de Nata](#x-pasteis-de-nata)<br>
+[XI. Chocolate Roll](#xi-chocolate-roll)<br>
 [XII. Moon Pie](#xii-moon-pie)
 
 *[Coda: On the Matter of Twelve](#coda-on-the-matter-of-twelve)*
 
 *[Correspondence](#correspondence)*
+
+*[Marginalia: Why Alabama?](#marginalia-why-alabama)*
 
 **[Conclusion](#conclusion)**
 
@@ -40,16 +42,15 @@
 <div class="section-break">* * *</div>
 
 ## Introduction
+<div class="em-rule">— — — — — — — — — — — —</div>
 
 <figure><img src="https://ik.imagekit.io/chompchomp/seal.JPG"><figcaption>Emblem sometimes associated with the Twelve. Origin and age unverified; possibly an inside joke.</figcaption></figure>
 
 No one has ever produced a founding charter for the Catalan Twelve, which is exactly the kind of evidence they would destroy first. What survives is circumstantial: a monk here, a noblewoman there, a legend that arrives in a town fully formed with no visible author and impeccable technique. Historians call this folklore. We call it a pattern of behavior.
 
-The working theory, which this volume does not so much argue as simply proceed from, is that twelve individuals of unrecorded origin and excellent taste have spent several centuries moving through the world's kitchens, perfecting a small number of ideas and distributing them under whatever name the local audience would accept. A custard-filled pastry [becomes a xuxo in Girona](https://ps.chom.ps/xuxo-lore/) and something else with the pastry crimped differently forty miles down the coast. A pudding shows up in a Lancashire hotel with no prior history and a story about a chef "who just knew." This is not coincidence, or it might be, but it is at minimum a very consistent kind of coincidence. This is twelve people with a lot of time and no interest in credit.
+The working theory, which this volume does not so much argue as simply proceeds from, is that twelve individuals of unrecorded origin and excellent taste have spent several centuries moving through the world's kitchens, perfecting a small number of ideas and distributing them under whatever name the local audience would accept. A custard-filled pastry [becomes a xuxo in Girona](https://ps.chom.ps/xuxo-lore/) and something else with the pastry crimped differently forty miles down the coast. A pudding shows up in a Lancashire hotel with no prior history and a story about a chef "who just knew." This is not coincidence, or it might be, but it is at minimum a very consistent kind of coincidence. This is twelve people with a lot of time and no interest in credit.
 
 One name keeps surfacing in the margins where the others don't: Hildevart Crumb, who elsewhere in this author's work has been documented selling the same ambiguous pastry under a [different name](https://ps.chom.ps/on-the-divergent-names/) in every port he passed through. I'd resisted connecting him to the Twelve for a while, on the grounds that one [trickster baker](https://ps.chom.ps/chomp-chomp-s-compendium/) is a bit and thirteen tricksters is a conspiracy. The ledger reprinted later in this book made that resistance harder to hold. Maybe he was one of them. Maybe he was the reason the record is this bad in the first place.
-
-Where it gets complicated, and where this book has to be honest with itself, is Alabama. The joke was that everything interesting is secretly from Alabama, which was funny right up until it stopped being a joke and started being a pattern I couldn't unsee. The overlap between "suspiciously good, suspiciously humble, suspiciously untraceable" and "probably passed through the Gulf Coast at some point" is not something I set out to find. It found me, the way these things do. I won't claim it holds up. I will say a biscuit recipe and a Catalan filled pastry, developed continents apart, keep resolving to the same three techniques when you push on them hard enough, and I don't have a better explanation on hand.
 
 This book collects twelve recipes, each with whatever the Society left behind, real or invented, credible or not, in the margins where they were found. Some entries carry only a line or two, a scribbled aside about a dough that "already knew what it wanted to be." Others carry more, and where the record runs long enough, it gets its own space between chapters rather than crowding the recipe it's attached to. A bibliography follows at the end, for what that's worth given the subject. None of it is verified. All of it is included anyway, on the theory that a cookbook's job is to tell you what to do with your hands, and a good story is only obligated to be interesting, not true.
 
@@ -58,15 +59,19 @@ Whether the Twelve exist is a separate question from whether these recipes work.
 <div class="section-break">* * *</div>
 
 ## I. Xuxos
+<div class="em-rule">— — — — — — — — — — — —</div>
 
 <figure><img src="https://ik.imagekit.io/chompchomp/Xuxos.jpeg"><figcaption>Xuxos</figcaption></figure>
 
-<div class="pullquote">"the custard was never the secret. the secret was making a queue of strangers believe they'd invented waiting."
+<img src="https://ik.imagekit.io/chompchomp/ending.png" class="img-light" style="width: 75px;" alt="society mark">
+<img src="https://ik.imagekit.io/chompchomp/ending-dark.PNG" class="img-dark" style="width: 75px;" alt="society mark">
+
+<div class="pullquote tight" style="--tight-margin-top:10px">"the custard was never the secret. the secret is waiting."
 <cite>— Society's note, recovered from the endpaper of a Girona bakery ledger, translation uncertain</cite></div>
 
 A xuxo (pronounced roughly SHOO-sho) is a yeasted, deep-fried pastry filled with vanilla pastry cream and rolled in sugar while still warm, associated with Girona since at least the early twentieth century, disputed everywhere else since approximately five minutes after that. The dough is enriched but not laminated, closer to a brioche than a croissant, which is what makes it fry properly instead of just absorbing oil and giving up.
 
-**Yield:** 10 to 12 xuxos
+**Yield:** 12 to 13 xuxos
 
 **For the pastry cream:**
 - 2 cups whole milk
@@ -99,7 +104,7 @@ A xuxo (pronounced roughly SHOO-sho) is a yeasted, deep-fried pastry filled with
 
 3. **First rise.** Transfer the dough to a lightly oiled bowl, cover, and let rise in a warm spot until doubled, about 1 to 1.5 hours.
 
-4. **Shape and fill.** Turn the dough out and divide into 10 to 12 equal pieces (about 65g each). Roll each into a thin oval about 6 inches long. Place a heaping tablespoon of chilled pastry cream across the wider end, leaving a border around the edges. Fold the sides slightly inward over the filling, then roll tightly toward the pointed end, enclosing the cream completely. Pinch the seam and ends firmly closed. Place seam-side down on parchment.
+4. **Shape and fill.** Turn the dough out and divide into 12 to 13 equal pieces (about 65g each). Roll each into a thin oval about 6 inches long. Place a heaping tablespoon of chilled pastry cream across the wider end, leaving a border around the edges. Fold the sides slightly inward over the filling, then roll tightly toward the pointed end, enclosing the cream completely. Pinch the seam and ends firmly closed. Place seam-side down on parchment.
 
 5. **Second rise.** Cover loosely and let rise until puffy, about 45 minutes.
 
@@ -107,9 +112,12 @@ A xuxo (pronounced roughly SHOO-sho) is a yeasted, deep-fried pastry filled with
 
 7. **Finish.** While still warm, roll each xuxo in granulated sugar until fully coated. Best eaten the same day, ideally within the hour, ideally standing up.
 
-<div class="note-block"><strong>Note on the filling:</strong> some versions use crema catalana (a cinnamon and citrus custard) instead of plain vanilla pastry cream. Either is defensible. Neither is verifiable as "the original," which by this point should not surprise you.</div>
+<div class="note-block"><strong>Note on the filling:</strong> some versions use crema catalana (a cinnamon and citrus custard) instead of plain vanilla pastry cream. Either is defensible. Neither is verifiable as “the original.”</div>
 
-<div class="pullquote">"the dough remembers longer than the baker does."
+<img src="https://ik.imagekit.io/chompchomp/ending.png" class="img-light" style="width: 75px;" alt="society mark">
+<img src="https://ik.imagekit.io/chompchomp/ending-dark.PNG" class="img-dark" style="width: 75px;" alt="society mark">
+
+<div class="pullquote tight" style="--tight-margin-top:10px">"the dough remembers longer than the baker does."
 <cite>— fragment, undated</cite></div>
 
 <figure><img src="https://ik.imagekit.io/chompchomp/xuxos%202.JPG"><figcaption>Xuxos</figcaption></figure>
@@ -120,12 +128,15 @@ A xuxo (pronounced roughly SHOO-sho) is a yeasted, deep-fried pastry filled with
 
 ## II. Biscuits
 
-<figure><img src="https://ik.imagekit.io/chompchomp/Biscuits.jpeg"><figcaption>Biscuits</figcaption></figure>
+<figure><img src="https://ik.imagekit.io/chompchomp/biscuits.PNG"><figcaption>Biscuits</figcaption></figure>
 
-<div class="pullquote">"lard. butter. biscuit. biscuit."
+<img src="https://ik.imagekit.io/chompchomp/ending.png" class="img-light" style="width: 75px;" alt="society mark">
+<img src="https://ik.imagekit.io/chompchomp/ending-dark.PNG" class="img-dark" style="width: 75px;" alt="society mark">
+
+<div class="pullquote tight" style="--tight-margin-top:10px">"lard. butter. biscuit. biscuit."
 <cite>— Society's note, source disputed, possibly a forgery of a forgery</cite></div>
 
-This is a chapter where the book has to answer for itself. A Southern buttermilk biscuit and a Catalan filled pastry have no business sharing a table of contents, except that both rely on a version of the same instinct: paying closer attention to temperature and timing than to a fixed recipe. One keeps its fat cold and its hands quick. The other proofs a soft, enriched dough on its own schedule and won't be rushed. Different mechanics, same posture toward the dough. Whether that's convergent technique or something passed hand to hand across a few centuries is exactly the kind of question this book keeps asking and refusing to answer. Make these before you decide.
+This is a chapter where the book has to answer for itself. A Southern buttermilk biscuit and a Catalan filled pastry have no business sharing a table of contents, except that both rely on a version of the same instinct: paying closer attention to temperature and timing than to a fixed recipe. One keeps its fat cold and its hands quick. The other proofs a soft, enriched dough on its own schedule and won't be rushed. Different mechanics, same posture toward the dough. Make these before you decide anything.
 
 **Yield:** 8 to 10 biscuits
 
@@ -142,7 +153,7 @@ This is a chapter where the book has to answer for itself. A Southern buttermilk
 
 1. **Chill everything.** Put the flour, baking powder, baking soda, salt, and sugar in a bowl and whisk to combine. If your kitchen runs warm, chill the bowl and the cubed butter for 10 minutes before starting.
 
-2. **Cut in the butter.** Add the cold butter to the dry ingredients and work it in with your fingers or a pastry cutter until the mixture looks like coarse meal with some pea-sized pieces remaining. Don't overwork it. The visible bits of butter are the point, that's what steams and creates a tender, craggy crumb in the oven.
+2. **Cut in the butter.** Add the cold butter to the dry ingredients and work it in with your fingers or a pastry cutter until the mixture looks like coarse meal with some pea-sized pieces remaining. Don't overwork it. The visible bits of butter are the point—they're what steam and create a tender, craggy crumb in the oven.
 
 3. **Add the buttermilk.** Make a well in the center and pour in the cold buttermilk. Stir with a fork just until a thick, shaggy dough comes together, loose enough to drop from a spoon rather than roll out. Don't overmix.
 
@@ -158,12 +169,9 @@ This is a chapter where the book has to answer for itself. A Southern buttermilk
 
 <div class="note-block"><strong>Note on the pan:</strong> these can also be baked on a parchment-lined sheet instead of in the skillet, spaced an inch apart. They'll turn out taller with crisper sides all around, but you lose the soft, pull-apart sides the skillet gives you where the biscuits touch.</div>
 
-<div class="pullquote">"drop it before it's hot."
-<cite>— Society's ledger, marginal note</cite></div>
-
 <figure><img src="https://ik.imagekit.io/chompchomp/biscuits%202.JPG"><figcaption>Biscuits</figcaption></figure>
 
-<div class="marginalia">My grandma used to make drop biscuits, always using Crisco over lard or butter. She dolloped it out of those tubs with her hands; her palm was the unit of measurement. They were more tender and you could taste the buttermilk more, she said. That's good for you. She made them for breakfast, lunch, dinner, and supper - there are at least four types of meals in the South. She also said she liked it so she could sing Mama's little baby loves shortnin', shortnin', / Mama's little baby loves shortnin' bread.</div>
+<div class="marginalia">My grandma used to make drop biscuits, always using Crisco over lard or butter. She dolloped it out of those tubs with her hands; her palm was the unit of measurement. They were more tender and you could taste the buttermilk more, she said. That's good for you. She made them for breakfast, lunch, dinner, and supper (there are at least four types of meals in the South). She also said she liked it so she could sing Mama's little baby loves shortnin', shortnin', / Mama's little baby loves shortnin' bread.</div>
 
 <div class="section-break">* * *</div>
 
@@ -173,7 +181,10 @@ This is a chapter where the book has to answer for itself. A Southern buttermilk
 
 <figure><img src="https://ik.imagekit.io/chompchomp/Interlude%201%20-%20street%20scene.jpeg"><figcaption>Girona, or the Gulf Coast, or both</figcaption></figure>
 
-<div class="pullquote">"some roads only look like they're going one direction."
+<img src="https://ik.imagekit.io/chompchomp/ending.png" class="img-light" style="width: 75px;" alt="society mark">
+<img src="https://ik.imagekit.io/chompchomp/ending-dark.PNG" class="img-dark" style="width: 75px;" alt="society mark">
+
+<div class="pullquote tight" style="--tight-margin-top:10px">"some roads only look like they're going in one direction."
 <cite>— Society's ledger, undated</cite></div>
 
 Here is what the ledger actually says, as best as it can be transcribed. A name, half legible. A route: Girona, then a gap of years, then a port on the Gulf Coast, then a gap of years, then Girona again. In the margin, in different ink, someone has written *the dough doesn't care what you call it*, which could be a philosophy or could just be a note to self from someone tired of arguing about names.
@@ -190,71 +201,14 @@ Make of the half-legible name what you will. I've looked at it more times than I
 
 <div class="section-break">* * *</div>
 
-## III. King Cake
+## III. Cardamom Buns
 
-<figure><img src="https://ik.imagekit.io/chompchomp/King%20Cake.jpeg"><figcaption>King Cake</figcaption></figure>
+<figure><img src="https://ik.imagekit.io/chompchomp/cardamom.PNG"><figcaption>Cardamom Buns</figcaption></figure>
 
-<div class="pullquote">"hid a porcelain baby in the bread. it chipped someone's tooth. didn't think they would truly eat it."
-<cite>— Society's note, found tucked into a hymnal, unclear if intentionally</cite></div>
+<img src="https://ik.imagekit.io/chompchomp/ending.png" class="img-light" style="width: 75px;" alt="society mark">
+<img src="https://ik.imagekit.io/chompchomp/ending-dark.PNG" class="img-dark" style="width: 75px;" alt="society mark">
 
-King cake sits at the overlap of Mardi Gras tradition and a much older European habit of baking something valuable into bread and letting the finder take on a role, good or bad, for the rest of the season. The New Orleans version, a ring of brioche-like dough striped in purple, green, and gold sugar with a plastic baby hidden inside, is the one most people know, and the one most people get wrong first. Mobile, Alabama held the earliest documented Mardi Gras celebrations in the country, well before New Orleans claimed the holiday as its own. That's a fact about the holiday, not about this specific cake, though the book isn't going to pretend it doesn't enjoy the implication. The Society's note doesn't take a side on whether that's coincidence or pattern. This book, at this point, is not really capable of taking a side either, unless, maybe, it's Alabama's.
-
-**Yield:** one 12- to 14-inch ring, serves 12 to 16
-
-**For the dough:**
-- 4 1/2 cups (565g) all-purpose flour, plus more as needed
-- 1/2 cup granulated sugar
-- 2 1/4 teaspoons instant yeast (one packet)
-- 1 teaspoon salt
-- zest of 1 lemon
-- 1 teaspoon ground nutmeg
-- 3/4 cup whole milk, warmed to about 110°F
-- 3 large eggs, room temperature
-- 10 tablespoons unsalted butter, softened
-
-**For the cinnamon filling:**
-- 1/2 cup packed brown sugar
-- 2 tablespoons ground cinnamon
-- 4 tablespoons unsalted butter, very soft
-
-**For the icing and finishing:**
-- 2 cups powdered sugar
-- 3 to 4 tablespoons milk or lemon juice
-- purple, green, and gold sanding sugar
-- 1 small plastic baby or dried bean, for hiding
-
-**Method:**
-
-1. **Make the dough.** In a stand mixer fitted with the dough hook, combine the flour, sugar, yeast, salt, lemon zest, and nutmeg. Add the warm milk and eggs, and mix on low until a shaggy dough forms. Knead on medium speed for 5 minutes, then add the softened butter a tablespoon at a time, letting each addition incorporate before adding more. Continue kneading until smooth and elastic, about 8 to 10 minutes. The dough will be soft and slightly tacky.
-
-2. **First rise.** Transfer to a lightly oiled bowl, cover, and let rise in a warm place until doubled, about 1.5 hours.
-
-3. **Fill.** Turn the dough out onto a floured surface and roll into a large rectangle, roughly 24 by 12 inches. Spread the soft butter over the surface, then sprinkle evenly with the brown sugar and cinnamon.
-
-4. **Roll and shape.** Starting from a long edge, roll the dough tightly into a log. Bring the two ends together to form a ring, pinching firmly to seal. Transfer to a parchment-lined baking sheet.
-
-5. **Second rise.** Cover loosely and let rise until puffy, about 45 minutes. Preheat the oven to 350°F.
-
-6. **Bake.** Bake for 25 to 30 minutes, until deeply golden and a thermometer inserted into the dough reads about 190°F. Tent with foil partway through if the top is browning too fast. Cool completely on a rack before icing.
-
-7. **Hide the token and finish.** If using a plastic baby, cut a small slit in the underside of the cooled cake and push the baby completely inside. If using a dried bean, it may instead be enclosed in the dough before baking. Whisk the powdered sugar with milk or lemon juice until a thick, pourable icing forms. Pour over the cooled cake, letting it drip down the sides, and immediately sprinkle bands of purple, green, and gold sugar over the wet icing before it sets.
-
-<div class="note-block"><strong>Note on the baby:</strong> tradition holds that whoever finds it hosts the next gathering, or buys the next king cake, depending on which household you ask. The Society's note doesn't weigh in on who started that particular obligation. Given the theme of this book, that silence is probably not an accident. Warn guests that a token is hidden inside before serving.</div>
-
-<div class="pullquote">"they shouldn't swallow the baby. unless they want to."
-<cite>— fragment, undated</cite></div>
-
-<figure><img src="https://ik.imagekit.io/chompchomp/king%20cake%202.JPG"><figcaption>King Cake</figcaption></figure>
-
-<div class="marginalia">I went to Mardi Gras parades on the Gulf Coast, but the people on the floats threw beads and coins and moon pies. But not King Cakes. I guess throwing a whole cake to the crowd would be impractical. But then how practical are beads, etc.? So, I know it's a *thing* to do for beads, but I'll break it down: if you're going to do it anyway, don't flash anyone for less than a King Cake.</div>
-
-<div class="section-break">* * *</div>
-
-## IV. Cardamom Buns
-
-<figure><img src="https://ik.imagekit.io/chompchomp/Cardamom%20Buns.jpeg"><figcaption>Cardamom Buns</figcaption></figure>
-
-<div class="pullquote">"told the baker it was tradition. it was Tuesday. she believed me. by Thursday it was true."
+<div class="pullquote tight" style="--tight-margin-top:10px">"told the baker it was tradition. it was Tuesday. she believed me. by Thursday it was true."
 <cite>— Society's note, found in Swedish, translation approximate</cite></div>
 
 Kardemummabullar, cardamom buns, are the Swedish sibling of the more famous cinnamon bun, built on the same enriched dough but filled with butter, sugar, and freshly ground cardamom instead. The knotted shape, rather than a simple spiral, isn't decorative. It's structural, meant to leave more surface area exposed so the filling caramelizes at the edges instead of staying sealed inside. Whole cardamom pods, cracked and ground just before using, matter more here than in almost any other recipe in this book. Pre-ground cardamom loses its punch fast, and this bun has nowhere to hide a weak one.
@@ -299,19 +253,142 @@ Kardemummabullar, cardamom buns, are the Swedish sibling of the more famous cinn
 
 <div class="note-block"><strong>Note on the knot:</strong> if the first few come out lopsided, that's normal, not a sign of bad technique. Even bakeries that make hundreds a day let the ugly ones sell first, on the theory that a slightly imperfect bun looks more handmade and therefore more trustworthy. Whether that's marketing or philosophy depends entirely on how the day is going.</div>
 
-<div class="pullquote">"a knot holds more heat than a spiral. this is our secret."
+<img src="https://ik.imagekit.io/chompchomp/ending.png" class="img-light" style="width: 75px;" alt="society mark">
+<img src="https://ik.imagekit.io/chompchomp/ending-dark.PNG" class="img-dark" style="width: 75px;" alt="society mark">
+
+<div class="pullquote tight" style="--tight-margin-top:10px">"a knot holds more heat than a spiral. this is a secret."
 <cite>— Society's ledger, undated</cite></div>
 
 <figure><img src="https://ik.imagekit.io/chompchomp/cardamom%202.JPG"><figcaption>Cardamom Buns</figcaption></figure>
 
+<div class="marginalia"> I first had Cardamom Buns from a bakery right down the block from me. I wasn't sure how I'd feel about cardamom + a bun. Would it be a paste in the middle like in a sandwich? Would it be a frosting? No, it was a sugary, buttery, cardamom filling. Unfortunately, it was July. One day it will be winter and then I'll feel Scandinavian when I order my Kardemummabullar. </div>
+
 <div class="section-break">* * *</div>
 
-## V. Sticky Toffee Pudding
+## IV. King Cake
+
+<figure><img src="https://ik.imagekit.io/chompchomp/King%20Cake.jpeg"><figcaption>King Cake</figcaption></figure>
+
+<img src="https://ik.imagekit.io/chompchomp/ending.png" class="img-light" style="width: 75px;" alt="society mark">
+<img src="https://ik.imagekit.io/chompchomp/ending-dark.PNG" class="img-dark" style="width: 75px;" alt="society mark">
+
+<div class="pullquote tight" style="--tight-margin-top:10px">"hid a porcelain baby in the bread. it chipped a tooth. don't eat the baby."
+<cite>— Society's note, found tucked into a hymnal, unclear if intentionally</cite></div>
+
+King cake sits at the overlap of Mardi Gras tradition and a much older European habit of baking something valuable into bread and letting the finder take on a role, good or bad, for the rest of the season. The New Orleans version, a ring of brioche-like dough striped in purple, green, and gold sugar with a plastic baby hidden inside, is the one most people know, and the one most people get wrong first. Mobile, Alabama held the earliest documented Mardi Gras celebrations in the country, well before New Orleans claimed the holiday as its own. This recipe gives a better cake.
+
+**Yield:** one 12- to 14-inch ring, serves 12 to 16
+
+**For the dough:**
+- 4 1/2 cups (565g) all-purpose flour, plus more as needed
+- 1/2 cup granulated sugar
+- 2 1/4 teaspoons instant yeast (one packet)
+- 1 teaspoon salt
+- zest of 1 lemon
+- 1 teaspoon ground nutmeg
+- 3/4 cup whole milk, warmed to about 110°F
+- 3 large eggs, room temperature
+- 10 tablespoons unsalted butter, softened
+
+**For the cinnamon filling:**
+- 1/2 cup packed brown sugar
+- 2 tablespoons ground cinnamon
+- 4 tablespoons unsalted butter, very soft
+
+**For the icing and finishing:**
+- 2 cups powdered sugar
+- 3 to 4 tablespoons milk or lemon juice
+- purple, green, and gold sanding sugar
+- 1 small plastic baby or dried bean, for hiding
+
+**Method:**
+
+1. **Make the dough.** In a stand mixer fitted with the dough hook, combine the flour, sugar, yeast, salt, lemon zest, and nutmeg. Add the warm milk and eggs, and mix on low until a shaggy dough forms. Knead on medium speed for 5 minutes, then add the softened butter a tablespoon at a time, letting each addition incorporate before adding more. Continue kneading until smooth and elastic, about 8 to 10 minutes. The dough will be soft and slightly tacky.
+
+2. **First rise.** Transfer to a lightly oiled bowl, cover, and let rise in a warm place until doubled, about 1.5 hours.
+
+3. **Fill.** Turn the dough out onto a floured surface and roll into a large rectangle, roughly 24 by 12 inches. Spread the soft butter over the surface, then sprinkle evenly with the brown sugar and cinnamon.
+
+4. **Roll and shape.** Starting from a long edge, roll the dough tightly into a log. Bring the two ends together to form a ring, pinching firmly to seal. Transfer to a parchment-lined baking sheet.
+
+5. **Second rise.** Cover loosely and let rise until puffy, about 45 minutes. Preheat the oven to 350°F.
+
+6. **Bake.** Bake for 25 to 30 minutes, until deeply golden and a thermometer inserted into the dough reads about 190°F. Tent with foil partway through if the top is browning too fast. Cool completely on a rack before icing.
+
+7. **Hide the prize and finish.** If using a plastic baby, cut a small slit in the underside of the cooled cake and push the baby completely inside. If using a dried bean, it may instead be enclosed in the dough before baking. Whisk the powdered sugar with milk or lemon juice until a thick, pourable icing forms. Pour over the cooled cake, letting it drip down the sides, and immediately sprinkle bands of purple, green, and gold sugar over the wet icing before it sets.
+
+<div class="note-block"><strong>Note on the baby:</strong> tradition holds that whoever finds it hosts the next gathering, or buys the next king cake, depending on which household you ask. Warn unknowing guests that one is hidden inside before serving.</div>
+
+<figure><img src="https://ik.imagekit.io/chompchomp/king%20cake%202.JPG"><figcaption>King Cake</figcaption></figure>
+
+<div class="marginalia">I used to go to Mardi Gras parades on the Gulf Coast. All the krewes and mystic societies: Endymion, Order of Myths, The Twelve. They all throw beads and doubloons and, sometimes, moon pies. Never King Cakes. Maybe throwing a whole cake to the crowd would seem impractical, but I disagree. Toss them like frisbees. The Catalan Twelve's signature throw. Premium. If you're going to do it anyway, don't flash anyone for less than a King Cake.</div>
+
+<div class="section-break">* * *</div>
+
+## V. Sweet Potato Pie
+
+<figure><img src="https://ik.imagekit.io/chompchomp/spp-hero.PNG"><figcaption>Sweet Potato Pie</figcaption></figure>
+
+Sweet potato pie is a real, documented staple of African American and Southern cooking, grown widely, stored well, and kept a Southern pantry fed through a season without depending on anything canned. This version comes from a real family recipe, not the book's usual apparatus of disputed provenance and half-legible ledgers. No Society note attached to this one. It didn't need one.
+
+**Yield:** 2 deep-dish 9-inch pies
+
+**Filling:**
+- 3 1/2 to 4 cups sweet potatoes, peeled and cut into 1-inch cubes
+- 1 cup butter
+- 1/2 cup white sugar
+- 1 1/2 cups brown sugar
+- 3 eggs, separated
+- 1 1/2 teaspoons baking powder
+- 1 cup evaporated milk
+- 1/4 teaspoon salt
+- 1 teaspoon cinnamon
+- 1/4 teaspoon ginger
+- pinch cloves
+- 1/8 teaspoon allspice
+- 1 1/2 teaspoons vanilla extract
+
+**Crust (for 2 single-crust pies):**
+- 2 1/2 cups all-purpose flour
+- 1/2 teaspoon salt
+- 1 cup cold butter
+- 6–10 tablespoons ice water
+
+**Method:**
+
+1. **Make the crusts.** Combine the flour and salt; cut in the cold butter until crumbly. Gradually add the ice water, tossing with a fork until the dough holds together when pressed. Divide in half, wrap each half in plastic wrap, and refrigerate 1 hour. Roll out and fit into two 9-inch pie pans.
+
+2. **Cook the potatoes.** Put the cubed potatoes in a pot and add enough water to cover. Bring to a boil. Reduce heat; cook, uncovered, until fork-tender, 13–15 minutes.
+
+3. **Mash and mix.** Mash hot potatoes with butter. Add sugar. Beat egg yolks and add along with evaporated milk, vanilla, and spices.
+
+4. **Let cool.** Let the mixture cool to room temperature.
+
+5. **Fold and fill.** Stir in baking powder. Beat egg whites and fold in. Divide the filling between the two uncooked pastry shells.
+
+6. **Bake.** Bake at 450°F for 15 minutes. Reduce heat to 350°F and bake about 45 minutes more.
+
+<div class="note-block"><strong>Note on brown butter:</strong> swap the 1 cup butter for browned butter. Melt it in a light-colored saucepan over medium heat, swirling occasionally, until it foams, turns golden, then smells nutty with small brown flecks settled at the bottom, about 4 to 6 minutes. Pour immediately into a heatproof bowl, scraping in the browned bits, and let cool slightly before mashing into the hot sweet potatoes as the recipe directs.</div>
+
+<div class="note-block"><strong>Note on benne (sesame) variation:</strong> toast 2 to 3 tablespoons of benne (sesame) seeds in a dry skillet over medium heat, stirring often, until fragrant and lightly golden, 2 to 3 minutes. Fold half into the pastry dough before it's rolled out, and scatter the rest over the filling before baking. Benne carries deep roots in Southern and Lowcountry cooking.</div>
+
+<div class="note-block"><strong>Note on adding bourbon:</strong> stir 1 to 2 tablespoons of bourbon into the filling along with the vanilla and spices. It's a common addition in Southern sweet potato pie elsewhere.</div>
+
+<img src="https://ik.imagekit.io/chompchomp/heart-symbol.PNG" class="img-light" style="width: 75px;" alt="heart mark">
+<img src="https://ik.imagekit.io/chompchomp/heart-symbol.PNG" class="img-dark" style="width: 75px;" alt="heart mark">
+
+<div class="pullquote tight" style="--tight-margin-top:10px">"the society isn't behind everything. sometimes family is."
+<cite>— not the Society's note — mine</cite></div>
+
+<figure><img src="https://ik.imagekit.io/chompchomp/spp-coda.PNG"><figcaption>Sweet Potato Pie</figcaption></figure>
+
+<div class="marginalia">My earliest memories of sweet potatoes were church potlucks, made into casseroles, gummy, way too sweet, with mini marshmallows on top. I was a kid and kids normally like sweets, especially mini marshmallows. But this was horrid. Turned me off for 40 years. Then I found a recipe written by my mother for sweet potato pie. Wonderful. It's the only recipe I have of hers. A custard with a soft texture you can still bite into. Not cloyingly sweet. A simple crust to build skills upon. I cherish this little recipe index card styled in my mother's hand. And I think of her when I bake, like maybe she imbued me with skills. Thanks for this, mom.</div>
+
+<div class="section-break">* * *</div>
+
+## VI. Sticky Toffee Pudding
 
 <figure><img src="https://ik.imagekit.io/chompchomp/Sticky%20Toffee%20Pudding.jpeg"><figcaption>Sticky Toffee Pudding</figcaption></figure>
-
-<div class="pullquote">"the dates do the [illegible]. never once the sauce."
-<cite>— Society's note, water-damaged, mostly illegible</cite></div>
 
 Sticky toffee pudding is often credited to a specific English hotel kitchen in the mid-twentieth century, a suspiciously tidy origin story for a technique this old and this widespread: dates blitzed with baking soda and boiling water to break them down and sweeten a sponge from the inside, finished under a hot toffee sauce that soaks in rather than sitting on top. Done properly, it's less a cake with sauce poured over it than a single dessert built in two stages that meet in the middle. This version goes further than the pub standard, browning the butter for the sponge and building the sauce with muscovado sugar and a touch of dark rum, on the theory that if you're already going to the trouble, you may as well go all the way.
 
@@ -353,9 +430,14 @@ Sticky toffee pudding is often credited to a specific English hotel kitchen in t
 
 7. **Finish.** While the sponge is still warm, poke a few holes in the top with a skewer and pour about a third of the toffee sauce over it, letting it soak in. Rest 5 minutes, then unmold and serve with additional warm sauce poured over the top.
 
-<div class="note-block"><strong>Note on the rum:</strong> the Society's note doesn't mention it, since dark rum in a British pudding is a modern addition, not a historical one. Included here anyway, because "authentic" and "correct" have not been the same thing anywhere else in this book, and there's no reason to start enforcing the distinction now.</div>
+<div class="note-block"><strong>Note on the rum:</strong> dark rum in a British pudding is a modern addition, not a historical one. Included here anyway. Because it’s a good one.</div>
 
-<div class="pullquote">"sauce first. not taking questions."
+<div class="note-block"><strong>Note on simplifying:</strong> For a quicker, more traditional version, three swaps bring this back to the standard pub-style pudding. Melt the 6 tablespoons of butter for the sponge instead of browning it. Soften the dates as directed, then mash with a fork instead of blending into a paste. For the sauce, use just 1 cup heavy cream, 1/2 cup butter, and 3/4 cup packed brown sugar, boiled together until slightly thickened, skipping the golden syrup and rum.</div>
+
+<img src="https://ik.imagekit.io/chompchomp/ending.png" class="img-light" style="width: 75px;" alt="society mark">
+<img src="https://ik.imagekit.io/chompchomp/ending-dark.PNG" class="img-dark" style="width: 75px;" alt="society mark">
+
+<div class="pullquote tight" style="--tight-margin-top:10px">"sauce first. not a question."
 <cite>— fragment, water-stained</cite></div>
 
 <figure><img src="https://ik.imagekit.io/chompchomp/pudding%202.JPG"><figcaption>Sticky Toffee Pudding</figcaption></figure>
@@ -364,119 +446,198 @@ Sticky toffee pudding is often credited to a specific English hotel kitchen in t
 
 <div class="section-break">* * *</div>
 
-## VI. Pistachio and Rosewater Semolina Cake
+## VII. Gougères
 
-<figure><img src="https://ik.imagekit.io/chompchomp/Pistachio%20and%20Rosewater%20Semolina%20Cake.jpeg"><figcaption>Pistachio and Rosewater Semolina Cake</figcaption></figure>
+<figure><img src="https://ik.imagekit.io/chompchomp/gougeres-hero.PNG"><figcaption>Gougères</figcaption></figure>
 
-<div class="pullquote">"syrup while the cake is hot, always. cold syrup on cold cake is wet cake. let no one deny."
-<cite>— Society's note, on the back of a torn receipt, undated</cite></div>
+<img src="https://ik.imagekit.io/chompchomp/ending.png" class="img-light" style="width: 75px;" alt="society mark">
+<img src="https://ik.imagekit.io/chompchomp/ending-dark.PNG" class="img-dark" style="width: 75px;" alt="society mark">
 
-This cake sits in the same family as basbousa and revani, semolina cakes soaked in syrup after baking rather than iced or frosted, found across the eastern Mediterranean and the Levant under enough different names that pinning down a single origin is beside the point. This version leans into pistachio, both ground into the batter and scattered on top, and rosewater in the syrup, which needs a light hand. Too much and it stops tasting like flowers and starts tasting like the pistachios were scrubbed with a bar of soap.
+<div class="pullquote tight" style="--tight-margin-top:10px">"cook first. sometimes baking is not enough."
+<cite>— Society's note, undated, in a hand that appears nowhere else</cite></div>
 
-**Yield:** one 9-inch square cake
+A gougère is a small savory cheese puff, and it is made from the same paste as an éclair, a profiterole, a cream puff, a croquembouche, and much of the pastry counter in any French bakery. One dough. All of those names. The French did this to themselves in just over two centuries. Playing with paste and making things seem hard.
 
-**For the cake:**
-- 1 cup (170g) fine semolina
-- 3/4 cup (95g) all-purpose flour
-- 1 cup (120g) shelled pistachios, finely ground, plus more chopped for topping
-- 1 1/2 teaspoons baking powder
-- 1/4 teaspoon salt
-- 1 cup granulated sugar
-- 3/4 cup plain full-fat yogurt
-- 1/2 cup neutral oil
-- 3 large eggs
-- 1 teaspoon vanilla extract
-- zest of 1 lemon
+It's usually attributed to a pastry chef in Catherine de' Medici's traveling household in 1540. You'll likely be much more interested in the fact that this is the only dough in the collection that gets cooked before it gets baked. Flour into boiling butter and water, stirred on the stove until it dries into a paste, then eggs beaten in one at a time until it slumps. There is no yeast in it and no baking powder. It rises on nothing but the water inside it turning to steam. And that needs to go somewhere. Everything else in this collection rises because something living or chemical was added to it. This one rises with just water and heat.
 
-**For the syrup:**
-- 1 cup granulated sugar
-- 3/4 cup water
-- 1 tablespoon lemon juice
-- 1 to 2 teaspoons rosewater (start with 1, taste before adding more)
+**Yield:** about 30 small gougères
+
+**Ingredients:**
+- 1/2 cup water
+- 1/2 cup whole milk
+- 8 tablespoons (113g) unsalted butter, cubed
+- 1 teaspoon fine salt
+- 1/2 teaspoon freshly ground black pepper
+- 1 cup (125g) all-purpose flour
+- 4 large eggs, room temperature, plus a fifth if needed
+- 5 ounces Gruyère or sharp cheddar, grated, plus more for topping
+- 1 teaspoon Dijon mustard (optional)
+- pinch of freshly grated nutmeg (optional)
 
 **Method:**
 
-1. **Make the syrup first.** Combine the sugar, water, and lemon juice in a saucepan and bring to a boil, stirring until the sugar dissolves. Simmer for 5 minutes, then remove from heat and stir in the rosewater. Taste it. It should smell like flowers in the background, not announce itself. Set aside to cool while the cake bakes.
+1. **Preheat and prep.** Heat the oven to 400°F. Line two baking sheets with parchment.
 
-2. **Preheat and prep.** Preheat the oven to 350°F. Butter a 9-inch square pan and line the bottom with parchment.
+2. **Boil the liquid.** Combine the water, milk, butter, salt, and pepper in a medium saucepan over medium-high heat. Bring to a full rolling boil with the butter completely melted. Don't let it simmer along slowly, or you'll lose liquid to steam before the flour ever gets there.
 
-3. **Combine the dry ingredients.** Whisk together the semolina, flour, ground pistachios, baking powder, and salt.
+3. **Cook the paste.** Dump in all the flour at once and stir hard with a wooden spoon until it pulls together into a single ball. Keep cooking and stirring another 2 minutes, until a thin film forms on the bottom of the pan and the paste smells faintly toasted. This step is drying the paste out. A drier paste holds more egg, more egg makes more steam, and more steam is the entire leavening.
 
-4. **Combine the wet ingredients.** In a separate bowl, whisk the sugar, yogurt, oil, eggs, vanilla, and lemon zest until smooth.
+4. **Cool it down.** Transfer to a bowl and let sit 3 to 5 minutes, stirring occasionally, until you can rest your hand against the side of the bowl. Add eggs to a hot paste and you get sweetened scrambled egg with a cheese problem.
 
-5. **Combine and rest.** Fold the dry ingredients into the wet just until no streaks remain. Let the batter sit for 10 minutes before baking. Semolina benefits from a short rest to hydrate fully, which keeps the crumb from turning gritty.
+5. **Beat in the eggs.** Add the eggs one at a time, beating each in completely before the next. The paste will look broken and wrong after every single addition and come back together every single time. After the fourth egg it should fall from the spoon in a thick ribbon that holds a V for a second before dropping. If it's still stiff, beat in part of a fifth egg until it does.
 
-6. **Bake.** Pour the batter into the prepared pan and smooth the top. Bake for 30 to 35 minutes, until golden and a skewer inserted in the center comes out clean.
+6. **Add the cheese.** Stir in the grated cheese, the Dijon, and the nutmeg, if using.
 
-7. **Soak while hot.** As soon as the cake comes out of the oven, poke it all over with a skewer. Pour the cooled syrup evenly over the hot cake, a little at a time, letting each addition absorb before adding more. This is the step the Society's note is most insistent about, and it's correct to be insistent. A hot cake pulls syrup in. A cooled one just sits under it.
+7. **Scoop.** Drop rounded tablespoons onto the sheets, spaced 2 inches apart. Smooth any peaks down with a wet fingertip; a peak will scorch before the rest is done. Scatter a little more cheese over the tops.
 
-8. **Finish and rest.** Scatter chopped pistachios over the top while the syrup is still wet, so they stick. Let the cake rest at least 2 hours, ideally overnight, before cutting, to let the syrup distribute fully through the crumb.
+8. **Bake.** 20 to 25 minutes, until deeply golden brown and firm to the tap. Do not open the oven for the first 15 minutes. They are held up by steam and nothing else, and a draft at the wrong moment collapses them permanently.
 
-<div class="note-block"><strong>Note on the semolina:</strong> fine semolina (sometimes labeled "semolina flour" or cream of wheat's coarser cousin) gives a tighter crumb than coarse. Coarse semolina works too, but the texture reads closer to polenta cake, which is a different, if related, argument.</div>
+9. **Dry them out.** Pierce each one with the tip of a knife, turn the oven off, and leave them inside with the door cracked for 5 minutes. This lets the trapped steam escape instead of soaking the shell from the inside on the way to the table.
 
-<div class="pullquote">"flowers in the syrup, never in the room."
-<cite>— Society's ledger, undated</cite></div>
+<div class="note-block"><strong>Note on the cheese:</strong> pre-shredded bags are coated in anti-caking starch that keeps them from melting cleanly. Grating a block yourself takes an extra five minutes and produces a noticeably better melt. Don't cheat. Just grate the block.</div>
 
-<figure><img src="https://ik.imagekit.io/chompchomp/semolina%202.JPG"><figcaption>Pistachio and Rosewater Semolina Cake</figcaption></figure>
+<div class="note-block"><strong>Note on the fourth egg:</strong> the last egg is a judgment call, not a measurement. Eggs vary, and so does how long you cooked the paste. The recipe can tell you what the paste should look like; it cannot tell you when you're there. Same as everything else in this book.</div>
 
-<div class="marginalia">I can't shake the feeling that there are hands hiding inside the open bags of grains and beans at the market. Hands in the semolina to feel the rolling friction of sand, feeling the beach like they're toes. Hands in the beans like the ball pit at Chuck E. Cheese in the 80s. Vendors don't like hands in the grains and beans. They're very adamant about this. They'll pull them out and make them leave.</div>
+<div class="note-block"><strong>Note on making them ahead:</strong> the piped or scooped mounds freeze raw on the sheet, then keep in a bag for a month. Bake straight from frozen, adding 3 or 4 minutes. This is the only recipe in the collection that gets easier the second time in a way you can put in the freezer.</div>
+
+<img src="https://ik.imagekit.io/chompchomp/ending.png" class="img-light" style="width: 75px;" alt="society mark">
+<img src="https://ik.imagekit.io/chompchomp/ending-dark.PNG" class="img-dark" style="width: 75px;" alt="society mark">
+
+<div class="pullquote tight" style="--tight-margin-top:10px">"twelve already named. we are the thirteenth."
+<cite>— fragment, undated</cite></div>
+
+<figure><img src="https://ik.imagekit.io/chompchomp/gougeres-coda.PNG"><figcaption>Gougères</figcaption></figure>
+
+<div class="marginalia">Like lots of other high schoolers in Alabama with a lot of sense, I took two years of French. You're not going to France, my dad said. I'll go where I please. You're never going to use that, he said. Oh yeah? Well, you need to know about pâte à choux before you can make any one of its twelve canonical forms: éclair, chou à la crème, chouquette, profiterole, gougère, Paris-Brest, religieuse, Saint-Honoré, croquembouche, pet-de-nonne, pommes dauphine, and gnocchi à la Parisienne. And if there was a thirteenth, I'm sure it'd be called société. All from "cabbage paste." But this is all the French I can remember.</div>
 
 <div class="section-break">* * *</div>
 
-## VII. Pumpkin Pie
+## VIII. Baklava
 
-<figure><img src="https://ik.imagekit.io/chompchomp/Pumpkin%20Pie.jpeg"><figcaption>Pumpkin Pie</figcaption></figure>
+<figure><img src="https://ik.imagekit.io/chompchomp/baklavahero.PNG"><figcaption>Baklava</figcaption></figure>
 
-<div class="pullquote">"this was your grandmother's - the third time I made it for her."
-<cite>— Society's note, pinned inside a recipe box, handwriting careful</cite></div>
+<img src="https://ik.imagekit.io/chompchomp/ending.png" class="img-light" style="width: 75px;" alt="society mark">
+<img src="https://ik.imagekit.io/chompchomp/ending-dark.PNG" class="img-dark" style="width: 75px;" alt="society mark">
 
-Pumpkin pie reads as the most straightforwardly American entry in this book, and mostly is, built from squash custard pies with a documented history stretching back to colonial New England. Where it gets less tidy here is the crust, which this version makes with rye flour instead of all-purpose, for a deeper, slightly sour backbone that stands up to the spice rather than disappearing under it. Brown butter in the filling does similar work, adding a roasted note that canned pumpkin, left alone, doesn't have.
+<div class="pullquote tight" style="--tight-margin-top:10px">"no need to agree on a thing to enjoy it."
+<cite>— Society's note, undated</cite></div>
 
-**Yield:** one 9-inch pie
+Baklava's origin is one of the oldest and least settled arguments in food history, claimed at different points by Greek, Turkish, and broader Levantine kitchens, with the layered, syrup-soaked version most people recognize today usually credited to the Ottoman court kitchens that popularized it centuries later. Nobody involved in that argument has ever fully backed down, and this book isn't going to be the one to settle it. This version leans into pistachio, one of the most traditional fillings across the whole disputed family tree, and rosewater in the syrup, a pairing common enough across the region that it undercuts any single country's claim to have invented the combination outright.
 
-**For the rye crust:**
-- 1 cup (125g) all-purpose flour
-- 1/2 cup (60g) rye flour
-- 1 teaspoon granulated sugar
-- 1/2 teaspoon salt
-- 10 tablespoons unsalted butter, very cold, cubed
-- 4 to 6 tablespoons ice water
+One note before you start: this recipe uses store-bought phyllo. Anyone telling you to make your own at home has either never actually done it, or wants you to suffer the way they did. Professional bakeries buy it. You should too.
+
+**Yield:** one 9x13-inch pan, about 24–32 pieces
 
 **For the filling:**
-- 4 tablespoons unsalted butter
-- 15 ounces (1 can) pumpkin puree
-- 3/4 cup packed dark brown sugar
-- 2 large eggs
-- 1 cup heavy cream
-- 2 teaspoons ground cinnamon
-- 1/2 teaspoon ground ginger
-- 1/4 teaspoon ground cloves
-- 1/4 teaspoon freshly grated nutmeg
-- 1/2 teaspoon salt
-- 1 tablespoon bourbon (optional)
+- 3 cups (360g) shelled pistachios, finely chopped (not ground to dust, you want texture)
+- 1/3 cup granulated sugar
+- 1 teaspoon ground cinnamon
+- pinch of salt
+
+**For the pastry:**
+- 1 pound store-bought phyllo dough, thawed according to package instructions
+- 1 1/4 cups (2 1/2 sticks) unsalted butter, melted
+
+**For the syrup:**
+- 1 cup granulated sugar
+- 1 cup water
+- 1 tablespoon lemon juice
+- 1 to 2 teaspoons rosewater (start with 1, taste before adding more)
+- 1 tablespoon honey (optional, for a rounder syrup)
 
 **Method:**
 
-1. **Make the crust.** Whisk together the all-purpose flour, rye flour, sugar, and salt. Cut in the cold butter with a pastry cutter or your fingers until the mixture looks like coarse crumbs with some pea-sized pieces remaining. Add ice water a tablespoon at a time, tossing with a fork, until the dough just holds together when pressed. Rye flour absorbs liquid differently than all-purpose, so go slowly near the end. Shape into a disk, wrap, and chill at least 1 hour.
+1. **Make the syrup first.** Combine the sugar, water, and lemon juice in a saucepan and bring to a boil, stirring until the sugar dissolves. Simmer 5 minutes. Remove from heat, stir in the honey (if using) and rosewater. Taste it, it should smell like flowers in the background, not announce itself. Let cool completely while you build the baklava; it needs to be cold when it meets the hot pastry.
 
-2. **Roll and blind bake.** Preheat the oven to 375°F. Roll the chilled dough into a 12-inch round and fit it into a 9-inch pie pan, crimping the edges. Prick the bottom with a fork, line with parchment, and fill with pie weights or dried beans. Bake for 15 minutes, then remove the weights and parchment and bake another 8 to 10 minutes, until the bottom looks dry and just starting to color. Set aside. Leave the oven on but reduce to 350°F.
+2. **Prep the filling.** Pulse the pistachios in a food processor in short bursts until finely chopped but not powder. Stir in the sugar, cinnamon, and salt.
 
-3. **Brown the butter.** Melt the butter in a light-colored saucepan over medium heat, swirling occasionally, until it foams, turns golden, then smells nutty and small brown flecks appear, 4 to 6 minutes. Pour into a large heatproof bowl immediately, scraping in the browned bits, and let cool slightly.
+3. **Preheat and prep the pan.** Preheat the oven to 350°F. Butter a 9x13-inch baking pan.
 
-4. **Build the filling.** Whisk the pumpkin puree and brown sugar into the browned butter until smooth. Whisk in the eggs one at a time, then the cream. Add the cinnamon, ginger, cloves, nutmeg, salt, and bourbon, if using, and whisk until fully combined.
+4. **Layer the base.** Keep the phyllo covered with a damp towel while you work, it dries out and cracks fast, and dry phyllo isn't coming back. Lay one sheet in the pan, brush thoroughly with melted butter all the way to the edges. Repeat with 8 more sheets, buttering each one.
 
-5. **Bake the pie.** Pour the filling into the pre-baked crust. Bake at 350°F for 45 to 55 minutes, until the edges are set and the center still has a slight, even wobble, like set gelatin rather than liquid. If the crust edges are browning too fast, cover them with foil or a pie shield partway through.
+5. **Add the filling.** Spread about a third of the pistachio mixture evenly over the layered phyllo.
 
-6. **Cool completely.** Let the pie cool to room temperature, then chill at least 2 hours before slicing. The filling continues to set as it cools, and a warm slice will look underdone even when it isn't.
+6. **Repeat the layers.** 5 more buttered sheets, another third of the filling, 5 more buttered sheets, the last third of the filling, then a final stack of 8 buttered sheets on top.
 
-<div class="note-block"><strong>Note on the crust:</strong> if rye flour isn't available, an all-purpose crust with a tablespoon of whole wheat flour swapped in gets partway to the same effect. It won't be the same pie, but the Society's note doesn't seem especially concerned with sameness as a virtue.</div>
+7. **Cut before baking.** Using a sharp knife, cut all the way through to the bottom of the pan, into diamonds or squares. Much easier now than after baking.
 
-<div class="pullquote">"pumpkin is not a flavor. the spice is."
+8. **Bake.** Bake at 350°F for 45 to 50 minutes, until deep golden brown across the whole top, not just the edges.
+
+9. **Soak.** As soon as it comes out of the oven, pour the cooled syrup evenly over the top, right along the cuts. Let sit uncovered at room temperature at least 4 hours, ideally overnight, before serving.
+
+<div class="note-block"><strong>Note on the phyllo:</strong> it will try to dry out and crack the entire time you're working with it. Keep the stack you're not actively using under a slightly damp towel, and move quickly once you start. A few torn sheets won't show in the finished pan, nobody sees the second layer down. Don't patch, just keep going.</div>
+
+<figure><img src="https://ik.imagekit.io/chompchomp/baklava2.PNG"><figcaption>Baklava</figcaption></figure>
+
+<div class="marginalia">I'm lucky to have had friends and girlfriends whose families have treated me with authentic baklava: Lebanese, Syrian, Greek, Egyptian, Turkish. Scoffing at none, I pretty much decided all were the real thing to me. So, when I make baklava, it's as authentic as it comes, too. Alabama baklava. Nice ring. And although I'm not a great one at keeping in touch all the time, for them, I actually have stayed in contact... with their baklava at least.</div>
+
+<div class="section-break">* * *</div>
+
+## IX. Coca de Recapte
+
+<figure><img src="https://ik.imagekit.io/chompchomp/coca-hero.PNG"><figcaption>Coca de Recapte</figcaption></figure>
+
+<img src="https://ik.imagekit.io/chompchomp/ending.png" class="img-light" style="width: 75px;" alt="society mark">
+<img src="https://ik.imagekit.io/chompchomp/ending-dark.PNG" class="img-dark" style="width: 75px;" alt="society mark">
+
+<div class="pullquote tight" style="--tight-margin-top:10px">"put oil in their hands before the wine even arrives."
+<cite>— Society's note, on the back of a wine list, ink smudged</cite></div>
+
+Coca is the flatbread Catalonia doesn't bother arguing about with anyone else, mostly because everyone else's flatbread already gets called something else. Focaccia gets its dimples, pissaladière gets its anchovies, pizza gets the world, and coca just sits there being older than most of the argument, thin, oval, entirely unbothered - it's delicious.
+
+The version here is coca de recapte, built on escalivada, meaning the vegetables get roasted whole until their skins blacken and give up, then peeled and dressed rather than diced and cooked down. Recapte, roughly, means "the goods on hand," which is either a name for a technique or an instruction to stop shopping and start using what's already in the kitchen. Both are true.
+
+**Yield:** two 10x14-inch cocas, serves 6 to 8
+
+**For the escalivada:**
+- 2 medium eggplants
+- 2 red bell peppers
+- 1 large yellow onion, unpeeled, halved
+- 3 tablespoons olive oil, plus more for finishing
+- salt
+
+**For the dough:**
+- 3 1/2 cups (440g) bread flour
+- 1 1/2 teaspoons instant yeast
+- 1 1/2 teaspoons fine salt
+- 1 1/4 cups (300ml) warm water
+- 3 tablespoons olive oil
+
+**To finish:**
+- flaky salt
+- optional: 4 ounces cured anchovy fillets or thinly sliced botifarra
+
+**Method:**
+
+1. **Char the vegetables.** Heat the oven to 450°F. Rub the eggplants, peppers, and onion halves with a little of the olive oil and roast directly on a sheet pan, turning occasionally, until the skins are fully blackened and blistered and the flesh has collapsed, 35 to 45 minutes for the peppers and onion, up to an hour for the eggplant. Transfer to a bowl, cover with plastic wrap, and let steam for 15 minutes, this loosens the skins far more than patience alone would.
+
+2. **Peel and dress.** Once cool enough to handle, peel the blackened skins away, discard the seeds and stems, and tear the flesh into long strips by hand, never a knife. Toss with the remaining olive oil and a pinch of salt. Don't rinse anything to remove stray char; that's flavor, not a mistake.
+
+3. **Make the dough.** Whisk the flour, yeast, and salt together. Add the warm water and olive oil, and stir until a shaggy dough forms. Knead by hand or in a stand mixer until smooth and elastic, about 8 minutes. It should feel leaner and less tacky than an enriched dough, this one isn't trying to be bread.
+
+4. **Rise.** Cover and let rise until doubled, about 1 hour.
+
+5. **Shape.** Divide the dough in two. On a floured surface, roll or stretch each piece into a thin oval, about 1/4 inch thick, and transfer to parchment-lined sheet pans.
+
+6. **Top.** Lay the escalivada strips over the dough in loose, uneven ribbons, leaving a bit of dough exposed at the edges. Scatter the anchovies or botifarra over top, if using.
+
+7. **Bake.** Heat the oven to 475°F. Bake 12 to 15 minutes, until the exposed dough is deeply golden and the edges are crisp.
+
+8. **Finish.** Drizzle with more olive oil and a scatter of flaky salt straight out of the oven. Best warm, cut into strips rather than squares.
+
+<div class="note-block"><strong>Note on the char:</strong> don't rush this step by roasting at a lower, gentler heat. The vegetables need to blacken fully, not just soften, or the escalivada turns watery instead of smoky. A little burnt is correct here in a way it almost never is anywhere else in this book.</div>
+
+<div class="note-block"><strong>Note on the dough:</strong> coca dough is meant to be thinner and crisper underfoot than focaccia's. If it springs back stubbornly while you're shaping it, let it rest 5 minutes and try again rather than forcing it.</div>
+
+<img src="https://ik.imagekit.io/chompchomp/ending.png" class="img-light" style="width: 75px;" alt="society mark">
+<img src="https://ik.imagekit.io/chompchomp/ending-dark.PNG" class="img-dark" style="width: 75px;" alt="society mark">
+
+<div class="pullquote tight" style="--tight-margin-top:10px">"cakes sometimes forget to be sweet."
 <cite>— fragment, undated</cite></div>
 
-<figure><img src="https://ik.imagekit.io/chompchomp/pumpkin%202.JPG"><figcaption>Pumpkin Pie</figcaption></figure>
+<figure><img src="https://ik.imagekit.io/chompchomp/coca-coda.PNG"><figcaption>Coca de Recapte</figcaption></figure>
 
-<div class="marginalia">Pumpkin pie is the only recipe I have from my mom. Generally I don't trust pumpkins. The Headless Horseman uses one as a replacement head, full of fire. But pumpkin pies? The best. My favorite pie. I cherish the little recipe index card written in my mother's hand. I think of her when I bake, like maybe she imbued me with skills. Washington Irving has nothing on her. He never made pumpkin pies. Thanks for this, mom.</div>
+<div class="marginalia">While researching this book, I went down lots of rabbit holes. Some of them led me through history, some through language, and some back to Catalonia. You've seen that some of the Society fragments are possible mistranslations. I found out that I had the idea and translation of Coca wrong, or partially wrong, all along. I'm a fan of diet soda, especially Diet Coke. Coca. A Spanish word borrowed from the Quechua language of the Inca Empire and references the indigenous South American plant. I saw Coca in a Catalan baking book and said, "Oh man! Finally a pastry to complement my Diet Coke!" Like maybe a sugar syrup infused with coca leaves in a cake. No, I learned this Coca is a type of flatbread, typically with savory toppings, and its etymology is borrowed from the Old Dutch coca - and shares Proto-Germanic lineage with modern German kuchen and English cake. Still cake, different kind. Still compatible with cola.</div>
 
 <div class="section-break">* * *</div>
 
@@ -501,22 +662,26 @@ What follows is not the whole ledger, only what could be read. Pages are missing
 *fragment, undated, in a second, steadier hand*
 > he keeps saying "the same three techniques" like it's a discovery. it's not a discovery. it's a habit. habits travel in luggage. maybe he lost his suitcase.
 
-That last line is the closest thing to a signature the ledger offers, and it isn't his. Someone else was watching him work, closely enough to be irritated by his favorite phrase, closely enough to write it down anyway. Whether that's a colleague, a rival, or someone keeping the books while he did the traveling, the record doesn't say. It's the first real evidence in this book that the Twelve weren't twelve individuals working in parallel so much as one operation with a division of labor, which is a less romantic idea than a secret society and probably a truer one.
+That last line is the closest thing to a signature the ledger offers, and it isn't his. Someone else was watching him work, closely enough to be irritated by his favorite phrase, closely enough to write it down anyway.
 
-What the ledger doesn't have, notably, is anything from Portugal. Either that page didn't survive, or it was never written, or the custard tart that follows this interlude is the one thing in this book the Society genuinely had nothing to do with. I'll admit I don't believe the third option. Call it a gnostic position rather than a documented one, but I think they descended on Porto at some point, and I think the port wine is a more likely explanation for a missing page than an honest absence, given how the rest of this record has gone. Maybe the account of it is still out there, corked and forgotten, working its way toward some shore that hasn't found it yet.
+What the ledger doesn’t have, notably, is anything from Portugal. Either that page didn’t survive, or it was never written, or the custard tart that follows this interlude is the one thing in this book the Society truly had nothing to do with. I’ll admit I don’t believe the third option. Call it a gnostic position rather than a documented one, but I think they descended on Porto at some point, soon after Belém, and I think port wine is a more likely explanation for a missing page than an honest absence, given how the rest of this record has gone. Maybe the account of it is still out there, corked and forgotten, working its way toward some shore that hasn’t found it yet.
 
 <div class="section-break">* * *</div>
 
-## VIII. Pastel de Nata
+## X. Pastéis de Nata
 
-<figure><img src="https://ik.imagekit.io/chompchomp/Pastel%20de%20Nata.jpeg"><figcaption>Pastel de Nata</figcaption></figure>
 
-<div class="pullquote">"the burnt top was a mistake. keep it."
-<cite>— Society's ledger, undated</cite></div>
+<figure><img src="https://ik.imagekit.io/chompchomp/Pastel%20de%20Nata.jpeg"><figcaption>Pastéis de Nata</figcaption></figure>
 
 <div class="note-block">Society's note: none survives. See previous interlude.</div>
 
-The traditional story has it that pastéis de nata trace to the monks of the Jerónimos Monastery in Belém, who used egg whites to starch habits and needed somewhere to put the leftover yolks, though it's the kind of tidy culinary origin story that gets repeated far more often than it gets verified. What's less disputed is that the Casa Pastéis de Belém bakery has held the "original" recipe under lock since 1837 and shows no sign of loosening its grip. Note that Belém sits on the Lisbon side of the country, a good four hours from Porto, which either means the ledger's silence on Portugal is really a silence on Lisbon specifically, or means the Porto theory was never about this pastry to begin with. I'm not going to be the one to sort that out. The tart itself is simple in concept and unforgiving in execution: a shatteringly laminated shell holding a custard that needs scorched, blistered spots on top to be considered done at all, which means baking it hotter than most home ovens are built to comfortably reach. But you should try.
+<img src="https://ik.imagekit.io/chompchomp/heart-symbol.PNG" class="img-light" style="width: 75px;" alt="heart mark">
+<img src="https://ik.imagekit.io/chompchomp/heart-symbol.PNG" class="img-dark" style="width: 75px;" alt="heart mark">
+
+<div class="pullquote tight" style="--tight-margin-top:10px">"eat slowly. be mindful. pastry cream is spiritual."
+<cite>— chomp chomp collective, now</cite></div>
+
+What’s less disputed is that the Casa Pastéis de Belém bakery has held the “original” recipe under lock since 1837 and shows no sign of loosening its grip. The tart itself is simple in concept and unforgiving in execution: a shatteringly laminated shell holding a custard that needs scorched, blistered spots on top to be considered done at all, which means baking it hotter than most home ovens are built to comfortably reach. But you should try.
 
 **Yield:** 12 tarts
 
@@ -557,182 +722,83 @@ The traditional story has it that pastéis de nata trace to the monks of the Jer
 
 <div class="note-block"><strong>Note on the heat:</strong> if your oven won't reach 500°F, get it as close as it will go and extend the baking time slightly, accepting that the blister pattern will be gentler. There is no good substitute for real heat here. This is one of the few places in this book where the technique really does only work one way.</div>
 
-<div class="pullquote">"eat slowly. be mindful. pastry cream is spiritual."
-<cite>— fragment, undated</cite></div>
+<figure><img src="https://ik.imagekit.io/chompchomp/de%20nata%202.JPG"><figcaption>Pastéis de Nata</figcaption></figure>
 
-<figure><img src="https://ik.imagekit.io/chompchomp/de%20nata%202.JPG"><figcaption>Pastel de Nata</figcaption></figure>
-
-<div class="section-break">* * *</div>
-
-## IX. Cheddar-Scallion Muffins
-
-<figure><img src="https://ik.imagekit.io/chompchomp/Cheddar-Scallion%20Muffins.jpeg"><figcaption>Cheddar-Scallion Muffins</figcaption></figure>
-
-<div class="pullquote">"sweet, sweet, sweet, sweet the guests. then savory. watch how grateful they get."
-<cite>— Society's note, on a napkin, grease stain obscuring one line</cite></div>
-
-This is the palate reset the book needed and, frankly, earned. A savory muffin isn't complicated, sharp cheddar and sliced scallion folded into a quick bread base, but it works precisely because everything around it in this collection is something else. The technique that actually matters here has nothing to do with cheese or onion: it's the same rule that governs every good quick bread, mix the wet and dry only until just combined, and stop. Overmixed muffin batter develops gluten it doesn't need, which is what turns a tender crumb into something closer to a savory hockey puck.
-
-**Yield:** 12 muffins
-
-**Ingredients:**
-- 2 1/4 cups (280g) all-purpose flour
-- 1 tablespoon baking powder
-- 1 teaspoon salt
-- 1/2 teaspoon freshly ground black pepper
-- 8 ounces sharp cheddar, grated, divided
-- 4 scallions, thinly sliced, white and green parts
-- 2 large eggs
-- 1 1/4 cups whole milk
-- 1/3 cup neutral oil
-- 2 tablespoons unsalted butter, melted
-
-**Method:**
-
-1. **Preheat and prep.** Preheat the oven to 400°F. Line a 12-cup muffin tin with paper liners or grease it well.
-
-2. **Combine the dry ingredients.** Whisk together the flour, baking powder, salt, and pepper in a large bowl. Toss in about three-quarters of the grated cheddar and all of the scallions, coating them lightly in flour so they distribute through the batter instead of sinking.
-
-3. **Combine the wet ingredients.** In a separate bowl, whisk the eggs, milk, oil, and melted butter until smooth.
-
-4. **Mix, minimally.** Pour the wet ingredients into the dry and fold together with a spatula just until no dry streaks remain. The batter should look slightly lumpy. Stop before it looks smooth. Smooth is overmixed.
-
-5. **Fill and top.** Divide the batter evenly among the muffin cups, filling each about three-quarters full. Sprinkle the reserved cheddar over the tops.
-
-6. **Bake.** Bake for 18 to 20 minutes, until the tops are golden, the cheese is bubbling and slightly browned at the edges, and a skewer inserted in the center comes out clean.
-
-7. **Cool briefly.** Let the muffins rest in the tin for 5 minutes before transferring to a rack. Best warm, when the cheese on top is still faintly crisp.
-
-<div class="note-block"><strong>Note on the cheddar:</strong> pre-shredded bags are coated in anti-caking starch that keeps them from melting cleanly. Grating a block yourself takes an extra five minutes and produces a noticeably better melt, both in the batter and on top. This is one of the rare notes in this book that isn't hedged. Just grate the block.</div>
-
-<div class="pullquote">"savory buys you trust the sweet things spend."
-<cite>— fragment, undated</cite></div>
-
-<figure><img src="https://ik.imagekit.io/chompchomp/savory%20muffins.JPG"><figcaption>Cheddar-Scallion Muffins</figcaption></figure>
-
-<div class="marginalia">I love how all the little circles spread out after you chop through the scallions. And when you pick them up, the inside rings just fall out of the outermost one like slinkies. Brilliant. I'm just glad they don't actually sling back up, as that would make me feel like I didn't cut them right in the first place, or that time is moving in reverse. Either way, I need better knife skills.</div>
+<div class="marginalia">I stood outside in the summer Portuguese heat in a line of about 40 people in front of me at my guide's favorite Pastéis De Nata bakery in Lisbon: Castro. Not Pastéis de Belém, but hey, beggars can't be choosers. So creamy, custardy, tender. Later I ended up in a Lisbon thrift store where I found special tins to make them in for like .40€ a piece. I bought eight of them knowing I'd be raring to tackle a recipe just as soon as I got back home. No, it took about four years. Because, while they're worth it, they're not super easy on first attempt; the tins were worthy of the investment. Also, a Portuguese bakery opened two subway stops from me. Sure, it's not Lisbon, but it's not every day you can get on the night train. A subway in NYC? Maybe.</div>
 
 <div class="section-break">* * *</div>
 
-## X. Kurisumasu Keki (Japanese Christmas Cake)
+## XI. Chocolate Roll
 
-<figure><img src="https://ik.imagekit.io/chompchomp/Kurisumasu%20Keki.jpeg"><figcaption>Kurisumasu Keki</figcaption></figure>
+<figure><img src="https://ik.imagekit.io/chompchomp/roll-hero.PNG"><figcaption>Chocolate Roll</figcaption></figure>
 
-<div class="pullquote">"outsiders call it fruitcake. inside, it has never once been fruitcake. know thyself, inside."
-<cite>— Society's note, in a mix of Japanese and English, partially translated</cite></div>
+<img src="https://ik.imagekit.io/chompchomp/ending.png" class="img-light" style="width: 75px;" alt="society mark">
+<img src="https://ik.imagekit.io/chompchomp/ending-dark.PNG" class="img-dark" style="width: 75px;" alt="society mark">
 
-This is not a fruitcake, and calling it one is the kind of translation failure this book was built to correct, probably. Kurisumasu keki is a light sponge, split and layered with whipped cream and fresh strawberries, then finished in white with more cream and more strawberries on top. It entered Japan in the postwar decades as an aspirational, Western-coded dessert and became a genuine national tradition in its own right, distinct from anything called Christmas cake anywhere else. The sponge itself, a whole-egg genoise whipped over gentle heat rather than a butter cake, is the real technical center of this chapter, and it rewards patience more than any other recipe in this book.
+<div class="pullquote tight" style="--tight-margin-top:10px">"we never named it. we just rolled chocolate. others unrolled the names."
+<cite>— fragment, undated</cite></div>
 
-**Yield:** one 8-inch, two-layer cake
+There is no evidence the Swiss roll has anything to do with Switzerland. There is also no evidence the brazo de gitano has anything to do with an arm, or that the Japanese roll cake came from Japan. A thin sponge, baked fast, rolled warm, filled with something white and cold: this might be the most renamed thing in this book, and every culture that got hold of it named it after somewhere else. Didn't even have to be their own home.
+
+The version here is the one I actually think about when someone says the words, which is not the jam-filled English tea version (also kind of known as the Swiss version). It is chocolate sponge, white cream, chocolate on the outside. Several billions of the industrial snack-cake version have been sold. Neither you nor I are above those. Stop lying. What follows is that object, made from a genoise. The technique underneath it is the only whipped-egg foam in this book: no chemical leavening, no fat to speak of, nothing holding the sponge up but air you put there on purpose and did not knock back out. Roll it warm or it will crack. That rule has no exceptions and no local variant.
+
+**Yield:** one 10-inch roll, 8 to 10 slices
 
 **For the sponge:**
 - 4 large eggs, room temperature
-- 2/3 cup granulated sugar
-- 1 cup (125g) cake flour, sifted
-- 3 tablespoons unsalted butter, melted and kept warm
-- 3 tablespoons whole milk, kept warm
-- 1/2 teaspoon vanilla extract
+- 2/3 cup (135g) granulated sugar
+- 1/2 cup (65g) all-purpose flour
+- 1/4 cup (25g) unsweetened Dutch-process cocoa powder
+- pinch of salt
+- 1 teaspoon vanilla extract
+- powdered sugar, for the towel
 
-**For the syrup:**
-- 3 tablespoons granulated sugar
-- 3 tablespoons water
-- 1 tablespoon kirsch or other clear fruit liqueur (optional)
+**For the cream filling:**
+- 4 ounces cream cheese, softened
+- 1/3 cup powdered sugar
+- 1 cup cold heavy cream
+- 1 teaspoon vanilla extract
 
-**For the filling and finish:**
-- 2 1/2 cups heavy cream, cold
-- 1/3 cup granulated sugar
-- 1 1/2 pounds fresh strawberries, hulled, most sliced, a dozen or so reserved whole for the top
-
-**Method:**
-
-1. **Preheat and prep.** Preheat the oven to 340°F. Butter an 8-inch round cake pan, line the bottom with parchment, and dust the sides with flour.
-
-2. **Warm the eggs and sugar.** Combine the eggs and sugar in a large heatproof bowl set over a pot of barely simmering water, making sure the bowl doesn't touch the water. Whisk gently until the mixture is warm to the touch and the sugar has dissolved, about 2 to 3 minutes. This step is what gives the finished sponge its structure, so don't skip it even though it feels unnecessary.
-
-3. **Whip.** Remove from heat and whip with a stand or hand mixer on high speed until the mixture triples in volume, turns pale and thick, and falls off the whisk in a slowly dissolving ribbon, about 5 to 8 minutes. This is the single most important step in the recipe. Underwhipped batter here cannot be fixed later.
-
-4. **Fold in the flour.** Sift the cake flour over the whipped eggs in two additions, folding gently with a spatula each time, cutting through the center and turning the bowl, until just combined. Overfolding deflates the air you just spent five minutes building.
-
-5. **Temper in the butter and milk.** Take about a cup of the batter and whisk it into the warm melted butter, milk, and vanilla to loosen them. Fold this mixture back into the main batter, gently, just until incorporated. This prevents the heavy butter from sinking and deflating the batter on contact.
-
-6. **Bake.** Pour the batter into the prepared pan and tap gently on the counter to release large air bubbles. Bake for 28 to 32 minutes, until golden, springy to the touch, and a skewer comes out clean. Cool in the pan for 10 minutes, then turn out onto a rack to cool completely.
-
-7. **Make the syrup.** Combine the sugar and water in a small saucepan and heat until dissolved. Cool, then stir in the kirsch, if using.
-
-8. **Whip the cream.** Whip the cold cream and sugar together to stiff, spreadable peaks. Work in short bursts near the end to avoid overwhipping into butter.
-
-9. **Split and fill.** Once fully cool, slice the cake horizontally into two even layers. Brush the cut sides with the syrup. Spread a layer of whipped cream on the bottom layer, top with a layer of sliced strawberries, then add another thin layer of cream over the fruit before setting the second sponge layer on top, syrup side down.
-
-10. **Frost and finish.** Cover the top and sides of the cake with the remaining whipped cream, smoothing as evenly as you can manage. Arrange the reserved whole strawberries on top, and pipe any leftover cream around them if you want the traditional decorated look.
-
-11. **Chill before serving.** Refrigerate at least 1 hour before slicing, to let the layers set.
-
-<div class="note-block"><strong>Note on the name:</strong> if this recipe appears anywhere else under the word "fruitcake," that's the guidebook talking, not the cake. Strawberries and whipped cream on a genoise sponge share nothing with dried fruit soaked in liquor and aged for weeks. Call it what it is.</div>
-
-<div class="pullquote">"strawberries on top. the natural order."
-<cite>— Society's ledger, undated</cite></div>
-
-<figure><img src="https://ik.imagekit.io/chompchomp/japanese%202.JPG"><figcaption>Kurisumasu Keki</figcaption></figure>
-
-<div class="section-break">* * *</div>
-
-## XI. Focaccia
-
-<figure><img src="https://ik.imagekit.io/chompchomp/focacciahero.png"><figcaption>Focaccia</figcaption></figure>
-
-<div class="pullquote">"put oil in their hands before the wine even arrived."
-<cite>— Society's note, on the back of a wine list, ink smudged</cite></div>
-
-Focaccia sits at the center of a real, ongoing regional argument: Liguria claims the classic version, olive-oil-slicked, dimpled, and finished simply with flaky salt and whatever herb was on hand, while Puglia insists its own thicker, more tomato-heavy focaccia barese is the truer form. Both trace back further still to flatbreads the Romans were baking long before either region existed as we'd recognize it, which makes focaccia either the oldest bread in this book or the least original recipe in it, depending on which regional cousin you ask. The dimpling itself isn't decorative. Pressing fingers deep into the risen dough before baking creates little wells that catch and hold the olive oil rather than letting it run off, so the technique and the flavor are the same motion.
-
-**Yield:** one 9x13-inch focaccia, serves 8 to 10
-
-**Ingredients:**
-
-**For the dough:**
-- 4 cups (500g) bread flour
-- 2 teaspoons instant yeast
-- 2 teaspoons fine salt
-- scant 2 cups (450ml) warm water
-- 1/4 cup olive oil, plus more for the pan and drizzling
-
-**For the brine:**
-- 2 tablespoons warm water
-- 1 tablespoon olive oil
-- 1/2 teaspoon fine salt
-
-**For the topping:**
-- flaky sea salt
-- 1 teaspoon dried oregano, or a few sprigs fresh (optional)
+**For the glaze:**
+- 8 ounces semisweet chocolate, finely chopped
+- 1/2 cup heavy cream
+- 1 tablespoon neutral oil or light corn syrup
 
 **Method:**
 
-1. **Make the dough.** Whisk together the flour, yeast, and salt in a large bowl. Add the warm water and olive oil, and stir with a wooden spoon or your hand until a very wet, shaggy dough forms. This dough is much wetter than a typical bread dough. Resist the urge to add more flour.
+1. **Preheat and prep.** Heat the oven to 425°F. Line a 10x15-inch jelly roll pan with parchment, leaving overhang on the short sides.
 
-2. **First rise.** Cover and let rise at room temperature until doubled and bubbly, about 1.5 to 2 hours.
+2. **Whip the eggs and sugar.** In a heatproof bowl set over barely simmering water, whisk the eggs and sugar until just warm to the touch. Remove from heat and beat on high until tripled in volume, pale, and thick enough to hold a ribbon on the surface for a few seconds, about 5 to 7 minutes.
 
-3. **Oil the pan.** Generously coat a 9x13-inch baking pan with olive oil, enough that it pools slightly in the corners.
+3. **Fold in the dry ingredients.** Sift the flour, cocoa, and salt over the foam in two additions, folding gently each time just until no streaks remain. Fold in the vanilla. Cocoa deflates a foam faster than flour alone does, so fold with more conviction and fewer strokes than you would for a plain sponge.
 
-4. **Transfer and stretch.** Pour the dough into the pan. With oiled hands, gently stretch it toward the corners without deflating it too much. It may not reach yet. That's fine.
+4. **Bake.** Spread evenly into the pan. Bake 7 to 9 minutes, until the top springs back and the edges just pull from the sides. Do not overbake. A dry sponge cracks instead of rolling, and there is no recovering it afterward.
 
-5. **Second rise.** Cover loosely and rest 30 to 45 minutes, until the dough relaxes enough to stretch further.
+5. **Roll while warm.** Dust a clean kitchen towel generously with powdered sugar. Immediately invert the hot cake onto it and peel off the parchment. Starting from a short end, roll the cake up inside the towel and let it cool completely, still rolled, seam-side down. It is learning the shape while it is still willing to.
 
-6. **Dimple.** Heat the oven to 450°F. With oiled fingers, press deep, firm dimples all over the dough, down to the pan in most spots. This is the technique, not decoration.
+6. **Make the filling.** Beat the cream cheese and powdered sugar until completely smooth with no lumps. With the mixer running, stream in the cold cream and vanilla, then whip to firm peaks. The cream cheese is doing structural work here, not flavor work: plain whipped cream weeps into the sponge within a day and this doesn't.
 
-7. **Brine and top.** Whisk together the warm water, olive oil, and salt for the brine. Pour evenly over the dough, letting it collect in the dimples. Sprinkle lightly with flaky salt and oregano, if using.
+7. **Fill and re-roll.** Gently unroll the cooled cake. Spread the filling evenly, leaving a half-inch border along the far edge. Re-roll without the towel, using it only to guide. Wrap and chill at least 1 hour, until firm enough to hold a clean edge.
 
-8. **Bake.** Bake 20 to 25 minutes, until deeply golden.
+8. **Glaze.** Bring the cream just to a simmer and pour it over the chopped chocolate. Let stand 2 minutes, then stir smooth from the center outward. Stir in the oil. Let cool to barely warm, about 90°F, thick enough to coat but still pourable.
 
-9. **Cool briefly.** Rest in the pan 5 minutes, then transfer to a rack. Best within a few hours, cut into squares.
+9. **Coat and set.** Trim both ends of the chilled roll with a warm knife, wiping between cuts. Set the roll on a rack over a sheet pan and pour the glaze along its length, letting it run down and cover the sides. Chill 20 minutes to set. Slice cold, wiping the knife between every cut.
 
-<div class="note-block"><strong>Note on herbs:</strong> rosemary is the more traditional topping, but it's a divisive one. Oregano is a milder, friendlier stand-in, or skip herbs entirely and let the oil and salt do the talking.</div>
+<div class="note-block"><strong>Note on the crack:</strong> a little cracking along the outside is normal and not a failure. Bakeries pipe cream over the seams to hide it. Here the glaze does that job for you, and might be the whole reason the coated version exists.</div>
 
-<div class="note-block"><strong>Note on the Pugliese variant:</strong> Puglia's version leans thicker and more tender, often with mashed potato worked into the dough, and is topped with halved cherry tomatoes pressed in alongside the oil rather than herbs. If making it that way, cut the water slightly to account for the potato's moisture, and expect a longer bake, closer to 30 minutes, to fully set the thicker crumb.</div>
+<div class="note-block"><strong>Note on the glaze temperature:</strong> too warm and it runs off and pools; too cool and it sets in ridges as it moves. Ninety degrees, poured in one pass, no going back over it with a spatula.</div>
 
-<div class="pullquote">"the fingers make the wells, the wells hold the oil. dimples in the dough, dimples in the cheeks, both grinning."
-<cite>— fragment, undated</cite></div>
+<div class="note-block"><strong>Note on the ends:</strong> the trimmed ends are the baker's, immediately, standing at the counter. This is not part of any local tradition I've found, so I'm establishing it.</div>
 
-<figure><img src="https://ik.imagekit.io/chompchomp/focaccia.png"><figcaption>Focaccia</figcaption></figure>
+<img src="https://ik.imagekit.io/chompchomp/ending.png" class="img-light" style="width: 75px;" alt="society mark">
+<img src="https://ik.imagekit.io/chompchomp/ending-dark.PNG" class="img-dark" style="width: 75px;" alt="society mark">
+
+<div class="pullquote tight" style="--tight-margin-top:10px">"the baker always has rights to the remainders. these are not scraps."
+<cite>— Society's ledger, marginal note</cite></div>
+
+<figure><img src="https://ik.imagekit.io/chompchomp/roll-coda.PNG"><figcaption>Chocolate Roll</figcaption></figure>
+
+<div class="marginalia">Oh, the Swiss Cake Roll. It's not just some "Chocolate Roll." You know, the thin chocolate layer coating the outside, with chocolate cake rolled up with white cream on the inside. In plastic wrappers. Mass produced by enormous bakeries. Sweet staple of youth. They used to sell a brand of snacks called Lady Linda at my corner bodega. Their Swiss Cake Rolls were basically on par with Little Debbie, but the name seemed a little more adult. One day I was in the shop when a guy burst in, went straight to the snack cakes and said, "Oh, sweeeeet Lady Linda... give it to me Laaadyyy Linnndaaahhh. Ohhh..." He bought a Swiss Cake Roll, left, and I've never seen him again.</div>
 
 <div class="section-break">* * *</div>
 
@@ -740,7 +806,10 @@ Focaccia sits at the center of a real, ongoing regional argument: Liguria claims
 
 <figure><img src="https://ik.imagekit.io/chompchomp/Moon%20Pie.jpeg"><figcaption>Moon Pie</figcaption></figure>
 
-<div class="pullquote">"miners told me this is what the moon looks like after shift. but add more coal dust and marshmallow."
+<img src="https://ik.imagekit.io/chompchomp/ending.png" class="img-light" style="width: 75px;" alt="society mark">
+<img src="https://ik.imagekit.io/chompchomp/ending-dark.PNG" class="img-dark" style="width: 75px;" alt="society mark">
+
+<div class="pullquote tight" style="--tight-margin-top:10px">"miners say the moon looks like a pie, just add more coal dust and marshmallow."
 <cite>— Society's note, the last one in the file, no visible source, handwriting unfamiliar</cite></div>
 
 The moon pie's documented origin is a Chattanooga Bakery salesman who, in 1917, asked a group of Tennessee coal miners what they wanted in a snack, and got back a request for something as big as the moon they could see rising over the mine. What followed, two graham cookies sandwiching marshmallow filling, the whole thing dipped in chocolate, became a fixture of Southern working kitchens and general stores long before it became a Mardi Gras throw, tossed from floats in Mobile alongside the beads. That's the closing loop this book owes you: Mobile again, the same city that got the Mardi Gras credit line straightened out back in the king cake chapter, still catching a pastry other places get to claim first.
@@ -793,10 +862,9 @@ The moon pie's documented origin is a Chattanooga Bakery salesman who, in 1917, 
 
 <div class="note-block"><strong>Note on the filling:</strong> if the marshmallow starts setting before you've assembled all the pies, a few seconds of gentle warmth from a kitchen torch waved over the surface will loosen it enough to keep working. Do not walk away and come back to it. Homemade marshmallow does not wait.</div>
 
-<div class="section-break">* * *</div>
+<figure><img src="https://ik.imagekit.io/chompchomp/pie2.png"><figcaption>Moon Pie</figcaption></figure>
 
-<div class="pullquote">"a pie orbits the earth. it is not made of cheese after all."
-<cite>— Society's ledger, undated</cite></div>
+<div class="marginalia">I never knew that Moon Pie's brand name is actually MoonPie. Makes sense. Growing up that's how people around me pronounced it. Moonpie moonpie, my dad would say. And I didn't know why he said it like that. Maybe he didn't either. I used to get the big ones at the gas station, the double deckers: more moon, more pie, more marshmallow. But when I went to my first Mardi Gras parades after moving to Mobile, AL, I found out all they threw were these dinky little foil-wrapped "moon pies" to the revelers. Branded by the Mystic Society, of course. They were tiny tiny. But better than NOLA where they didn't even throw them. And they didn't have Societies either. My last parade I caught about a gallon bucket worth of beads, three doubloons, and twelve moon pies. Can't remember the name of the Society, but with the Spanish historical influence in Mobile, it was probably Catalan.</div>
 
 <div class="section-break">* * *</div>
 
@@ -809,21 +877,17 @@ The moon pie's documented origin is a Chattanooga Bakery salesman who, in 1917, 
 
 I asked why a dozen. I found no answers down the rabbit hole, only riddles, dead ends, and false starters for sourdough.
 
-During my travels to find material to include in the book, I heard rumors of a nearly 200-year-old mother started by members of the twelve to celebrate the wedding of Queen Victoria in 1840. I followed a few leads, only to finally conclude that it doesn't exist. At least not to me.
+And it became known in some circles that I was putting together a reconstruction of fragments of the ledger. Someone reached out. Someone claiming to be a member of the Society. Felt real enough, or at least why not, so I wrote back. I've included the exchange in full later in this book.
 
-And it became known in some circles that I was putting together a reconstruction of fragments of the ledger. Someone reached out. Someone claiming to be a member of the Society. Felt real enough, or at least why not, so I wrote back. I may have gotten riddles and mazes instead of dead ends, but I'd hoped to answer some questions instead of raising new ones. I've included the exchange in full later in this book.
+Here is my postulate: the Society cannot be the same twelve people the whole time. Nobody's craft lasts three hundred years on twelve sets of hands. Someone has been leaving. Someone has been arriving to replace them. I can't imagine that the person filling an open seat ever fully understands what they've joined. But that's what they're all about: maintaining tradition, and creating it, at the same time, in the same motion.
 
-No one could tell me, so this is my postulate: if the Society has been doing this for centuries, and the ledger's own scattered dates suggest it has, then it cannot be the same twelve people the whole time. Nobody's craft lasts three hundred years on twelve sets of hands. Someone has been leaving. Someone has been arriving to replace them. I'm not making mystical claims, they are not immortal. They're just people. This is reality. But why twelve? How? How does the number stay fixed? The people behind it don't, they move on or pass. Who replaces them in the Twelve? I can't imagine that the person filling the open seat ever fully understands what they've joined. They are just carrying the tradition. But that's what they're all about: maintaining tradition. And creating it.
+My guess as to how they do it without a trace: whatever gets handed down gets handed down without paper. A recipe you write out survives its author and starts belonging to whoever reads it next, which is exactly the kind of ownership this group seems constitutionally averse to. A recipe you teach hand over hand, mouth to ear, in a kitchen, dies with the person who never wrote it down, unless they've already put it into someone else's hands first. I've come to think that's not a failure of record-keeping. It might be the entire method.
 
-Who? Don't have that sorted just yet. But my guess as to how they continue and do so without a seeming trace: whatever gets handed down gets handed down without paper. A recipe you write out survives its author and starts belonging to whoever reads it next, which is exactly the kind of ownership to which this group seems constitutionally averse. A recipe you teach hand over hand, mouth to ear, in a kitchen, dies with the person who never wrote it down, unless they've already put it into someone else's hands first. That's not a failure of record-keeping. I've come to think it might be the entire method, the actual mechanism by which twelve stays twelve without ever needing a roster. It would explain why the ledger, on the rare occasions it surfaces at all, reads like scraps rather than a manual, notes made almost against the group's own instincts, by someone who apparently couldn't help themselves. It would also explain why looking for twelve consistent names across three centuries was never going to work, either. That was another path I traveled, looking for just one. The one name stated before, Hildevart, kind of seems more like a scammer than a member. He talked too much, too. I know now that identities were never going to be preserved. The dough was.
+What that leaves behind isn't a family tree. It's fingerprints. A monastery refectory ledger logs "twelve hands at the ovens" for a feast one year, no names attached, phrased more like a headcount than a credit. A guild record from a Gulf port lists a due paid by "the dozen," undifferentiated, in a year that sits uncomfortably close to one of the gaps in this book's own ledger. A photograph, more recent and far more obviously explicable and yet still uncaptioned, shows twelve people behind a counter that looks a great deal like the hotel kitchen from the second interlude's 1961 fragment, none of them named, all of them looking entirely used to that.
 
-What that leaves behind, if it leaves anything, isn't a family tree. It's fingerprints: moments in the record where a closed, unnamed dozen shows up doing something that looks, in outline, like what this book has been describing all along. A monastery refectory ledger logs "twelve hands at the ovens" for a feast one year, no names attached, phrased more like a headcount than a credit. A guild record from a Gulf port lists a due paid by "the dozen," undifferentiated, in a year that sits uncomfortably close to one of the gaps in this book's own ledger. A photograph, more recent and far more obviously explicable and yet still uncaptioned, shows twelve people behind a counter that looks a great deal like the hotel kitchen from the second interlude's 1961 fragment, burners blasted, oven apparently working, none of the twelve named, all of them looking entirely used to that. None of these fingerprints match each other in style or language or century. That's either evidence they belong to the same unbroken thread, quietly changing hands and habits as it moves, or evidence of nothing at all, twelve unrelated dozens who happened to share a number. I don't want that, I want them to be the same thread. But in this story, what I want doesn't matter. Things are or they aren't. Only, the twelve are. Though they'd say they might not be.
+None of these fingerprints match each other in style or language or century. That's either evidence they belong to the same unbroken thread, or evidence of nothing at all, twelve unrelated dozens who happened to share a number. I want them to be the same thread. What I want doesn't matter. Things are or they aren't. Only, the twelve are. Though they'd say they might not be.
 
-While I've been putting this whole project together, I have wondered as to whether a closed dozen, organized around something larger than any one member of it, is simply a shape that keeps getting reinvented by people solving a similar problem. A culturally convenient number.
-
-They are not, as best I can piece together, acolytes of a founder or a doctrine. If they're devoted to anything, it's closer to the actual craft than to a person, which would explain a great deal about their relationship to credit that the rest of this book has already documented without quite naming it: you cannot really ask for returns on a technique the way you can on a name, and asking would be a kind of category error for a group organized around the first thing rather than the second. Nor do they seem to want followers, exactly. What they seem to want, if the pattern across twelve places and however many decades means anything at all, is for the technique to keep moving without anyone being able to trace it back far enough to put a name on it, their name least of all.
-
-What I can't tell you is why twelve people, specifically, or where they found each other, or whether "found each other" is even the right way to describe however this started. And I want to be precise about something the name of this book has probably already implied incorrectly: Catalonia isn't where they began. It's where they were first recorded, the earliest surviving mention of a group operating under a shared, countable identity happens to place them there, which is a different claim than an origin, the same way the first written record of a word isn't the moment someone invented it. Everything before that first sighting is unrecorded, not un-happened. I don't know which. Neither, as far as I can tell, does the ledger.
+I want to be precise about something the name of this book has probably already implied incorrectly: Catalonia isn't where they began. It's where they were first recorded, and that's a different claim than an origin, the same way the first written record of a word isn't the moment someone invented it. Everything before that first sighting is unrecorded, not un-happened.
 
 So, why twelve? In the case of this book, there are twelve recipes merely because there are twelve members in the Society. In the end, it's just a headcount, not a code. Everything else I'm still working out.
 
@@ -835,25 +899,23 @@ So, why twelve? In the case of this book, there are twelve recipes merely becaus
 
 <figure><img src="https://ik.imagekit.io/chompchomp/letters.png"><figcaption>For you to decide</figcaption></figure>
 
-I said earlier that someone reached out, and that I'd include the exchange in full. Here it is, six letters, three each.
+I said earlier that someone reached out, and that I'd include the communication in full. Here it is, six letters, three exchanges, possibly misses.
 
-The contact came through a person who introduced himself only as Crumb, no first name volunteered, though I found one soon enough on my own: Hildevart. I recognized it. It's the same name attached to a fifteenth-century itinerant baker blamed for half the confusion between "biscuit" and "cookie," a man who apparently talked his way out of one merchant dispute by simply calling the same pastry two different things to two different crowds. I went looking for more and found the name again, further back, at a regional fair in 1261, trying and failing to standardize pastry terminology for an audience that had no interest in being standardized. A hundred and sixty years between those two appearances. Too long for one man's working life, unless he started very young and finished very old, which is possible, but which I don't especially believe.
+The contact came through a person who introduced himself only as Crumb. It had to be the same name I'd run into before down in the rabbit holes. Hildevart Crumb. He'd popped up in fifteenth-century baking lore about a divide between biscuits and cookies and what could and should be called what. I'd also seen him at a regional fair in 1261 causing a ruckus about pastry terminology. I didn't want to twist knots in time, so I just asked him whether he was older than he looked. He didn't deny it. He also didn't confirm it. He just said the name gets easier to carry the longer you've had practice not answering for it.
 
-I don't know if this Crumb is a descendant, an admirer, an opportunist who liked the built-in reputation, or something else I haven't thought of, a role someone keeps stepping into on purpose, the way the Twelve itself seems to hand off its own seats without ever quite explaining how. I raised this with him directly, once. He didn't deny being several hundred years old. He also didn't confirm it. He just said the name gets easier to carry the longer you've had practice not answering for it, which is either a very good joke or the most honest thing anyone in this whole book has said to me, and I have genuinely not been able to decide which.
-
-What follows is the correspondence as I received it, letters passed through Crumb's hands in both directions, in whatever order he chose to deliver them, which I have no way of verifying was the order they were written. Six letters. I'm not even sure we were responding to each other's previous one. Reading them over, were we crossing each other? Likely the author was being deliberately cryptic and obtuse, pretending. If so, that's par. I leave them here for you to decide.
+What follows is the correspondence in the order received/sent, letters passed through Crumb's hands in both directions, in whatever order he chose to deliver them, which I have no way of verifying was the order they were written. I'm not even sure we were responding to each other's previous one. They were cryptic, and that's par.
 
 <div class="section-break">* * *</div>
 
 <div class="letter-label">Letter One</div>
 
-You've been reaching out. Since before you even heard of us. We heard you. Your cookies. Your biscuits. Your cakes. Your tortas. You are closer now than you've ever been, yet further. You are clever, and you're finding the truth on your own. But it is our truth. You've known this but now you need to know this.
+You've been reaching out. Since before you even heard of us. We heard you. Your cookies. Your biscuits. Your cakes. Your tortas. You are closer now than you've ever been, yet further. You are clever, and you're finding the truth on your own. It is our truth. You've known this but now you need to know this.
 
-Now we're reaching out to you. This is how this reached you: not because you asked loud enough, in enough places, but because we had been reading your own ledger, as it were. It was easier to answer than to keep pretending we hadn't seen. Hadn't heard.
+Now we're reaching out to you. This is how this reached you. Not because you asked loud enough, in enough places, but because we had been reading your own ledger, while you were trying to decipher ours. It was easier to reach out to you than to keep pretending we hadn't seen. Hadn't heard.
 
-My name doesn't matter. Crumb will tell you that. He understands that. He's tried to make his matter for a long time. So does it matter? No matter, the fewer people who can be asked, the more people who can answer wrong.
+Names don't matter. Like mine. Crumb will tell you that. He understands that. He's tried to make his matter for a long time. No matter, the fewer people who can be asked, the more people who can answer wrong. Don't ask.
 
-I will bake something for you, so you know this isn't a trick someone's playing on you. We don't like trickery, although we have found it can serve a purpose, just ask your new friend Crumb. Sorry, I won't bake for you, but I'll tell you where you're wrong. In this ledger of yours, you used cold butter for the biscuits. Some of us have always insisted on lard, cold as it comes, and the argument over which is correct started before either country had settled on a name for what came out of your oven. You wrote as much yourself, close enough. You're wrong. People who claim to know have enemies. We do. I'm one of them, on the lard side, if it matters. You will be, too. One day. We set the standards. It may take another 100 years, but then we will have no enemies. But then we always have.
+I will bake something for you, so you know this isn't a trick someone's playing on you. We don't like trickery, although we have found it can serve a purpose, just ask your new friend Crumb. Sorry, I won't bake for you, but I'll tell you where you're wrong. In this ledger of yours, you used cold butter for the biscuits. Some of us have always insisted on lard, cold as it comes, and the argument over which is correct has raged for eons. You wrote as much yourself, or close. And you're wrong. People who claim to know have enemies. We do. I'm on the lard side, making mortal foes. You will make them, too. One day. We set the standards. It may take another 100 years, but then we will have no enemies on the lard question. Yet we always will because we always have. A cycle.
 
 Ask what you like. Someone will read the question, but there are no promises that you'll receive a response to the one you asked.
 
@@ -861,17 +923,17 @@ Ask what you like. Someone will read the question, but there are no promises tha
 
 <div class="letter-label">Letter Two</div>
 
-To whoever wrote this, or to whoever reads it next, I can't assume those are the same person,
+To whoever wrote to me, or to whoever reads this,
 
-I'm not sure how I feel about you reading, much less knowing about, my "ledger." How? What does that even mean? Yes, I've been searching for the Catalan Twelve. Is that you? The collective you? You heard me, great. You saw me? That freaks me out. Not because I don't believe you, but because I think I do, and now that I think about it, I'm a little self-conscious. I don't know what you saw and I highly doubt you can read the future, you're only human. Right? Again, nervously creeped out on that though. And I don't know whether being read before I've finished is closer to being edited or being audited, and I suspect you know that's an important difference and left me to sit with it anyway.
+I'm not sure how I feel about you reading my "ledger." I'm writing a cookbook. Am I only seeing fragments of the Society's lost cookbook? You already know my recipes. I'm sure you do. Still, what did you see?
 
-I'll take the correction on the biscuits. It will go in a note, lard: cold as you insist. I'll say in plain speak that I don't think anyone is wrong so much as loyal to different things. That's not a concession. It's just a good way for me to write about an argument I wasn't there for the start of. Lard vs Butter. I guess it really is a big deal. Okay. Moving on.
+Yes, I've been searching for the Catalan Twelve. Twelve recipes based on myths and rumors and fragments. Is that you? Or a collective You? I don't know whether you reading my book before I've finished is closer to being edited or being audited, and I know you know that's an important difference. I just want to get it right.
 
-A few questions, since you invited me to ask. How many are in your Society, really? Twelve? Is it that simple? Well, not simple, but yeah. Is "we" the twelve I've already written about - you must know I've written something. Obviously. Are you a member of the "Twelve?" If you're not, then is "we" something larger? Maybe something that includes people like you who speak for them without being one of them? What happened in Catalonia, if anything did, or was that only a place something happened and someone happened to be writing it down? I must ask you these questions before I feel I can ask you more. I'm not even sure you'll respond. Please do.
+So, I'll take the correction on the biscuits. It's now in a note, lard: cold - as you insist. Go back and read it. You already know it. I don't think anyone is wrong so much as loyal to different things. I don't like to argue.
 
-And Crumb, I don't know if I care, honestly, but I'm kind of put off. This is the messenger you send? The same one who I've found popping up through the ages kind of being a weirdo, kind of being a jerk, always seeming to make a joke out of the things I'm imagining you (all) hold up as inviolate? And how is it that same character, he must be centuries old? Is it an archetype? A passed down role? I have not been able to make the dates add up on him and I've tried.
+A few questions, since you invited me to ask. How many are in your Society? Twelve? Are you a member of the Society? What about Crumb and why was he the messenger? What happened in Catalonia, if anything did, or was that only a place something didn't happen and someone happened to write it down?
 
-You said in your letter that someone will read this. I truly hope so.
+You said someone will read this. Hoping for a reply.
 
 <div class="section-break">* * *</div>
 
@@ -895,19 +957,19 @@ Ask real questions and you might get real answers.
 
 <div class="letter-label">Letter Four</div>
 
-I've sat on this too long before writing back, which is its own kind of answer I guess. I tend to go slowly when I'm not sure what to say. I didn't want to waste your time with pleasantries or praises. I don't even know what you really do or who you are! I didn't want to waste my time, either, since who knows if you'll write back. But I have to know! Like, what pieces of my book are in your ledger. How? Why? Who am I? I don't know if you scare me or flatter me, and I've decided both are true.
+Not silly: What pieces of my book are in your ledger? Why? Who am I? I don't know if you scare me or flatter me, and I've decided both are true.
 
-You told me to ask real questions, so here:
+You told me to ask real questions, so here are some other not-silly ones:
 
-1) What's the best method for being consistent across one's own baking and about their technique?
+1) What's the best method for being consistent across one's own baking and technique?
 
-2) Why does a knot hold more heat than a spiral? Why is this a secret? It's not a secret. At least I didn't think so.
+2) Why does a knot hold more heat than a spiral? Why is this a secret? It's not a secret. I can't remember who taught me though.
 
 3) Why is your society "secret?"
 
-4) And one more. I haven't stopped thinking about the ledger, but I'll try to let it go after this: The guild record I found, the one that logs a due paid by "the dozen" at a Gulf port, undifferentiated, no names. What port? Did I grow up there? You obviously know enough about me to know where that is. Why there? Who did you pay? Is this in my past? My past's past? Is this why you're even talking to me?
+4) Personal curiosity: the guild record I found, the one that logs a due paid by "the dozen" at a Gulf port, undifferentiated, no names. Did I grow up there? You obviously know enough about me to know where that is.
 
-I look forward to your reply and knowledge.
+I look forward to your reply.
 
 <figure><img src="https://ik.imagekit.io/chompchomp/knotspiral1.png"><figcaption>Side by side, as suggested</figcaption></figure>
 
@@ -919,7 +981,7 @@ Dear Narrator:
 
 I. You ask for the best method. There isn't one. There's only the same one, over and over: hands that wait. A person who is paying attention will feel when dough is ready the way you feel when a conversation has gone on long enough. Consistency doesn't come from matching one recipe to the next. It comes from matching the waiting, every time, regardless of what's in the bowl. That's the whole technique. I'm sorry it isn't more complicated. People want it to be more complicated.
 
-II. The knot holds more heat than the spiral because it presses more surface against itself, less exposed to air, more exposed to itself. It's physics, not secrecy. Yes, one of us wrote "secret" in the ledger. This is errata now. The physics behind the heat weren't understood. We'd merely waited with the spiral and the knot and learned. We taught. Kept the "secret" to ourselves and our students. We never saw the use in explaining what anyone could learn by touching the two side by side, but that's not hiding. We thought people would find this on their own. But people are too impatient and they don't wait. So they didn't learn. Again, as above, that is technique, which is obviously not the same as secrecy. Ask yourself: have you ever hidden something on purpose, or only failed to mention it because no one asked the right question at the right time. Or perhaps you failed to... accidentally on purpose.
+II. The knot holds more heat than the spiral because it presses more surface against itself, less exposed to air, more exposed to itself. It's physics, not secrecy. Yes, one of us wrote "secret" in the ledger. This is errata now. The physics behind the heat weren't understood. We'd merely waited with the spiral and the knot and learned. We taught. Kept the "secret" to ourselves and our students. We never saw the use in explaining what anyone could learn by touching the two side by side, but that's not hiding. We thought people would find this on their own. But people are too impatient and they don't wait. So they didn't learn. That is technique, which is obviously not the same as secrecy. Ask yourself: have you ever hidden something on purpose, or only failed to mention it because no one asked the right question at the right time. Or perhaps you failed to... accidentally on purpose.
 
 III. You keep calling us secret. We would call ourselves private, if we called ourselves anything, which we mostly don't. A secret implies effort. We have made none. But you did. You made the effort. You looked loudly. You travelled stompingly. You baked patiently. You've written ledgerly. So we found you. Because you looked. Most people don't look. That isn't our doing.
 
@@ -927,7 +989,7 @@ IV. And the port. You thought I would name it? I could, but it's not what you ne
 
 You wanted knowledge. I cannot answer for you. But I have answered you.
 
-<figure><img src="https://ik.imagekit.io/chompchomp/table2.png?updatedAt=1786885974316"><figcaption>An open seat</figcaption></figure>
+<figure><img src="https://ik.imagekit.io/chompchomp/table2.png"><figcaption>An open seat</figcaption></figure>
 
 <div class="section-break">* * *</div>
 
@@ -935,19 +997,33 @@ You wanted knowledge. I cannot answer for you. But I have answered you.
 
 Dear ???
 
-No, I didn't ask my family. Not yet. I'm not sure if I will. What scares me? No, what scares you? The truth? Nothingness? Nothing?
+You said to ask my family. I haven't. Not yet. I'm not sure if I will.
 
-Before digging into my family's past (present?) I wanted to ask you what your statement, "ask your family," even means. But whatever you tell me, I could still decide not to believe it. You never said you'd tell me the truth, only that I can ask questions. You also addressed me as Narrator. And you could be my unreliable one. So, what do I fear? Maybe what's in my head. And what I'm writing: to you, to me, to the readers.
+Tell me if I'm warm: maybe one doesn't join the Society. Maybe one becomes. Or, like family, like heritage, you're already a part of it and it's already a part of you.
 
-My family could choose to hide the truth, too. That's another reason I don't ask.
+Actually, I don't know that I need a response to that. I think I'd trust your silence more than an explicit answer.
 
-So, what do I have left? My own thoughts and beliefs, whether I'm scared of them or not. And I trust them. I am grounded in my own reality and no one can take that away.
+I'll wait.
 
-So here's the question, one I've been going around and around with for a while. Am I one of you? Am I in the Society somehow? Am I part of your We? I just don't understand what you've told me, what I've found out, where I am in my own process. Earlier in this book, before the letters came, I'd pondered who fills a seat when one opens, and whether they understand what they've joined until they're already the one training the next pair of hands. Is that what this has been? Is that what these letters have been, adding to and even legitimizing my own "ledger" in some way? Maybe one doesn't join. Maybe one becomes.
-
-I don't need an actual yes or no. I think I'd believe your silence on the question over an explicit answer. But I'd like to know whether I should keep waiting for a reply. Only you know if you'll send one. Though maybe I've had your reply all along. Maybe I've known all along, when I started this project. Maybe it's why I started this project, and I've just been too stubborn to notice I've been carrying this knowledge all along. Either way, it's about sharing. And hands that wait. I will wait, as I keep going.
+[No reply came.]
 
 <figure><img src="https://ik.imagekit.io/chompchomp/envelope.png"><figcaption>Unanswered</figcaption></figure>
+
+<div class="section-break">* * *</div>
+
+## Marginalia: Why Alabama?
+
+I know you've noticed the pattern, but I've also noticed that I keep noticing it. Alabama. Like when discussing King Cake, the earliest Mardi Gras credit goes to Mobile, not New Orleans. And millions of Moon Pies get thrown from Mobile's Mardi Gras floats every year, same as beads. Even the chapter on baklava couldn't resist threading back to Alabama. I even know of a xuxo origin story that runs through Alabama, in that version the Twelve don't just happen to be nearby, they walk out of someone's kitchen with the thing, invent an acrobat and a sneeze to cover the trail, and hand the whole story to Girona instead. Not credit. The opposite of credit, proof they'd rather manufacture someone else's myth than let anyone trace the real one back to them, and pointedly not back to Alabama either, which is the one place with enough of a paper trail to actually get them caught. But without the xuxo, where would the Catalan Twelve even be? The same place, to be honest. It's The Twelve no matter.
+
+So, yes, I'd like to tell you the Alabama fingerprints showed up as a rigorous cross-referencing of guild records and ledger fragments. They didn't. Obviously they're mine; I'm from Alabama, and once you notice you're from somewhere, you start seeing it everywhere, whether or not it's actually there.
+
+I grew up in Alabama. Not exclusively, my family was spread up and down the Gulf Coast, and I've got roots in more than one of the port towns this book keeps almost-implicating. But Alabama is where I spent the most time, the years that make you who you end up being before you've had any say in the matter. I learned a lot there, and in a way that matters. I didn't pick up every recipe there. What I picked up was a posture toward food: patience, respect for cold fat, not rushing a dough. I've said as much elsewhere in this book without saying where.
+
+Then I left, the way people from formative places do. You don't stop being from somewhere. You just stop being there.
+
+I don't actually think I'm wrong that something passed through there. Ports absorb things. People move through them and leave a little of wherever they came from, and take a little of wherever they land. Like, Mobile had Mardi Gras before New Orleans did. That's not folklore, that's just true. Whether a closed, unnamed dozen of traveling bakers also passed through at some point is a much bigger claim, and I'm not making it, not seriously. But I'm not not making it either.
+
+So the joke, if it is one, was never really about Alabama somehow being secretly behind everything. Alabama is not the joke. Maybe it's that I'm the joke, at least in the sense that a writer can't help but drag their own hometown into every story they tell, whether the facts support it or not. In the sense that a baker can't help to do the same. I've dressed this up as a Society-tracking exercise. Underneath, it's just someone who grew up on the Gulf Coast, insisting, gently and repeatedly, with his heart on his sleeve, that the place mattered. And I'm still tracking the Society, Alabama-grounded or not.
 
 <div class="section-break">* * *</div>
 
@@ -967,13 +1043,13 @@ Go make the xuxos again. They're better the second time. Or go make something ne
 
 ## Bibliography
 
-*What Girona Owes Alabama.* ps.chom.ps, essay, `its-alabamas-xuxo`, 2026.
+*Xuxo Lore.* ps.chom.ps, essay, xuxo-lore, 2026.
 
-*The Baking Experience: Qué Sweet, 15 Minutes to Xuxos.* ps.chom.ps, `15-minutes-to-xuxos`, 2026.
+*The Baking Experience: Qué Sweet, 15 Minutes to Xuxos.* ps.chom.ps, 15-minutes-to-xuxos, 2026.
 
 *Chomp Chomp's Compendium of Forgotten Cookies: Thirty-Four Confections of Desire, Discipline, and Semiotic Mischief, With Full Metric Conversions.* Introduction and colophon by S. Žižek. Chomp Chomp Editions, 2026.
 
-*On the Divergent Names of American Cookies and British Biscuits.* ps.chom.ps, essay, `on-the-divergent-names`, 2026.
+*On the Divergent Names of American Cookies and British Biscuits.* ps.chom.ps, essay, on-the-divergent-names, 2026.
 
 Crumb, Hildevart. *Tractatus de Dulcibus Itinerantibus.* 1421.
 
@@ -1009,7 +1085,10 @@ Twitty, M. W. *The Cooking Gene: A Journey Through African American Culinary His
 
 <figure><img src="https://ik.imagekit.io/chompchomp/Tea.PNG"><figcaption>XIII</figcaption></figure>
 
-<div class="pullquote">"the thirteenth loaf was never a gift. it was what you gave a baker you didn't trust to count."
+<img src="https://ik.imagekit.io/chompchomp/ending.png" class="img-light" style="width: 75px;" alt="society mark">
+<img src="https://ik.imagekit.io/chompchomp/ending-dark.PNG" class="img-dark" style="width: 75px;" alt="society mark">
+
+<div class="pullquote tight" style="--tight-margin-top:10px">"the thirteenth was never a gift. it's safety."
 <cite>— Society's note, attribution unreliable</cite></div>
 
 <div class="section-break">* * *</div>
@@ -1020,7 +1099,7 @@ After sending my sixth letter, I waited, not with bated breath, just with my tho
 
 "What is it?" I took it.
 
-"Something I picked up during my travels. Something I'd been searching for, for a long time. It's kind of a genre bending recipe. It's both a cookie and a biscuit, and it's called a cake."
+"Something I picked up during my travels. Something I'd been searching for, for a long time. It's kind of a genre-bending recipe. It's both a cookie and a biscuit, and it's called a cake."
 
 I opened the paper; it was a recipe for a Southern Tea Cake.
 
@@ -1034,35 +1113,35 @@ He turned to leave.
 
 That's the last I saw of him. I went inside and checked my pantry. I had all the ingredients, so I tried my last recipe.
 
-It doesn't count as one of the twelve. I want to be clear about that before I say anything else about it, because the whole point of a baker's dozen, historically, wasn't generosity. It was insurance: bakers in medieval England padded their orders with an extra loaf because the penalty for shorting a customer, even by accident, could cost them a fine they couldn't afford, and a scale nobody quite trusted made an extra loaf cheaper than a mistake. This is that extra loaf. It sits outside the count on purpose, the same way it's always sat outside every other count.
+It doesn't count as one of the twelve. I want to be clear about that before I say anything else about it, because the whole point of a baker's dozen, historically, wasn't generosity. It was insurance: bakers in medieval England padded their orders with an extra loaf because the penalty for shorting a customer, even by accident, could cost them a fine they couldn't afford. An extra loaf was cheaper than a mistake. This is that extra loaf. It sits outside the count on purpose, the same way it's always sat outside every other count.
 
 If this recipe belongs to anyone in this book's mythology, it belongs to whichever version of "Crumb" wrote it, a name I've already spent a full section of this book failing to pin to a single person or century. Crumb's whole documented career, real and embellished both, seems to circle one unresolved argument: what separates a biscuit from a cookie, and whether the distinction survives translation at all. He's on record calling the same pastry two different names in two different towns and walking away from the dispute both times. A Southern tea cake is, as far as I can tell, the dish that finally beat him at his own game, because it refuses to resolve the argument even when you ask it directly. It's called a cake. It's shelved as a cookie. It's made and eaten like a soft, barely sweet biscuit, hand-shaped rather than rolled, no lamination, no rise to speak of. Whoever handed this to me clearly thought that was funny. I think it might be the closest thing to a joke this entire correspondence ever told.
 
-I want to say, though, that the joke is not the whole story, and I'd be doing this dish a disservice if I let the taxonomy trivia carry the chapter. Tea cakes have a real, documented history in the American South that predates any of this book's games with names: they were made by enslaved cooks, often for the households that enslaved them, out of the plain, shelf-stable ingredients a Southern pantry could reliably keep on hand. That history doesn't disappear because a fictional baker found the recipe taxonomically amusing four hundred years later. It's the actual reason the dish exists at all, and it deserves to be said outright rather than folded quietly into a footnote.
+I want to say, though, that the joke is not the whole story, and I'd be doing this dish a disservice if I let the taxonomy trivia carry the chapter. Tea cakes have a real, documented history in the American South that predates any of this book's games with names: they were made by enslaved cooks, often for the households that enslaved them, and likely out of the plain, shelf-stable ingredients a Southern pantry could reliably keep on hand. That history doesn't disappear because a fictional baker found the recipe taxonomically amusing four hundred years later. Whatever their initial origin, Southern tea cakes have endured because of the generations of Black Southern cooks who have made and passed them down. This deserves to be said outright rather than folded quietly into a footnote.
 
 I grew up eating something close to these, plainer than what follows below, made by people who never once called them anything but tea cakes and never explained why. I didn't ask the right questions until long after I could have asked them to the people who'd have known the real answers. That's a different regret than anything else in this book, and not one I'm going to try to resolve here.
 
 **Yield:** about 20 tea cakes
 
 **Ingredients:**
-- 2½ cups (315g) all-purpose flour
+- 2 1/2 cups (315g) all-purpose flour
 - 1 teaspoon baking powder
-- ¼ teaspoon baking soda
-- ½ teaspoon fine salt
-- ½ cup (113g) unsalted butter, softened, or ¼ cup butter + ¼ cup shortening for a softer, more traditional texture
-- ⅔ cup (135g) granulated sugar
+- 1/4 teaspoon baking soda
+- 1/2 teaspoon fine salt
+- 1/2 cup (113g) unsalted butter, softened, or 1/4 cup butter + 1/4 cup shortening for a softer, more traditional texture
+- 2/3 cup (135g) granulated sugar
 - 1 large egg
 - 1 teaspoon vanilla extract
-- ⅓ cup buttermilk
+- 1/3 cup buttermilk
 
 **Method:**
 1. **Cream the butter and sugar.** Beat until light and pale, about 3 minutes.
 2. **Add the egg and vanilla.** Beat in until fully combined.
 3. **Combine the dry ingredients separately.** Whisk together the flour, baking powder, baking soda, and salt.
 4. **Alternate dry and wet.** Add the dry ingredients in two additions, alternating with the buttermilk, mixing just until combined. The dough will be soft and slightly sticky.
-5. **Rest the dough.** Cover and chill 20–30 minutes, just enough to make it manageable by hand.
+5. **Rest the dough.** Cover and chill 20 to 30 minutes, just enough to make it manageable by hand.
 6. **Shape by hand.** Scoop by rounded tablespoons, roll gently into a ball between your palms, then flatten each one with your palm, not a glass, not a rolling pin, into a rough, uneven disc a bit less than half an inch thick. The imperfection is the point.
-7. **Bake.** 350°F for 10–12 minutes, until the edges just turn golden. Centers should look slightly underdone; they firm up as they cool.
+7. **Bake.** Bake at 350°F for 10 to 12 minutes, until the edges just turn golden. Centers should look slightly underdone; they firm up as they cool.
 8. **Cool.** 5 minutes on the sheet before transferring to a rack.
 
 <figure><img src="https://ik.imagekit.io/chompchomp/handshaping.png"><figcaption>Shaped by hand, not cut</figcaption></figure>
@@ -1075,14 +1154,17 @@ I grew up eating something close to these, plainer than what follows below, made
 
 ## Back Cover
 
-<p class="lead">No one can prove the Catalan Twelve exist. That has never stopped them from taking credit.</p>
+<p class="lead">No one can prove the Catalan Twelve exist. That has never stopped them from taking credit. Or avoiding it.</p>
 
 For centuries, a single dough technique, a stubborn insistence on cold butter, a habit of hiding something valuable inside a ring of bread, has turned up in kitchens with no business knowing each other's business. Girona has a pastry. So does Mobile. A hotel in Lancashire has a pudding no one can trace, and a Chattanooga bakery has a snack named for the sky. This book collects twelve of those recipes, real and fully tested, alongside whatever fragments of the ledger survived long enough to be reprinted here.
 
 Make the xuxo. Make the biscuits. Make the moon pie last, so the loop closes properly. Believe as much of the rest as you'd like.
 
-<div class="pullquote">"The dough doesn't care what you call it."</div>
-<cite>— from the Society's ledger, provenance disputed</cite><br>
+<img src="https://ik.imagekit.io/chompchomp/ending.png" class="img-light" style="width: 75px;" alt="society mark">
+<img src="https://ik.imagekit.io/chompchomp/ending-dark.PNG" class="img-dark" style="width: 75px;" alt="society mark">
+
+<div class="pullquote tight" style="--tight-margin-top:10px">"The dough doesn't care what you call it."
+— from the Society's ledger, provenance disputed</div>
 
 Twelve recipes, recovered, plus one that wasn't. Two interludes. Both a coda and a conclusion. Some correspondence only I agreed to publish. A bibliography that isn't lying to you about everything.
 
