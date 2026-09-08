@@ -188,8 +188,8 @@ figcaption { margin-top: 10px; font-family: var(--font-ui); font-size: 13px; lin
 .markdown { max-width: var(--max-text); }
 .markdown > :first-child { margin-top: 0; }
 .markdown .lead { font-size: 21px; line-height: 1.55; margin-bottom: var(--space-m); }
-.markdown .marginalia { border-left: 2px solid #999999; padding-left: 20px; margin: 24px 0; font-style: normal; }
-.markdown .note-block { border-left: 2px solid #CCCCCC; padding-left: 20px; margin: 24px 0; background: none; border-top: none; border-right: none; border-bottom: none; }
+.markdown .marginalia { border-left: 2px solid #999999; padding-left: 20px; margin: 24px 0; font-style: normal; font-size: inherit; }
+.markdown .note-block { border-left: 2px solid #CCCCCC; padding-left: 20px; margin: 24px 0; background: none; border-top: none; border-right: none; border-bottom: none; font-size: 15px; }
 .markdown .pullquote { margin: 48px 0; font-family: var(--font-title); font-size: 28px; line-height: 1.3; text-align: center; color: var(--text); }
 .markdown .pullquote.tight { margin-top: var(--tight-margin-top, var(--tight-margin, 42px)); margin-bottom: var(--tight-margin-bottom, var(--tight-margin, 42px)); }
 .markdown .aside { margin: 24px 0; font-size: 16px; color: var(--muted); }
