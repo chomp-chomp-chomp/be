@@ -626,6 +626,7 @@ figcaption { margin-top: 10px; font-family: var(--font-ui); font-size: 13px; lin
   padding-left: 20px;
   margin: 24px 0;
   font-style: normal;
+  font-size: inherit;
 }
 .markdown .note-block {
   border-left: 2px solid #CCCCCC;
@@ -634,6 +635,7 @@ figcaption { margin-top: 10px; font-family: var(--font-ui); font-size: 13px; lin
   background: none;
   border-top: none;
   border-right: none;
+  font-size: 15px;
   border-bottom: none;
 }
 .markdown .pullquote { margin: 48px 0; font-family: var(--font-title); font-size: 28px; line-height: 1.3; text-align: center; color: var(--text); }
