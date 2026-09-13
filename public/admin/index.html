@@ -34,6 +34,26 @@
         );
       };
     })();
+
+    // ++ underline ++ extension (++text++ → <u>text</u>)
+    marked.use({
+      extensions: [{
+        name: 'underline',
+        level: 'inline',
+        start(src) { return src.indexOf('++'); },
+        tokenizer(src) {
+          const match = /^\+\+([\s\S]*?)\+\+/.exec(src);
+          if (match) {
+            const token = { type: 'underline', raw: match[0], text: match[1], tokens: [] };
+            this.lexer.inline(token.text, token.tokens);
+            return token;
+          }
+        },
+        renderer(token) {
+          return '<u>' + this.parser.parseInline(token.tokens) + '</u>';
+        },
+      }]
+    });
   </script>
   <style>
     body {

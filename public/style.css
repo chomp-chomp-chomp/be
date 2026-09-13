@@ -647,6 +647,8 @@ figcaption { margin-top: 10px; font-family: var(--font-ui); font-size: 13px; lin
 .markdown figcaption { margin-top: 10px; font-family: var(--font-ui); font-size: 13px; line-height: 1.4; color: var(--muted); }
 .markdown .recipe-meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px 20px; margin: 24px 0 32px; font-family: var(--font-ui); font-size: 14px; line-height: 1.4; color: var(--muted); }
 .markdown .recipe-meta strong { display: block; color: var(--text); font-weight: 600; }
+.markdown del { text-decoration: line-through; opacity: 0.7; }
+.markdown u { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
 
 /* =========================================================
    CODE / PRE
