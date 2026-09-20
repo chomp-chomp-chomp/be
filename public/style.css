@@ -649,6 +649,7 @@ figcaption { margin-top: 10px; font-family: var(--font-ui); font-size: 13px; lin
 .markdown .recipe-meta strong { display: block; color: var(--text); font-weight: 600; }
 .markdown del { text-decoration: line-through; opacity: 0.7; }
 .markdown u { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.markdown .ornament-break { text-align: center; color: #888888; font-size: 28pt; line-height: 1; margin: 20pt 0 10pt 0; }
 
 /* =========================================================
    CODE / PRE
