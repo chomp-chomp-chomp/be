@@ -693,11 +693,31 @@
         ? pages.map(p => `
             <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;padding:5px 0;border-bottom:1px solid var(--rule);">
               <a href="/${p}" target="_blank" rel="noopener" style="font-size:12px;color:var(--link);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">/${p}</a>
-              <button class="btn btn-ghost" style="font-size:11px;padding:3px 8px;color:var(--accent);" onclick="deletePage('${p.replace(/'/g, "\\'")}')">Delete</button>
+              <div style="display:flex;gap:4px;flex-shrink:0;">
+                <button class="btn btn-ghost" style="font-size:11px;padding:3px 8px;" onclick="downloadPage('${p.replace(/'/g, "\\'")}')">Download</button>
+                <button class="btn btn-ghost" style="font-size:11px;padding:3px 8px;color:var(--accent);" onclick="deletePage('${p.replace(/'/g, "\\'")}')">Delete</button>
+              </div>
             </div>`).join('')
         : '<div style="font-size:12px;color:var(--muted);">No pages yet.</div>';
       document.getElementById('pages-list-wrap').style.display = 'block';
     } catch(e) { setStatus('Could not load pages: ' + e.message, 'err'); }
+  }
+
+  async function downloadPage(pagePath) {
+    if (!adminToken()) return setStatus('Log in first.', 'err');
+    try {
+      const res = await fetch('/api/pages?path=' + encodeURIComponent(pagePath), {
+        headers: { 'Authorization': 'Bearer ' + adminToken() },
+      });
+      if (!res.ok) throw new Error(res.status);
+      const { html } = await res.json();
+      const filename = pagePath.replace(/\//g, '-') + '.html';
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(new Blob([html], { type: 'text/html' }));
+      a.download = filename;
+      document.body.appendChild(a); a.click(); a.remove();
+      URL.revokeObjectURL(a.href);
+    } catch(e) { setStatus('Download failed: ' + e.message, 'err'); }
   }
 
   async function deletePage(pagePath) {

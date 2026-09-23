@@ -609,9 +609,16 @@ async function handleAPI(request, path, env) {
     });
   }
 
-  // GET /api/pages — list all static pages
+  // GET /api/pages — list all static pages, or fetch one (?path=…)
   if (path === '/api/pages' && request.method === 'GET') {
     if (!checkAuth(request, env)) return jsonResp(401, { error: 'Unauthorized' });
+    const url = new URL(request.url);
+    const pagePath = url.searchParams.get('path');
+    if (pagePath) {
+      const html = await env.POSTS.get('page:' + pagePath.replace(/^\//, '').replace(/\/$/, ''));
+      if (!html) return jsonResp(404, { error: 'Not found' });
+      return jsonResp(200, { path: pagePath, html });
+    }
     const list = await env.POSTS.list({ prefix: 'page:' });
     return jsonResp(200, list.keys.map(k => k.name.replace(/^page:/, '')));
   }
