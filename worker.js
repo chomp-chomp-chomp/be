@@ -609,6 +609,36 @@ async function handleAPI(request, path, env) {
     });
   }
 
+  // GET /api/pages — list all static pages
+  if (path === '/api/pages' && request.method === 'GET') {
+    if (!checkAuth(request, env)) return jsonResp(401, { error: 'Unauthorized' });
+    const list = await env.POSTS.list({ prefix: 'page:' });
+    return jsonResp(200, list.keys.map(k => k.name.replace(/^page:/, '')));
+  }
+
+  // PUT /api/pages — upload or replace a static HTML page
+  if (path === '/api/pages' && request.method === 'PUT') {
+    if (!checkAuth(request, env)) return jsonResp(401, { error: 'Unauthorized' });
+    let data;
+    try { data = await request.json(); } catch { return jsonResp(400, { error: 'Invalid JSON' }); }
+    const { pagePath, html } = data;
+    if (!pagePath || !html) return jsonResp(400, { error: 'pagePath and html required' });
+    const key = 'page:' + pagePath.replace(/^\//, '').replace(/\/$/, '');
+    await env.POSTS.put(key, html);
+    return jsonResp(200, { ok: true, url: '/' + pagePath.replace(/^\//, '') });
+  }
+
+  // DELETE /api/pages — remove a static HTML page
+  if (path === '/api/pages' && request.method === 'DELETE') {
+    if (!checkAuth(request, env)) return jsonResp(401, { error: 'Unauthorized' });
+    let data;
+    try { data = await request.json(); } catch { return jsonResp(400, { error: 'Invalid JSON' }); }
+    const { pagePath } = data;
+    if (!pagePath) return jsonResp(400, { error: 'pagePath required' });
+    await env.POSTS.delete('page:' + pagePath.replace(/^\//, '').replace(/\/$/, ''));
+    return jsonResp(200, { ok: true });
+  }
+
   // /api/posts/:slug
   const m = path.match(/^\/api\/posts\/([a-z0-9][a-z0-9-]*)$/);
   if (!m) return jsonResp(404, { error: 'Not found' });
