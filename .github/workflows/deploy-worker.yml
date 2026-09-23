@@ -8,6 +8,7 @@ on:
       - 'wrangler.toml'
       - 'public/admin/index.html'
       - 'public/email-converter/index.html'
+      - 'public/pages/**'
   workflow_dispatch:
 
 jobs:
@@ -24,3 +25,8 @@ jobs:
           postCommands: |
             wrangler kv key put --binding POSTS "admin-html" --path public/admin/index.html
             wrangler kv key put --binding POSTS "email-converter-html" --path public/email-converter/index.html
+            find public/pages -name '*.html' -print0 | while IFS= read -r -d '' f; do
+              key="page:${f#public/pages/}"; key="${key%.html}"
+              echo "Uploading $f → KV key: $key"
+              wrangler kv key put --binding POSTS "$key" --path "$f"
+            done
