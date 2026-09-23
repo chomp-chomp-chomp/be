@@ -745,6 +745,17 @@ export default {
         if (postHtml) return htmlResp(200, postHtml);
       }
 
+      // Generic static pages — stored in KV as "page:{path}"
+      // Files in public/pages/ are auto-uploaded by the deploy workflow.
+      // To add a page: create public/pages/{path}.html → available at /{path}
+      const pagePath = path.replace(/^\//, '').replace(/\/$/, '');
+      if (pagePath) {
+        const pageHtml = await env.POSTS.get('page:' + pagePath);
+        if (pageHtml) return new Response(pageHtml, {
+          headers: { 'Content-Type': 'text/html;charset=UTF-8', 'Cache-Control': 'no-cache' },
+        });
+      }
+
       return htmlResp(404, render404());
     } catch (err) {
       console.error('Worker error:', err);
