@@ -402,6 +402,26 @@
         </div>
       </div>
 
+      <!-- Static Pages -->
+      <div class="pdf-section" id="pages-section">
+        <div class="pdf-section-title">Static pages</div>
+        <div style="font-size:12px;color:var(--muted);line-height:1.5;margin-bottom:6px;">Upload any fully-coded HTML page. The path you enter becomes the URL — e.g. <code style="font-size:11px;">reviews/my-review</code> → <code style="font-size:11px;">/reviews/my-review</code>.</div>
+        <div class="pdf-upload-row">
+          <input type="file" id="page-file-input" accept=".html" onchange="pageFileSelected()">
+        </div>
+        <div class="pdf-upload-row" style="margin-top:4px;">
+          <input type="text" id="page-path-input" placeholder="e.g. reviews/catalan-twelve" style="flex:1;padding:6px 10px;border:1px solid var(--rule);border-radius:4px;font-family:var(--font-ui);font-size:13px;color:var(--text);background:var(--surface);">
+          <button class="btn btn-ghost" onclick="uploadPage()">Upload page</button>
+        </div>
+        <div class="pdf-upload-row" style="margin-top:6px;">
+          <button class="btn btn-ghost" onclick="loadPagesList()">Show pages ↓</button>
+        </div>
+        <div id="pages-list-wrap" style="display:none;margin-top:8px;">
+          <div style="font-size:10px;color:var(--muted);letter-spacing:0.07em;text-transform:uppercase;margin-bottom:6px;">Published pages</div>
+          <div id="pages-list" style="display:flex;flex-direction:column;gap:2px;"></div>
+        </div>
+      </div>
+
     </div>
 
     <!-- ── Preview ── -->
@@ -627,6 +647,72 @@
       btn.disabled = false;
       btn.textContent = '↓ Export';
     }
+  }
+
+  // ── Static pages ─────────────────────────────────────────────
+
+  function pageFileSelected() {
+    const file = document.getElementById('page-file-input').files[0];
+    if (!file) return;
+    const pathInput = document.getElementById('page-path-input');
+    if (!pathInput.value) pathInput.value = file.name.replace(/\.html$/i, '');
+  }
+
+  async function uploadPage() {
+    const fileInput = document.getElementById('page-file-input');
+    const pathInput = document.getElementById('page-path-input');
+    const file = fileInput.files[0];
+    const pagePath = pathInput.value.trim().replace(/^\//, '').replace(/\/$/, '');
+    if (!file)     return setStatus('Choose an HTML file first.', 'err');
+    if (!pagePath) return setStatus('Enter a URL path.', 'err');
+    if (!adminToken()) return setStatus('Log in first.', 'err');
+    const html = await file.text();
+    try {
+      const res = await fetch('/api/pages', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + adminToken() },
+        body: JSON.stringify({ pagePath, html }),
+      });
+      if (!res.ok) { const e = await res.json().catch(() => ({})); throw new Error(e.error || res.status); }
+      setStatus('Uploaded → /' + pagePath, 'ok');
+      fileInput.value = '';
+      pathInput.value = '';
+      const wrap = document.getElementById('pages-list-wrap');
+      if (wrap.style.display !== 'none') loadPagesList();
+    } catch(e) { setStatus('Upload failed: ' + e.message, 'err'); }
+  }
+
+  async function loadPagesList() {
+    if (!adminToken()) return setStatus('Log in first.', 'err');
+    try {
+      const res = await fetch('/api/pages', { headers: { 'Authorization': 'Bearer ' + adminToken() } });
+      if (!res.ok) throw new Error(res.status);
+      const pages = await res.json();
+      const list = document.getElementById('pages-list');
+      list.innerHTML = pages.length
+        ? pages.map(p => `
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;padding:5px 0;border-bottom:1px solid var(--rule);">
+              <a href="/${p}" target="_blank" rel="noopener" style="font-size:12px;color:var(--link);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">/${p}</a>
+              <button class="btn btn-ghost" style="font-size:11px;padding:3px 8px;color:var(--accent);" onclick="deletePage('${p.replace(/'/g, "\\'")}')">Delete</button>
+            </div>`).join('')
+        : '<div style="font-size:12px;color:var(--muted);">No pages yet.</div>';
+      document.getElementById('pages-list-wrap').style.display = 'block';
+    } catch(e) { setStatus('Could not load pages: ' + e.message, 'err'); }
+  }
+
+  async function deletePage(pagePath) {
+    if (!confirm('Delete /' + pagePath + '?\nThis cannot be undone.')) return;
+    if (!adminToken()) return setStatus('Log in first.', 'err');
+    try {
+      const res = await fetch('/api/pages', {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + adminToken() },
+        body: JSON.stringify({ pagePath }),
+      });
+      if (!res.ok) { const e = await res.json().catch(() => ({})); throw new Error(e.error || res.status); }
+      setStatus('/' + pagePath + ' deleted.', 'ok');
+      loadPagesList();
+    } catch(e) { setStatus('Delete failed: ' + e.message, 'err'); }
   }
 
   async function loadPost() {
