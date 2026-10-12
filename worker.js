@@ -339,8 +339,8 @@ const ICONS = `  <link rel="icon" type="image/x-icon" href="/favicon.ico">
 function headerBar(logoHref, psLogo) {
   const cookieLink = `      <a href="${logoHref || BASE}" class="chomp-home-link" title="ps.chom.ps">
         <div class="site-logo-icon">
-          <img src="https://ik.imagekit.io/chompchomp/logo-default_01ng4rCAq.png" alt="chom.ps" class="logo-default">
-          <img src="https://ik.imagekit.io/chompchomp/logo-hover_Xkgt_S3PG.jpg" alt="chom.ps" class="logo-hover">
+          <img src="https://ik.imagekit.io/chompchomp/ps%20heart.png" alt="chom.ps" class="logo-default">
+          <img src="https://ik.imagekit.io/chompchomp/ps%20cookie.PNG" alt="chom.ps" class="logo-hover">
         </div>
       </a>`;
   if (psLogo) {
