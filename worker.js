@@ -99,7 +99,8 @@ a:hover { color: var(--link-hover); }
 .post-body a:hover { color: var(--link-hover); }
 
 .ps-header { margin-bottom: var(--space-xl); }
-.header-bar { display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--space-s); }
+.header-bar { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; margin-bottom: var(--space-s); }
+.header-bar .nav-tools-dropdown { justify-self: end; }
 .chomp-home-link { display: inline-block; text-decoration: none; flex-shrink: 0; }
 .site-logo-icon { position: relative; width: 44px; height: 44px; display: inline-block; }
 .site-logo-icon img { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; position: absolute; top: 0; left: 0; transition: opacity 0.3s ease, transform 0.35s ease; }
@@ -127,8 +128,9 @@ html[data-theme="dark"] .editions-icon-darkmode { display: block; }
 @media (prefers-color-scheme: dark) { html:not([data-theme="light"]) .editions-icon-lightmode { display: none; } html:not([data-theme="light"]) .editions-icon-darkmode { display: block; } }
 
 .nav-tools-dropdown { position: relative; }
-.menu-toggle { display: block; background: none; border: none; font-size: 1.4em; color: var(--text); cursor: pointer; padding: 4px 0; line-height: 1; transition: opacity 0.2s; }
+.menu-toggle { display: block; background: none; border: none; cursor: pointer; padding: 0; line-height: 1; transition: opacity 0.2s; }
 .menu-toggle:hover { opacity: 0.65; }
+.menu-toggle img { width: 32px; height: 32px; border-radius: 50%; object-fit: cover; display: block; }
 .tools-dropdown-btn { display: none; background: none; border: none; color: var(--text); font-size: 14px; font-family: var(--font-ui); cursor: pointer; padding: 6px 10px; border-radius: 4px; transition: background-color 0.2s, color 0.2s; }
 .tools-dropdown-btn:hover { background-color: var(--accent); color: var(--bg); }
 .tools-dropdown-menu { display: none; position: absolute; top: calc(100% + 8px); right: 0; background-color: var(--code-bg); border: 1px solid var(--rule); border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); list-style: none; padding: 4px 0; min-width: 160px; z-index: 1000; }
@@ -347,8 +349,8 @@ const ICONS = `  <link rel="icon" type="image/x-icon" href="/favicon.ico">
 function headerBar(logoHref, psLogo) {
   const cookieLink = `      <a href="${logoHref || BASE}" class="chomp-home-link" title="ps.chom.ps">
         <div class="site-logo-icon">
-          <img src="https://ik.imagekit.io/chompchomp/ps%20heart.png" alt="chom.ps" class="logo-default">
-          <img src="https://ik.imagekit.io/chompchomp/ps%20cookie.PNG" alt="chom.ps" class="logo-hover">
+          <img src="https://ik.imagekit.io/chompchomp/ps%20cookie.PNG" alt="chom.ps" class="logo-default">
+          <img src="https://ik.imagekit.io/chompchomp/ps%20heart.png" alt="chom.ps" class="logo-hover">
         </div>
       </a>`;
   if (psLogo) {
@@ -361,19 +363,19 @@ function headerBar(logoHref, psLogo) {
   }
   return `    <div class="header-bar">
 ${cookieLink}
-      <a href="/editions" class="editions-home-link" title="Chomp Chomp Editions">
+      <a href="https://chom.ps/editions" class="editions-home-link" title="Chomp Chomp Editions">
         <img src="https://ik.imagekit.io/chompchomp/editions-icon-dark.png" class="editions-icon editions-icon-lightmode" alt="Chomp Chomp Editions">
         <img src="https://ik.imagekit.io/chompchomp/editions-icon-light.PNG" class="editions-icon editions-icon-darkmode" alt="Chomp Chomp Editions">
       </a>
       <div class="nav-tools-dropdown">
-        <button class="menu-toggle" onclick="toggleToolsDropdown()">&#9776;</button>
+        <button class="menu-toggle" onclick="toggleToolsDropdown()"><img src="https://ik.imagekit.io/chompchomp/ps%20cookie.PNG" alt="Menu"></button>
         <ul class="tools-dropdown-menu" id="toolsDropdown">
           <li><a href="https://chom.ps">Chomp</a></li>
           <li><a href="https://chom.ps/about">About</a></li>
           <li><a href="https://chom.ps/store">Store</a></li>
           <li><a href="https://chom.ps/tools/">Lab</a></li>
           <li><a href="https://chom.ps/tools/ipsum">Ipsum</a></li>
-          <li style="border-top:1px solid var(--rule);margin-top:4px;padding-top:4px;"><a href="/editions">Chomp Chomp Editions</a></li>
+          <li style="border-top:1px solid var(--rule);margin-top:4px;padding-top:4px;"><a href="https://chom.ps/editions">Chomp Chomp Editions</a></li>
         </ul>
       </div>
     </div>`;
