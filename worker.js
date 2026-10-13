@@ -118,6 +118,14 @@ html[data-theme="dark"] .ps-logo-dark { display: block; }
 html[data-theme="dark"] .img-light { display: none; }
 html[data-theme="dark"] .img-dark { display: block; }
 
+.editions-home-link { display: inline-flex; align-items: center; text-decoration: none; flex-shrink: 0; margin-left: 10px; opacity: 0.8; transition: opacity 0.2s; }
+.editions-home-link:hover { opacity: 1; }
+.editions-icon { width: 40px; height: 40px; object-fit: contain; display: block; }
+.editions-icon-darkmode { display: none; }
+html[data-theme="dark"] .editions-icon-lightmode { display: none; }
+html[data-theme="dark"] .editions-icon-darkmode { display: block; }
+@media (prefers-color-scheme: dark) { html:not([data-theme="light"]) .editions-icon-lightmode { display: none; } html:not([data-theme="light"]) .editions-icon-darkmode { display: block; } }
+
 .nav-tools-dropdown { position: relative; }
 .menu-toggle { display: block; background: none; border: none; font-size: 1.4em; color: var(--text); cursor: pointer; padding: 4px 0; line-height: 1; transition: opacity 0.2s; }
 .menu-toggle:hover { opacity: 0.65; }
@@ -339,8 +347,8 @@ const ICONS = `  <link rel="icon" type="image/x-icon" href="/favicon.ico">
 function headerBar(logoHref, psLogo) {
   const cookieLink = `      <a href="${logoHref || BASE}" class="chomp-home-link" title="ps.chom.ps">
         <div class="site-logo-icon">
-          <img src="https://ik.imagekit.io/chompchomp/logo-default_01ng4rCAq.png" alt="chom.ps" class="logo-default">
-          <img src="https://ik.imagekit.io/chompchomp/logo-hover_Xkgt_S3PG.jpg" alt="chom.ps" class="logo-hover">
+          <img src="https://ik.imagekit.io/chompchomp/ps%20heart.png" alt="chom.ps" class="logo-default">
+          <img src="https://ik.imagekit.io/chompchomp/ps%20cookie.PNG" alt="chom.ps" class="logo-hover">
         </div>
       </a>`;
   if (psLogo) {
@@ -353,6 +361,10 @@ function headerBar(logoHref, psLogo) {
   }
   return `    <div class="header-bar">
 ${cookieLink}
+      <a href="/editions" class="editions-home-link" title="Chomp Chomp Editions">
+        <img src="https://ik.imagekit.io/chompchomp/editions-icon-dark.png" class="editions-icon editions-icon-lightmode" alt="Chomp Chomp Editions">
+        <img src="https://ik.imagekit.io/chompchomp/editions-icon-light.PNG" class="editions-icon editions-icon-darkmode" alt="Chomp Chomp Editions">
+      </a>
       <div class="nav-tools-dropdown">
         <button class="menu-toggle" onclick="toggleToolsDropdown()">&#9776;</button>
         <ul class="tools-dropdown-menu" id="toolsDropdown">
@@ -361,6 +373,7 @@ ${cookieLink}
           <li><a href="https://chom.ps/store">Store</a></li>
           <li><a href="https://chom.ps/tools/">Lab</a></li>
           <li><a href="https://chom.ps/tools/ipsum">Ipsum</a></li>
+          <li style="border-top:1px solid var(--rule);margin-top:4px;padding-top:4px;"><a href="/editions">Chomp Chomp Editions</a></li>
         </ul>
       </div>
     </div>`;
